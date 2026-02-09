@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Name | Projects & Portfolio</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #fff;
+            min-height: 100vh;
+            padding: 2rem;
+        }
+        .container { max-width: 800px; margin: 0 auto; }
+        header { text-align: center; margin-bottom: 3rem; }
+        .avatar {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 3px solid #4a9eff;
+            margin-bottom: 1rem;
+        }
+        h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
+        .bio { color: #aaa; font-size: 1.1rem; max-width: 500px; margin: 0 auto; }
+        .links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        .links a {
+            color: #4a9eff;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border: 1px solid #4a9eff;
+            border-radius: 20px;
+            transition: all 0.3s;
+        }
+        .links a:hover { background: #4a9eff; color: #1a1a2e; }
+        .projects { margin-top: 3rem; }
+        h2 { font-size: 1.5rem; margin-bottom: 1.5rem; border-bottom: 2px solid #4a9eff; padding-bottom: 0.5rem; }
+        .project-card {
+            background: rgba(255,255,255,0.05);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            transition: transform 0.3s;
+        }
+        .project-card:hover { transform: translateY(-5px); }
+        .project-card h3 { color: #4a9eff; margin-bottom: 0.5rem; }
+        .project-card p { color: #ccc; font-size: 0.95rem; }
+        .project-card a { color: #fff; text-decoration: none; }
+        .tech { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.5rem; }
+        .tech span {
+            background: #4a9eff;
+            color: #1a1a2e;
+            padding: 0.2rem 0.6rem;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <img src="https://github.com/yourusername.png" alt="Profile" class="avatar">
+            <h1>Your Name</h1>
+            <p class="bio">Brief bio about yourself - what you do, your interests, and skills.</p>
+            <div class="links">
+                <a href="https://github.com/yourusername">GitHub</a>
+                <a href="https://instagram.com/yourusername">Instagram</a>
+            </div>
+        </header>
+
+        <section class="projects">
+            <h2>Projects</h2>
+            
+            <div class="project-card">
+                <h3><a href="https://github.com/yourusername/project1">Project Name</a></h3>
+                <p>Brief description of what this project does and the problem it solves.</p>
+                <div class="tech">
+                    <span>Python</span>
+                    <span>Raspberry Pi</span>
+                    <span>FFmpeg</span>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <h3><a href="https://github.com/yourusername/project2">Another Project</a></h3>
+                <p>Description of your second project and what technologies it uses.</p>
+                <div class="tech">
+                    <span>JavaScript</span>
+                    <span>HTML</span>
+                    <span>CSS</span>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
