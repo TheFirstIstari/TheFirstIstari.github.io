@@ -31,13 +31,6 @@
                 --bg-2: #fbfdff;
                 --text: var(--color-3);
                 --accent: var(--color-2);
-                    <footer class="site-theme-footer" aria-label="Theme selector">
-                        <div style="display:flex;align-items:center;gap:0.25rem;">
-                            <button data-theme="light" class="theme-btn" aria-pressed="false">Light</button>
-                            <button data-theme="dark" class="theme-btn" aria-pressed="false">Dark</button>
-                            <button data-theme="auto" class="theme-btn" aria-pressed="false">Auto</button>
-                        </div>
-                    </footer>
                 --muted: #456990;
                 --card: rgba(255,255,255,0.95);
             }
@@ -80,27 +73,6 @@
         }
         h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
         .bio { color: var(--muted); font-size: 1.1rem; max-width: 500px; margin: 0 auto; }
-                // Site-wide theme selector (persistent)
-                (function(){
-                    const key = 'siteTheme';
-                    const buttons = Array.from(document.querySelectorAll('.site-theme-footer .theme-btn'));
-                    function applySiteTheme(t){
-                        if(t === 'light') document.documentElement.setAttribute('data-theme','light');
-                        else if(t === 'dark') document.documentElement.setAttribute('data-theme','dark');
-                        else document.documentElement.removeAttribute('data-theme');
-                        localStorage.setItem(key, t);
-                        buttons.forEach(b=> b.classList.toggle('active', b.dataset.theme===t));
-                        buttons.forEach(b=> b.setAttribute('aria-pressed', String(b.dataset.theme===t)));
-                    }
-                    // init
-                    const stored = localStorage.getItem(key);
-                    if(stored) applySiteTheme(stored);
-                    else{
-                        const prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
-                        applySiteTheme(prefersLight ? 'light' : 'dark');
-                    }
-                    buttons.forEach(b=> b.addEventListener('click', ()=> applySiteTheme(b.dataset.theme)));
-                })();
 
         .links {
             display: flex;
@@ -201,5 +173,36 @@
             <iframe width="100%" height="315" src="https://www.youtube.com/embed/Ia1wR8HScm0" frameborder="0" allowfullscreen></iframe>
         </section>
     </div>
+    <footer class="site-theme-footer" aria-label="Theme selector">
+        <div style="display:flex;align-items:center;gap:0.25rem;">
+            <button data-theme="light" class="theme-btn" aria-pressed="false">Light</button>
+            <button data-theme="dark" class="theme-btn" aria-pressed="false">Dark</button>
+            <button data-theme="auto" class="theme-btn" aria-pressed="false">Auto</button>
+        </div>
+    </footer>
+
+    <script>
+        // Site-wide theme selector (persistent)
+        (function(){
+            const key = 'siteTheme';
+            const buttons = Array.from(document.querySelectorAll('.site-theme-footer .theme-btn'));
+            function applySiteTheme(t){
+                if(t === 'light') document.documentElement.setAttribute('data-theme','light');
+                else if(t === 'dark') document.documentElement.setAttribute('data-theme','dark');
+                else document.documentElement.removeAttribute('data-theme');
+                localStorage.setItem(key, t);
+                buttons.forEach(b=> b.classList.toggle('active', b.dataset.theme===t));
+                buttons.forEach(b=> b.setAttribute('aria-pressed', String(b.dataset.theme===t)));
+            }
+            // init
+            const stored = localStorage.getItem(key);
+            if(stored) applySiteTheme(stored);
+            else{
+                const prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+                applySiteTheme(prefersLight ? 'light' : 'dark');
+            }
+            buttons.forEach(b=> b.addEventListener('click', ()=> applySiteTheme(b.dataset.theme)));
+        })();
+    </script>
 </body>
 </html>
