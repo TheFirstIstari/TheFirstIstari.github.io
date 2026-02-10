@@ -30,56 +30,171 @@
         <header>
             <a href="index.html" class="back">← Back</a>
             <h1>Project Details</h1>
-            <p class="bio">More information about selected projects.</p>
+            <p class="bio">Curated projects, demos and experiments.</p>
         </header>
 
-        <section id="coursework" class="card">
-            <h2>Coursework</h2>
-            <p>This repository is a curated collection of coursework exercises, algorithms and example projects mainly written in C#. It contains many focused directories such as <em>BinaryTree</em>, <em>BubbleSort</em>, <em>Dijkstras shortest path algorithm</em>, <em>Graph</em>, <em>LinkedLists</em> and many small coding challenges and learning artifacts.</p>
-            <p>What you'll find:
-                <ul>
-                    <li>Data structures and algorithms implementations (trees, graphs, queues, stacks).</li>
-                    <li>Problem-solving examples (Euler problems, coding challenge prep).</li>
-                    <li>Small projects and practice exercises demonstrating C#/.NET concepts.</li>
-                </ul>
-            </p>
-            <div class="links">
-                <a href="https://github.com/TheFirstIstari/CourseWorkRepo">Repository</a>
+        <div class="controls" role="region" aria-label="Project controls">
+            <input class="search" id="search" placeholder="Search projects or technologies..." aria-label="Search projects" />
+            <div class="tags" id="tagList" aria-hidden="false">
+                <button class="tag" data-tag="all">All</button>
+                <button class="tag" data-tag="python">Python</button>
+                <button class="tag" data-tag="csharp">C#</button>
+                <button class="tag" data-tag="ai">AI</button>
+                <button class="tag" data-tag="gpu">GPU</button>
             </div>
-        </section>
+            <button class="theme-toggle" id="themeToggle" aria-pressed="false">Theme</button>
+        </div>
 
-        <section id="steinline" class="card">
-            <h2>Project SteinLine</h2>
-            <p><strong>Overview:</strong> Project SteinLine is an asymmetrical distributed forensic platform for processing large volumes of documents, images and video evidence using multimodal AI. It combines local/edge storage optimised for Raspberry Pi (SSD) with high-density GPU compute for inference and an interactive Qt-based visualization frontend.</p>
-            <p><strong>Core architecture:</strong>
-                <ul>
-                    <li>Storage & Registry — optimised for local/edge (Raspberry Pi 5 with SSD) setups.</li>
-                    <li>Compute & Inference — designed for high-memory NVIDIA GPUs (RTX 3090/4090) using vLLM kernels.</li>
-                    <li>Visualization — an interactive 2D infinite canvas built with Qt (PySide6).</li>
-                </ul>
-            </p>
-            <p><strong>Features:</strong> recursive windowing for long documents, a multimodal pipeline (PDF deconstruction, OCR, audio transcription), and a non-destructive workflow where source evidence remains read-only.</p>
-            <p><strong>Prerequisites:</strong> Linux (Ubuntu recommended), Python 3.11+, and an NVIDIA GPU for full performance (24GB+ VRAM recommended).</p>
-            <div class="links">
-                <a href="https://github.com/TheFirstIstari/Project-SteinLine">Repository</a>
-            </div>
-        </section>
+        <main class="grid" id="projectsGrid">
+            <!-- Coursework -->
+            <article class="card" data-tags="csharp,algorithms" tabindex="0">
+                <div class="thumb" aria-hidden="true">
+                    <img loading="lazy" alt="Coursework thumbnail" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='1200' height='800'><rect width='100%' height='100%' fill='%231b2430'/><text x='50%' y='50%' fill='%234a9eff' font-size='42' font-family='Arial' dominant-baseline='middle' text-anchor='middle'>Coursework</text></svg>" />
+                </div>
+                <div>
+                    <div class="meta">
+                        <div>
+                            <div class="title">Coursework Repo</div>
+                            <div class="desc">C# algorithms, data structures and practice exercises.</div>
+                        </div>
+                        <div class="badges">
+                            <a class="badge" href="https://github.com/TheFirstIstari/CourseWorkRepo" target="_blank" rel="noopener">GitHub</a>
+                            <button class="more" data-project='{"title":"Coursework","desc":"A curated collection of C# coursework covering trees, graphs, algorithms and coding challenge solutions.","links":[{"label":"Repository","url":"https://github.com/TheFirstIstari/CourseWorkRepo"}],"tags":["C#","algorithms"]}'>More</button>
+                        </div>
+                    </div>
+                </div>
+            </article>
 
-        <section id="badapplestein" class="card">
-            <h2>BadAppleStein</h2>
-            <p><strong>Overview:</strong> BadAppleStein is a Python/C project that reconstructs high-contrast video animations by matching frames to a library of PDF pages. It uses FFmpeg for video processing and provides scripts for arranging and rendering frames into final outputs.</p>
-            <p><strong>Highlights:</strong>
-                <ul>
-                    <li>Efficient matching routines (C components and a shared library) for frame-to-PDF lookup.</li>
-                    <li>Multiple rendering pipelines (greedy, hyper, turbo) exposed as Python scripts.</li>
-                    <li>Includes a demo video linked from the repository.</li>
-                </ul>
-            </p>
-            <p><strong>Quick demo:</strong> <a href="https://www.youtube.com/watch?v=Ia1wR8HScm0">Watch the demonstration on YouTube</a></p>
-            <div class="links">
-                <a href="https://github.com/TheFirstIstari/BadAppleStein">Repository</a>
+            <!-- SteinLine -->
+            <article class="card" data-tags="python,ai,gpu" tabindex="0">
+                <div class="thumb" aria-hidden="true">
+                    <img loading="lazy" alt="SteinLine thumbnail" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='1200' height='800'><rect width='100%' height='100%' fill='%230e1624'/><text x='50%' y='50%' fill='%233b82f6' font-size='36' font-family='Arial' dominant-baseline='middle' text-anchor='middle'>Project SteinLine</text></svg>" />
+                </div>
+                <div>
+                    <div class="meta">
+                        <div>
+                            <div class="title">Project SteinLine</div>
+                            <div class="desc">Distributed forensic pipeline — multimodal AI, edge storage and Qt visualization.</div>
+                        </div>
+                        <div class="badges">
+                            <a class="badge" href="https://github.com/TheFirstIstari/Project-SteinLine" target="_blank" rel="noopener">GitHub</a>
+                            <button class="more" data-project='{"title":"Project SteinLine","desc":"Asymmetrical distributed forensic platform for documents, images and video with GPU inference and a PySide6 visualization front-end.","links":[{"label":"Repository","url":"https://github.com/TheFirstIstari/Project-SteinLine"}],"tags":["Python","AI","GPU"]}'>More</button>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- BadAppleStein -->
+            <article class="card" data-tags="python,c" tabindex="0">
+                <div class="thumb" aria-hidden="true">
+                    <img loading="lazy" alt="BadAppleStein thumbnail" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='1200' height='800'><rect width='100%' height='100%' fill='%230f1724'/><text x='50%' y='50%' fill='%23ffb347' font-size='36' font-family='Arial' dominant-baseline='middle' text-anchor='middle'>BadAppleStein</text></svg>" />
+                </div>
+                <div>
+                    <div class="meta">
+                        <div>
+                            <div class="title">BadAppleStein</div>
+                            <div class="desc">Frame-to-PDF matching pipeline using Python and C for fast matching.</div>
+                        </div>
+                        <div class="badges">
+                            <a class="badge" href="https://github.com/TheFirstIstari/BadAppleStein" target="_blank" rel="noopener">GitHub</a>
+                            <a class="badge" href="https://www.youtube.com/watch?v=Ia1wR8HScm0" target="_blank" rel="noopener">Demo</a>
+                            <button class="more" data-project='{"title":"BadAppleStein","desc":"Reconstructs high-contrast video animations by matching frames to a library of PDF pages. Fast C components and multiple rendering pipelines.","links":[{"label":"Repository","url":"https://github.com/TheFirstIstari/BadAppleStein"},{"label":"Demo","url":"https://www.youtube.com/watch?v=Ia1wR8HScm0"}],"tags":["Python","C"]}'>More</button>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+        </main>
+
+        <!-- Modal -->
+        <div class="modal-backdrop" id="modalBackdrop" aria-hidden="true">
+            <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+                <div style="display:flex;gap:0.5rem;align-items:center;">
+                    <h3 id="modalTitle">Title</h3>
+                    <button class="close" id="modalClose" aria-label="Close dialog">✕</button>
+                </div>
+                <p id="modalDesc" style="color:var(--muted);"></p>
+                <div id="modalLinks" style="margin-top:0.75rem;display:flex;gap:0.5rem;flex-wrap:wrap"></div>
             </div>
-        </section>
+        </div>
+
     </div>
+
+    <script>
+        // Simple filtering and modal logic
+        const search = document.getElementById('search');
+        const tagList = document.getElementById('tagList');
+        const grid = document.getElementById('projectsGrid');
+        const tags = Array.from(document.querySelectorAll('.tag'));
+        const cards = Array.from(document.querySelectorAll('.card'));
+
+        function applyFilter(){
+            const q = search.value.trim().toLowerCase();
+            const activeTag = tags.find(t=>t.classList.contains('active'))?.dataset.tag || 'all';
+            cards.forEach(card=>{
+                const title = card.querySelector('.title').textContent.toLowerCase();
+                const desc = card.querySelector('.desc').textContent.toLowerCase();
+                const cardTags = card.dataset.tags.split(',').map(s=>s.trim().toLowerCase());
+                const tagMatch = (activeTag==='all') || cardTags.includes(activeTag);
+                const textMatch = q === '' || title.includes(q) || desc.includes(q) || cardTags.some(t=>t.includes(q));
+                card.style.display = (tagMatch && textMatch) ? '' : 'none';
+            });
+        }
+
+        search.addEventListener('input', applyFilter);
+        tags.forEach(t=> t.addEventListener('click', ()=>{ tags.forEach(x=>x.classList.remove('active')); t.classList.add('active'); applyFilter(); }));
+        // default select 'All'
+        tags[0].classList.add('active');
+
+        // Modal
+        const modalBackdrop = document.getElementById('modalBackdrop');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalDesc = document.getElementById('modalDesc');
+        const modalLinks = document.getElementById('modalLinks');
+        const modalClose = document.getElementById('modalClose');
+
+        function openModal(data){
+            modalTitle.textContent = data.title;
+            modalDesc.textContent = data.desc;
+            modalLinks.innerHTML = '';
+            (data.links||[]).forEach(l=>{
+                const a = document.createElement('a');
+                a.className = 'badge';
+                a.href = l.url; a.target = '_blank'; a.rel='noopener';
+                a.textContent = l.label;
+                modalLinks.appendChild(a);
+            });
+            modalBackdrop.style.display = 'flex';
+            modalBackdrop.setAttribute('aria-hidden','false');
+            modalClose.focus();
+        }
+
+        function closeModal(){
+            modalBackdrop.style.display = 'none';
+            modalBackdrop.setAttribute('aria-hidden','true');
+        }
+
+        document.querySelectorAll('.more').forEach(btn=> btn.addEventListener('click', (e)=>{
+            const data = JSON.parse(btn.dataset.project);
+            openModal(data);
+        }));
+        modalClose.addEventListener('click', closeModal);
+        modalBackdrop.addEventListener('click', (e)=>{ if(e.target===modalBackdrop) closeModal(); });
+        document.addEventListener('keydown',(e)=>{ if(e.key==='Escape') closeModal(); });
+
+        // Theme toggle: toggles a class on body; respects prefers-color-scheme by default
+        const themeToggle = document.getElementById('themeToggle');
+        themeToggle.addEventListener('click', ()=>{
+            const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+            if(isLight){ document.documentElement.removeAttribute('data-theme'); themeToggle.setAttribute('aria-pressed','false'); }
+            else{ document.documentElement.setAttribute('data-theme','light'); themeToggle.setAttribute('aria-pressed','true'); }
+        });
+
+        // keyboard: enter opens card's more
+        cards.forEach(card=>{
+            card.addEventListener('keydown', (e)=>{ if(e.key==='Enter'){ const btn = card.querySelector('.more'); btn && btn.click(); } });
+        });
+    </script>
+    
 </body>
 </html>
