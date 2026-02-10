@@ -33,7 +33,14 @@
             <p class="bio">Curated projects, demos and experiments.</p>
         </header>
 
-        <div class="controls" role="region" aria-label="Project controls">
+        @media (prefers-reduced-motion: reduce){ *{ transition:none!important; } }
+        /* Light-mode override when user forces theme */
+        :root[data-theme='light']{
+            --bg-1: #f7f9fc; --bg-2:#eef2f7; --card: rgba(10,10,10,0.03); --muted:#334155; --accent:#2563eb; color-scheme: light;
+        }
+        /* small humorous note shown in light mode */
+        .light-note{ display:none; margin:0.5rem auto 0; max-width:1100px; background:rgba(255,255,255,0.05); border-radius:10px; padding:0.6rem 0.9rem; color:var(--muted); text-align:center; font-size:0.95rem; }
+        :root[data-theme='light'] ~ body .light-note, :root[data-theme='light'] .light-note{ display:block; }
             <input class="search" id="search" placeholder="Search projects or technologies..." aria-label="Search projects" />
             <div class="tags" id="tagList" aria-hidden="false">
                 <button class="tag" data-tag="all">All</button>
@@ -43,6 +50,11 @@
                 <button class="tag" data-tag="gpu">GPU</button>
             </div>
             <button class="theme-toggle" id="themeToggle" aria-pressed="false">Theme</button>
+            </div>
+
+            <div class="light-note" id="lightNote" role="status">
+                Light mode enabled — sunglasses recommended. 😎<button id="dismissLightNote" style="margin-left:0.6rem;background:transparent;border:none;cursor:pointer;color:var(--muted)">Dismiss</button>
+            </div>
         </div>
 
         <main class="grid" id="projectsGrid">
@@ -182,13 +194,41 @@
         modalBackdrop.addEventListener('click', (e)=>{ if(e.target===modalBackdrop) closeModal(); });
         document.addEventListener('keydown',(e)=>{ if(e.key==='Escape') closeModal(); });
 
-        // Theme toggle: toggles a class on body; respects prefers-color-scheme by default
+        // Theme handling: persist choice, respect system preference, show light-mode note
         const themeToggle = document.getElementById('themeToggle');
+        const lightNote = document.getElementById('lightNote');
+        const dismissLightNote = document.getElementById('dismissLightNote');
+
+        function applyTheme(theme){
+            if(theme === 'light'){
+                document.documentElement.setAttribute('data-theme','light');
+                themeToggle.setAttribute('aria-pressed','true');
+                // show light note unless dismissed
+                if(!localStorage.getItem('light_note_dismissed')) lightNote.style.display = 'block';
+            } else if(theme === 'dark'){
+                document.documentElement.removeAttribute('data-theme');
+                themeToggle.setAttribute('aria-pressed','false');
+                lightNote.style.display = 'none';
+            }
+            localStorage.setItem('theme', theme);
+        }
+
+        // initialize theme from localStorage or system
+        (function(){
+            const stored = localStorage.getItem('theme');
+            if(stored) applyTheme(stored);
+            else{
+                const prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+                applyTheme(prefersLight ? 'light' : 'dark');
+            }
+        })();
+
         themeToggle.addEventListener('click', ()=>{
-            const isLight = document.documentElement.getAttribute('data-theme') === 'light';
-            if(isLight){ document.documentElement.removeAttribute('data-theme'); themeToggle.setAttribute('aria-pressed','false'); }
-            else{ document.documentElement.setAttribute('data-theme','light'); themeToggle.setAttribute('aria-pressed','true'); }
+            const now = document.documentElement.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+            applyTheme(now === 'light' ? 'dark' : 'light');
         });
+
+        dismissLightNote.addEventListener('click', ()=>{ localStorage.setItem('light_note_dismissed','1'); lightNote.style.display='none'; });
 
         // keyboard: enter opens card's more
         cards.forEach(card=>{

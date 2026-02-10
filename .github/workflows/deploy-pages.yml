@@ -1,0 +1,49 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [ main ]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Ruby (for Jekyll sites)
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.x'
+
+      - name: Install Gems (if using Bundler)
+        run: |
+          if [ -f Gemfile ]; then
+            gem install bundler
+            bundle install --jobs 4 --retry 3
+          fi
+
+      - name: Build site (Jekyll)
+        run: |
+          if [ -f Gemfile ] || [ -f _config.yml ]; then
+            bundle exec jekyll build -d _site || jekyll build -d _site
+          else
+            echo "No Jekyll site detected; ensure 'path' below points to your published directory."
+          fi
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v1
+        with:
+          # Update this path if your site output lives elsewhere (e.g. 'public' or 'dist')
+          path: _site
+
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v1
