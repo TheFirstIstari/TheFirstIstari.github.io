@@ -111,6 +111,14 @@
             --modal-bg-dark: rgba(6,8,12,0.96);
         }
 
+        /* Auto: use dark card tokens so cards match dark mode even when 'auto' is selected */
+        :root[data-theme='auto']{
+            --card: rgba(255,255,255,0.04);
+            --muted: rgba(251,251,255,0.8);
+            --accent: var(--color-2);
+            --text: var(--color-ghost);
+        }
+
         /* small humorous note shown in light mode */
         .light-note{ display:none; margin:0.5rem auto 0; max-width:1100px; background:rgba(255,255,255,0.05); border-radius:10px; padding:0.6rem 0.9rem; color:var(--muted); text-align:center; font-size:0.95rem; }
         :root[data-theme='light'] ~ body .light-note, :root[data-theme='light'] .light-note{ display:block; }
@@ -319,8 +327,8 @@
                 themeToggle.setAttribute('aria-pressed','false');
                 lightNote.style.display = 'none';
             } else {
-                // auto: follow system
-                document.documentElement.removeAttribute('data-theme');
+                // auto: explicitly mark as 'auto' so :root[data-theme='auto'] CSS can target it
+                document.documentElement.setAttribute('data-theme','auto');
                 const prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
                 if(prefersLight){ if(!localStorage.getItem('light_note_dismissed')) lightNote.style.display = 'block'; }
                 else lightNote.style.display = 'none';
