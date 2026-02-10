@@ -20,7 +20,7 @@
             --bg-2: #071014;
             --accent: var(--color-2);
             --muted: rgba(251,251,255,0.8);
-            --card: rgba(255,255,255,0.04);
+            --card: #b6465f;
             --text: var(--color-ghost);
         }
 
@@ -39,7 +39,7 @@
         /* Explicit site-wide theme override when user selects */
         :root[data-theme='light']{
             --bg-1: #eaf6f6;
-            --bg-2: #fbfdff;
+            --bg-2: var(--color-ghost);
             --text: var(--color-3);
             --accent: var(--color-2);
             --muted: #456990;
@@ -47,12 +47,22 @@
         }
         :root[data-theme='dark']{
             --bg-1: var(--color-3);
-            --bg-2: #071014;
+            --bg-2: var(--color-4);
             --text: var(--color-ghost);
             --accent: var(--color-2);
             --muted: rgba(251,251,255,0.8);
             --card: rgba(255,255,255,0.04);
         }
+
+                /* Treat 'auto' as dark for card styling */
+                :root[data-theme='auto']{
+                    --bg-1: var(--color-3);
+                    --bg-2: #071014;
+                    --text: var(--color-ghost);
+                    --accent: var(--color-2);
+                    --muted: rgba(251,251,255,0.8);
+                    --card: rgba(255,255,255,0.04);
+                }
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -189,7 +199,7 @@
             function applySiteTheme(t){
                 if(t === 'light') document.documentElement.setAttribute('data-theme','light');
                 else if(t === 'dark') document.documentElement.setAttribute('data-theme','dark');
-                else document.documentElement.removeAttribute('data-theme');
+                else document.documentElement.setAttribute('data-theme','auto');
                 localStorage.setItem(key, t);
                 buttons.forEach(b=> b.classList.toggle('active', b.dataset.theme===t));
                 buttons.forEach(b=> b.setAttribute('aria-pressed', String(b.dataset.theme===t)));
