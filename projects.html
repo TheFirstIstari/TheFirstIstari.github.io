@@ -35,26 +35,53 @@
 
         <section id="coursework" class="card">
             <h2>Coursework</h2>
-            <p>A Sidequest Adventuring through Coursework and Examples. Includes notes, code snippets and runnable examples.</p>
+            <p>This repository is a curated collection of coursework exercises, algorithms and example projects mainly written in C#. It contains many focused directories such as <em>BinaryTree</em>, <em>BubbleSort</em>, <em>Dijkstras shortest path algorithm</em>, <em>Graph</em>, <em>LinkedLists</em> and many small coding challenges and learning artifacts.</p>
+            <p>What you'll find:
+                <ul>
+                    <li>Data structures and algorithms implementations (trees, graphs, queues, stacks).</li>
+                    <li>Problem-solving examples (Euler problems, coding challenge prep).</li>
+                    <li>Small projects and practice exercises demonstrating C#/.NET concepts.</li>
+                </ul>
+            </p>
             <div class="links">
                 <a href="https://github.com/TheFirstIstari/CourseWorkRepo">Repository</a>
             </div>
+            <p class="note">Good for: students learning algorithms, quick reference implementations, and examples to adapt for teaching or interviews.</p>
         </section>
 
         <section id="steinline" class="card">
             <h2>Project SteinLine</h2>
-            <p>A Qt-based data-science tool for aggregation, inference and visualization of multimedia data. Built with C and Python components.</p>
+            <p><strong>Overview:</strong> Project SteinLine is an asymmetrical distributed forensic platform for processing large volumes of documents, images and video evidence using multimodal AI. It combines local/edge storage optimised for Raspberry Pi (SSD) with high-density GPU compute for inference and an interactive Qt-based visualization frontend.</p>
+            <p><strong>Core architecture:</strong>
+                <ul>
+                    <li>Storage & Registry — optimised for local/edge (Raspberry Pi 5 with SSD) setups.</li>
+                    <li>Compute & Inference — designed for high-memory NVIDIA GPUs (RTX 3090/4090) using vLLM kernels.</li>
+                    <li>Visualization — an interactive 2D infinite canvas built with Qt (PySide6).</li>
+                </ul>
+            </p>
+            <p><strong>Features:</strong> recursive windowing for long documents, a multimodal pipeline (PDF deconstruction, OCR, audio transcription), and a non-destructive workflow where source evidence remains read-only.</p>
+            <p><strong>Prerequisites:</strong> Linux (Ubuntu recommended), Python 3.11+, and an NVIDIA GPU for full performance (24GB+ VRAM recommended).</p>
             <div class="links">
                 <a href="https://github.com/TheFirstIstari/Project-SteinLine">Repository</a>
             </div>
+            <p class="note">Good for: practitioners building forensic pipelines, multimodal research prototypes, and anyone needing scalable evidence-processing workflows.</p>
         </section>
 
         <section id="badapplestein" class="card">
             <h2>BadAppleStein</h2>
-            <p>Matches a database of PDF frames to high-contrast video to recreate animations using PDFs. Uses FFmpeg for video processing.</p>
+            <p><strong>Overview:</strong> BadAppleStein is a Python/C project that reconstructs high-contrast video animations by matching frames to a library of PDF pages. It uses FFmpeg for video processing and provides scripts for arranging and rendering frames into final outputs.</p>
+            <p><strong>Highlights:</strong>
+                <ul>
+                    <li>Efficient matching routines (C components and a shared library) for frame-to-PDF lookup.</li>
+                    <li>Multiple rendering pipelines (greedy, hyper, turbo) exposed as Python scripts.</li>
+                    <li>Includes a demo video linked from the repository.</li>
+                </ul>
+            </p>
+            <p><strong>Quick demo:</strong> <a href="https://www.youtube.com/watch?v=Ia1wR8HScm0">Watch the demonstration on YouTube</a></p>
             <div class="links">
                 <a href="https://github.com/TheFirstIstari/BadAppleStein">Repository</a>
             </div>
+            <p class="note">Good for: multimedia hackers, creative coding projects, and experimenting with content-aware rendering pipelines.</p>
         </section>
     </div>
 </body>
