@@ -197,9 +197,19 @@
         }
 
         search.addEventListener('input', applyFilter);
-        tags.forEach(t=> t.addEventListener('click', ()=>{ tags.forEach(x=>x.classList.remove('active')); t.classList.add('active'); applyFilter(); }));
+        // make tags behave like toggleable buttons with ARIA pressed state
+        tags.forEach(t=>{
+            t.setAttribute('role','button');
+            t.setAttribute('aria-pressed', 'false');
+            t.addEventListener('click', ()=>{ 
+                tags.forEach(x=>{ x.classList.remove('active'); x.setAttribute('aria-pressed','false'); });
+                t.classList.add('active');
+                t.setAttribute('aria-pressed','true');
+                applyFilter(); 
+            });
+        });
         // default select 'All'
-        tags[0].classList.add('active');
+        tags[0].classList.add('active'); tags[0].setAttribute('aria-pressed','true');
 
         // Modal
         const modalBackdrop = document.getElementById('modalBackdrop');
