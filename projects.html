@@ -34,10 +34,13 @@
 
         .controls{ display:flex; gap:0.5rem; justify-content:center; align-items:center; flex-wrap:wrap; margin:1rem 0; }
         .search{ background:var(--card); border:1px solid rgba(255,255,255,0.04); padding:0.5rem 0.75rem; border-radius:999px; color:var(--muted); min-width:200px; }
+        .search:focus-visible{ outline:3px solid color-mix(in srgb, var(--accent) 40%, transparent); outline-offset:3px; }
         .tags{ display:flex; gap:0.5rem; flex-wrap:wrap; }
         .tag{ background:transparent; border:1px solid rgba(255,255,255,0.06); color:var(--muted); padding:0.35rem 0.6rem; border-radius:999px; cursor:pointer; }
         .tag.active{ background:var(--accent); color:white; border-color:var(--accent); }
+        .tag:focus-visible{ outline:3px solid color-mix(in srgb, var(--accent) 45%, transparent); outline-offset:3px; }
         .theme-toggle{ margin-left:0.5rem; padding:0.4rem 0.6rem; background:var(--glass); border-radius:10px; cursor:pointer; border:1px solid rgba(255,255,255,0.04); color:var(--muted); }
+        .theme-toggle:focus-visible{ box-shadow:0 0 0 4px color-mix(in srgb, var(--accent) 18%, black); }
 
         .grid{ display:grid; grid-template-columns: repeat(auto-fill,minmax(280px,1fr)); gap:1rem; margin-top:1rem; }
         .card{ background:var(--card); padding:0.75rem; border-radius:var(--radius); overflow:hidden; display:flex; flex-direction:column; gap:0.5rem; transition:transform 180ms ease, box-shadow 180ms ease; }
@@ -49,7 +52,9 @@
         .desc{ color:var(--muted); font-size:0.95rem; }
         .badges{ display:flex; gap:0.4rem; align-items:center; }
         .badge{ background:transparent; border:1px solid rgba(255,255,255,0.06); padding:0.25rem 0.45rem; border-radius:8px; color:var(--muted); font-size:0.85rem; text-decoration:none; }
+        .badge:focus-visible{ outline:3px solid color-mix(in srgb, var(--accent) 40%, transparent); outline-offset:3px; }
         .more{ margin-left:auto; background:var(--accent); color:white; border:none; padding:0.4rem 0.6rem; border-radius:8px; cursor:pointer; }
+        .more:focus-visible{ box-shadow:0 0 0 4px color-mix(in srgb, var(--accent) 18%, black); }
 
         /* Modal */
         :root{ --modal-bg-dark: rgba(6,8,12,0.96); --modal-bg-light: rgba(255,255,255,0.98); }
