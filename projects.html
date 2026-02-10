@@ -5,26 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TheFirstIstari | Project Details</title>
     <style>
+        /* CSS variables and theming */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         :root{
             --bg-1: #0f1724;
-            --text: #ffffff; /* Default text color */
-        }
-        @media (prefers-color-scheme: light){
-            :root{ --bg-1: #f7f9fc; --bg-2:#eef2f7; --card: rgba(10,10,10,0.03); --muted:#334155; --accent:#2563eb; --text:#0b1220; }
-        }
-        body {
+            --bg-2: #0b1220;
             --card: rgba(255,255,255,0.04);
             --muted: #cbd5e1;
             --accent: #3b82f6;
             --glass: rgba(255,255,255,0.03);
             --radius: 12px;
             --text: #ffffff;
+            --modal-bg-dark: rgba(6,8,12,0.96);
+            --modal-bg-light: rgba(255,255,255,0.98);
         }
+
+        /* Respect system preference */
         @media (prefers-color-scheme: light){
-            :root{ --bg-1: #f7f9fc; --bg-2:#eef2f7; --card: rgba(10,10,10,0.03); --muted:#334155; --accent:#2563eb; --text:#0b1220; }
-        h1 { font-size: 1.9rem; margin-bottom: 0.25rem; color:var(--text); }
-        .back{ color:var(--accent); text-decoration:none; font-weight:600; }
+            :root{
+                --bg-1: #f7f9fc;
+                --bg-2: #eef2f7;
+                --card: rgba(10,10,10,0.03);
+                --muted:#334155;
+                --accent:#2563eb;
+                --text:#0b1220;
+                --modal-bg-dark: rgba(255,255,255,0.98);
+            }
+        }
+
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.5;
@@ -33,9 +41,11 @@
             min-height: 100vh;
             padding: 2rem;
         }
+
         .container { max-width: 1100px; margin: 0 auto; }
         header { text-align: center; margin-bottom: 1.25rem; }
-        h1 { font-size: 1.9rem; margin-bottom: 0.25rem; }
+        h1 { font-size: 1.9rem; margin-bottom: 0.25rem; color:var(--text); }
+        .back{ color:var(--accent); text-decoration:none; font-weight:600; }
         p.bio{ color: var(--muted); margin-top: 0.25rem; }
 
         .controls{ display:flex; gap:0.5rem; justify-content:center; align-items:center; flex-wrap:wrap; margin:1rem 0; }
@@ -63,7 +73,6 @@
         .more:focus-visible{ box-shadow:0 0 0 4px color-mix(in srgb, var(--accent) 18%, black); }
 
         /* Modal */
-        :root{ --modal-bg-dark: rgba(6,8,12,0.96); --modal-bg-light: rgba(255,255,255,0.98); }
         .modal-backdrop{ position:fixed; inset:0; display:none; background:rgba(2,6,23,0.55); align-items:center; justify-content:center; z-index:9999; backdrop-filter: blur(6px) saturate(1.05); }
         .modal{ background:var(--modal-bg-dark); color:inherit; width:min(900px,95%); max-width:900px; border-radius:12px; padding:1rem 1.25rem; max-height:80vh; overflow:auto; box-shadow: 0 20px 60px rgba(2,6,23,0.75); border:1px solid rgba(255,255,255,0.04); isolation:isolate; }
         .modal h3{ margin:0; color:var(--accent); font-size:1.25rem; }
@@ -74,9 +83,15 @@
 
         /* Light-mode override when user forces theme */
         :root[data-theme='light']{
-            --bg-1: #f7f9fc; --bg-2:#eef2f7; --card: rgba(10,10,10,0.03); --muted:#334155; --accent:#2563eb; color-scheme: light;
+            --bg-1: #f7f9fc;
+            --bg-2:#eef2f7;
+            --card: rgba(10,10,10,0.03);
+            --muted:#334155;
+            --accent:#2563eb;
+            --text:#0b1220;
             --modal-bg-dark: rgba(255,255,255,0.98);
         }
+
         /* small humorous note shown in light mode */
         .light-note{ display:none; margin:0.5rem auto 0; max-width:1100px; background:rgba(255,255,255,0.05); border-radius:10px; padding:0.6rem 0.9rem; color:var(--muted); text-align:center; font-size:0.95rem; }
         :root[data-theme='light'] ~ body .light-note, :root[data-theme='light'] .light-note{ display:block; }
