@@ -8,40 +8,36 @@
         /* CSS variables and theming */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         :root{
-            --bg-1: #0f1724;
-            --bg-2: #0b1220;
+            /* Coolors palette */
+            --color-1: #b6465f;
+            --color-2: #028090;
+            --color-3: #020202;
+            --color-4: #890620;
+            --color-ghost: #fbfbff;
+
+            /* Default (dark) tokens */
+            --bg-1: var(--color-3);
+            --bg-2: #071014;
             --card: rgba(255,255,255,0.04);
-            --muted: #cbd5e1;
-            --accent: #3b82f6;
+            --muted: rgba(251,251,255,0.8);
+            --accent: var(--color-2);
+            --accent-2: var(--color-1);
             --glass: rgba(255,255,255,0.03);
             --radius: 12px;
-            --text: #ffffff;
+            --text: var(--color-ghost);
             --modal-bg-dark: rgba(6,8,12,0.96);
             --modal-bg-light: rgba(255,255,255,0.98);
         }
 
-        /* Respect system preference */
+        /* Respect system preference for initial load */
         @media (prefers-color-scheme: light){
             :root{
-                /* Palette from provided theme */
-                --color-dark-teal: #114b5f;
-                --color-teal: #028090;
-                --color-baltic: #456990;
-                --color-pink: #f45b69;
-                --color-ghost: #fbfbff;
-
-                /* Derived tokens */
-                --bg-1: var(--color-dark-teal);
-                --bg-2: var(--color-baltic);
-                --card: rgba(251,251,255,0.04);
-                --muted: rgba(251,251,255,0.72);
-                --accent: var(--color-teal);
-                --accent-2: var(--color-pink);
-                --glass: rgba(255,255,255,0.03);
-                --radius: 12px;
-                --text: var(--color-ghost);
-                --modal-bg-dark: rgba(6,8,12,0.96);
-                --modal-bg-light: rgba(255,255,255,0.98);
+                --bg-1: #eaf6f6;
+                --bg-2: #fbfdff;
+                --text: var(--color-3);
+                --accent: var(--color-2);
+                --muted: #456990;
+                --card: rgba(255,255,255,0.95);
             }
         }
 
@@ -93,21 +89,36 @@
 
         @media (prefers-reduced-motion: reduce){ *{ transition:none!important; } }
 
-        /* Light-mode override when user forces theme */
+        /* Light / Dark explicit overrides when user sets site theme */
         :root[data-theme='light']{
-            --bg-1: var(--color-ghost);
+            --bg-1: #eaf6f6;
             --bg-2: #fbfdff;
-            --card: rgba(17,75,95,0.04);
+            --card: rgba(255,255,255,0.95);
             --muted: #456990;
-            --accent: var(--color-dark-teal);
-            --accent-2: var(--color-pink);
-            --text: var(--color-dark-teal);
+            --accent: var(--color-2);
+            --accent-2: var(--color-1);
+            --text: var(--color-3);
             --modal-bg-dark: rgba(255,255,255,0.98);
+        }
+        :root[data-theme='dark']{
+            --bg-1: var(--color-3);
+            --bg-2: #071014;
+            --card: rgba(255,255,255,0.04);
+            --muted: rgba(251,251,255,0.8);
+            --accent: var(--color-2);
+            --accent-2: var(--color-1);
+            --text: var(--color-ghost);
+            --modal-bg-dark: rgba(6,8,12,0.96);
         }
 
         /* small humorous note shown in light mode */
         .light-note{ display:none; margin:0.5rem auto 0; max-width:1100px; background:rgba(255,255,255,0.05); border-radius:10px; padding:0.6rem 0.9rem; color:var(--muted); text-align:center; font-size:0.95rem; }
         :root[data-theme='light'] ~ body .light-note, :root[data-theme='light'] .light-note{ display:block; }
+
+        /* Theme footer (fixed) */
+        .site-theme-footer{ position:fixed; right:12px; bottom:12px; background:rgba(0,0,0,0.28); color:var(--text); border-radius:12px; padding:0.45rem; backdrop-filter: blur(6px); z-index:999; }
+        .site-theme-footer button{ background:transparent; border:1px solid rgba(255,255,255,0.06); color:inherit; padding:0.35rem 0.5rem; margin:0 0.15rem; border-radius:8px; cursor:pointer; }
+        .site-theme-footer button.active{ border-color:var(--accent); background:color-mix(in srgb, var(--accent) 12%, transparent); }
     </style>
 </head>
 <body>
@@ -208,6 +219,13 @@
         </div>
 
     </div>
+    <footer class="site-theme-footer" aria-label="Theme selector">
+        <div style="display:flex;align-items:center;gap:0.25rem;">
+            <button data-theme="light" class="theme-btn" aria-pressed="false">Light</button>
+            <button data-theme="dark" class="theme-btn" aria-pressed="false">Dark</button>
+            <button data-theme="auto" class="theme-btn" aria-pressed="false">Auto</button>
+        </div>
+    </footer>
 
     <script>
         // Simple filtering and modal logic
@@ -285,38 +303,51 @@
         modalBackdrop.addEventListener('click', (e)=>{ if(e.target===modalBackdrop) closeModal(); });
         document.addEventListener('keydown',(e)=>{ if(e.key==='Escape') closeModal(); });
 
-        // Theme handling: persist choice, respect system preference, show light-mode note
+        // Theme handling: unify site-wide selection (stored under 'siteTheme')
         const themeToggle = document.getElementById('themeToggle');
         const lightNote = document.getElementById('lightNote');
         const dismissLightNote = document.getElementById('dismissLightNote');
+        const themeFooterButtons = Array.from(document.querySelectorAll('.site-theme-footer .theme-btn'));
 
-        function applyTheme(theme){
+        function applySiteTheme(theme){
             if(theme === 'light'){
                 document.documentElement.setAttribute('data-theme','light');
                 themeToggle.setAttribute('aria-pressed','true');
-                // show light note unless dismissed
                 if(!localStorage.getItem('light_note_dismissed')) lightNote.style.display = 'block';
             } else if(theme === 'dark'){
-                document.documentElement.removeAttribute('data-theme');
+                document.documentElement.setAttribute('data-theme','dark');
                 themeToggle.setAttribute('aria-pressed','false');
                 lightNote.style.display = 'none';
+            } else {
+                // auto: follow system
+                document.documentElement.removeAttribute('data-theme');
+                const prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+                if(prefersLight){ if(!localStorage.getItem('light_note_dismissed')) lightNote.style.display = 'block'; }
+                else lightNote.style.display = 'none';
             }
-            localStorage.setItem('theme', theme);
+            localStorage.setItem('siteTheme', theme);
+            themeFooterButtons.forEach(b=> b.classList.toggle('active', b.dataset.theme===theme));
+            themeFooterButtons.forEach(b=> b.setAttribute('aria-pressed', String(b.dataset.theme===theme)));
         }
 
-        // initialize theme from localStorage or system
+        // init site theme
         (function(){
-            const stored = localStorage.getItem('theme');
-            if(stored) applyTheme(stored);
+            const stored = localStorage.getItem('siteTheme');
+            if(stored) applySiteTheme(stored);
             else{
                 const prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
-                applyTheme(prefersLight ? 'light' : 'dark');
+                applySiteTheme(prefersLight ? 'light' : 'dark');
             }
         })();
 
+        // footer buttons
+        themeFooterButtons.forEach(b=> b.addEventListener('click', ()=> applySiteTheme(b.dataset.theme)));
+
+        // theme toggle button (keeps previous behavior but maps to siteTheme)
         themeToggle.addEventListener('click', ()=>{
-            const now = document.documentElement.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
-            applyTheme(now === 'light' ? 'dark' : 'light');
+            const now = document.documentElement.getAttribute('data-theme') === 'light' ? 'light' : (document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'auto');
+            const next = now === 'light' ? 'dark' : 'light';
+            applySiteTheme(next);
         });
 
         dismissLightNote.addEventListener('click', ()=>{ localStorage.setItem('light_note_dismissed','1'); lightNote.style.display='none'; });

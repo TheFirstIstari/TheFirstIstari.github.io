@@ -8,22 +8,57 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         /* Theme variables (using provided palette) */
         :root{
-            --color-dark-teal: #114b5f;
-            --color-teal: #028090;
-            --color-baltic: #456990;
-            --color-pink: #f45b69;
+            /* Coolors palette: b6465f, 028090, 020202, 890620, fbfbff */
+            --color-1: #b6465f;
+            --color-2: #028090;
+            --color-3: #020202;
+            --color-4: #890620;
             --color-ghost: #fbfbff;
 
-            --bg-1: var(--color-dark-teal);
-            --bg-2: var(--color-baltic);
-            --accent: var(--color-teal);
+            /* Default (dark) tokens */
+            --bg-1: var(--color-3);
+            --bg-2: #071014;
+            --accent: var(--color-2);
             --muted: rgba(251,251,255,0.8);
-            --card: rgba(251,251,255,0.04);
+            --card: rgba(255,255,255,0.04);
             --text: var(--color-ghost);
         }
 
+        /* Respect system preference for initial load */
         @media (prefers-color-scheme: light){
-            :root{ --bg-1: var(--color-ghost); --bg-2: #fbfdff; --text: var(--color-dark-teal); --accent: var(--color-dark-teal); --muted: #456990; --card: rgba(17,75,95,0.04); }
+            :root{
+                --bg-1: #eaf6f6;
+                --bg-2: #fbfdff;
+                --text: var(--color-3);
+                --accent: var(--color-2);
+                    <footer class="site-theme-footer" aria-label="Theme selector">
+                        <div style="display:flex;align-items:center;gap:0.25rem;">
+                            <button data-theme="light" class="theme-btn" aria-pressed="false">Light</button>
+                            <button data-theme="dark" class="theme-btn" aria-pressed="false">Dark</button>
+                            <button data-theme="auto" class="theme-btn" aria-pressed="false">Auto</button>
+                        </div>
+                    </footer>
+                --muted: #456990;
+                --card: rgba(255,255,255,0.95);
+            }
+        }
+
+        /* Explicit site-wide theme override when user selects */
+        :root[data-theme='light']{
+            --bg-1: #eaf6f6;
+            --bg-2: #fbfdff;
+            --text: var(--color-3);
+            --accent: var(--color-2);
+            --muted: #456990;
+            --card: rgba(255,255,255,0.95);
+        }
+        :root[data-theme='dark']{
+            --bg-1: var(--color-3);
+            --bg-2: #071014;
+            --text: var(--color-ghost);
+            --accent: var(--color-2);
+            --muted: rgba(251,251,255,0.8);
+            --card: rgba(255,255,255,0.04);
         }
 
         body {
@@ -45,6 +80,28 @@
         }
         h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
         .bio { color: var(--muted); font-size: 1.1rem; max-width: 500px; margin: 0 auto; }
+                // Site-wide theme selector (persistent)
+                (function(){
+                    const key = 'siteTheme';
+                    const buttons = Array.from(document.querySelectorAll('.site-theme-footer .theme-btn'));
+                    function applySiteTheme(t){
+                        if(t === 'light') document.documentElement.setAttribute('data-theme','light');
+                        else if(t === 'dark') document.documentElement.setAttribute('data-theme','dark');
+                        else document.documentElement.removeAttribute('data-theme');
+                        localStorage.setItem(key, t);
+                        buttons.forEach(b=> b.classList.toggle('active', b.dataset.theme===t));
+                        buttons.forEach(b=> b.setAttribute('aria-pressed', String(b.dataset.theme===t)));
+                    }
+                    // init
+                    const stored = localStorage.getItem(key);
+                    if(stored) applySiteTheme(stored);
+                    else{
+                        const prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+                        applySiteTheme(prefersLight ? 'light' : 'dark');
+                    }
+                    buttons.forEach(b=> b.addEventListener('click', ()=> applySiteTheme(b.dataset.theme)));
+                })();
+
         .links {
             display: flex;
             justify-content: center;
@@ -83,6 +140,10 @@
             font-size: 0.8rem;
             font-weight: 600;
         }
+        /* Fixed footer for theme controls */
+        .site-theme-footer{ position:fixed; right:12px; bottom:12px; background:rgba(0,0,0,0.35); color:var(--text); border-radius:12px; padding:0.45rem; backdrop-filter: blur(6px); z-index:999; }
+        .site-theme-footer button{ background:transparent; border:1px solid rgba(255,255,255,0.06); color:inherit; padding:0.35rem 0.5rem; margin:0 0.15rem; border-radius:8px; cursor:pointer; }
+        .site-theme-footer button.active{ border-color:var(--accent); background:color-mix(in srgb, var(--accent) 12%, transparent); }
     </style>
 </head>
 <body>
