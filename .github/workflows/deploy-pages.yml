@@ -1,8 +1,9 @@
 name: Deploy to GitHub Pages
 
 on:
-  push:
-    branches: [ main ]
+  workflow_dispatch: {}
+  # This workflow is intended for manual promotion to the published site.
+  # It will only run when you trigger it (Actions → Deploy to GitHub Pages → Run workflow).
 
 permissions:
   contents: read
@@ -36,14 +37,26 @@ jobs:
             echo "No Jekyll site detected; ensure 'path' below points to your published directory."
           fi
 
+      - name: Determine output directory
+        id: detect
+        run: |
+          if [ -d "_site" ]; then
+            echo "OUTPUT_DIR=_site" >> $GITHUB_ENV
+          elif [ -d "public" ]; then
+            echo "OUTPUT_DIR=public" >> $GITHUB_ENV
+          else
+            # no build artifact detected — deploy repository root (excluding .github by default)
+            echo "OUTPUT_DIR=." >> $GITHUB_ENV
+          fi
+
       - name: Configure Pages
         uses: actions/configure-pages@v4
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v1
         with:
-          # Update this path if your site output lives elsewhere (e.g. 'public' or 'dist')
-          path: _site
+          # path is auto-detected (defaults to '.' when no static generator output folder exists)
+          path: ${{ env.OUTPUT_DIR }}
 
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v1

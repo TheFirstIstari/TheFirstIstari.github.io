@@ -6,23 +6,66 @@
     <title>TheFirstIstari | Project Details</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root{
+            --bg-1: #0f1724;
+            --bg-2: #0b1220;
+            --card: rgba(255,255,255,0.04);
+            --muted: #cbd5e1;
+            --accent: #3b82f6;
+            --glass: rgba(255,255,255,0.03);
+            --radius: 12px;
+        }
+        @media (prefers-color-scheme: light){
+            :root{ --bg-1: #f7f9fc; --bg-2:#eef2f7; --card: rgba(10,10,10,0.03); --muted:#334155; --accent:#2563eb; }
+            body{ color: #0b1220; }
+        }
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            line-height: 1.6;
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            line-height: 1.5;
+            background: linear-gradient(135deg,var(--bg-1) 0%, var(--bg-2) 100%);
             color: #fff;
             min-height: 100vh;
             padding: 2rem;
         }
-        .container { max-width: 800px; margin: 0 auto; }
-        header { text-align: center; margin-bottom: 2rem; }
-        h1 { font-size: 2rem; margin-bottom: 0.5rem; }
-        h2 { font-size: 1.25rem; margin-top: 1.5rem; color: #4a9eff; }
-        .back { margin-bottom: 1rem; display: inline-block; color: #4a9eff; text-decoration: none; border: 1px solid #4a9eff; padding: 0.4rem 0.8rem; border-radius: 14px; }
-        .card { background: rgba(255,255,255,0.04); padding: 1rem; border-radius: 10px; margin-top: 1rem; }
-        .card p { color: #ddd; }
-        .links { margin-top: 0.75rem; }
-        .links a { color: #4a9eff; text-decoration: none; margin-right: 0.75rem; }
+        .container { max-width: 1100px; margin: 0 auto; }
+        header { text-align: center; margin-bottom: 1.25rem; }
+        h1 { font-size: 1.9rem; margin-bottom: 0.25rem; }
+        p.bio{ color: var(--muted); margin-top: 0.25rem; }
+
+        .controls{ display:flex; gap:0.5rem; justify-content:center; align-items:center; flex-wrap:wrap; margin:1rem 0; }
+        .search{ background:var(--card); border:1px solid rgba(255,255,255,0.04); padding:0.5rem 0.75rem; border-radius:999px; color:var(--muted); min-width:200px; }
+        .tags{ display:flex; gap:0.5rem; flex-wrap:wrap; }
+        .tag{ background:transparent; border:1px solid rgba(255,255,255,0.06); color:var(--muted); padding:0.35rem 0.6rem; border-radius:999px; cursor:pointer; }
+        .tag.active{ background:var(--accent); color:white; border-color:var(--accent); }
+        .theme-toggle{ margin-left:0.5rem; padding:0.4rem 0.6rem; background:var(--glass); border-radius:10px; cursor:pointer; border:1px solid rgba(255,255,255,0.04); color:var(--muted); }
+
+        .grid{ display:grid; grid-template-columns: repeat(auto-fill,minmax(280px,1fr)); gap:1rem; margin-top:1rem; }
+        .card{ background:var(--card); padding:0.75rem; border-radius:var(--radius); overflow:hidden; display:flex; flex-direction:column; gap:0.5rem; transition:transform 180ms ease, box-shadow 180ms ease; }
+        .card:focus-within, .card:hover{ transform:translateY(-6px); box-shadow: 0 8px 24px rgba(2,6,23,0.6); }
+        .thumb{ width:100%; height:220px; border-radius:8px; overflow:hidden; background:linear-gradient(90deg, rgba(255,255,255,0.02), rgba(0,0,0,0.08)); display:block; }
+        .thumb img{ width:100%; height:100%; object-fit:cover; display:block; }
+        .meta{ display:flex; justify-content:space-between; align-items:center; gap:0.5rem; }
+        .title{ font-weight:600; color:var(--accent); }
+        .desc{ color:var(--muted); font-size:0.95rem; }
+        .badges{ display:flex; gap:0.4rem; align-items:center; }
+        .badge{ background:transparent; border:1px solid rgba(255,255,255,0.06); padding:0.25rem 0.45rem; border-radius:8px; color:var(--muted); font-size:0.85rem; text-decoration:none; }
+        .more{ margin-left:auto; background:var(--accent); color:white; border:none; padding:0.4rem 0.6rem; border-radius:8px; cursor:pointer; }
+
+        /* Modal */
+        .modal-backdrop{ position:fixed; inset:0; display:none; background:rgba(2,6,23,0.6); align-items:center; justify-content:center; z-index:60; }
+        .modal{ background:var(--card); width:min(900px,95%); border-radius:12px; padding:1rem; max-height:80vh; overflow:auto; }
+        .modal h3{ margin-bottom:0.25rem; color:var(--accent); }
+        .modal .close{ margin-left:auto; background:transparent; border:none; color:var(--muted); cursor:pointer; }
+
+        @media (prefers-reduced-motion: reduce){ *{ transition:none!important; } }
+
+        /* Light-mode override when user forces theme */
+        :root[data-theme='light']{
+            --bg-1: #f7f9fc; --bg-2:#eef2f7; --card: rgba(10,10,10,0.03); --muted:#334155; --accent:#2563eb; color-scheme: light;
+        }
+        /* small humorous note shown in light mode */
+        .light-note{ display:none; margin:0.5rem auto 0; max-width:1100px; background:rgba(255,255,255,0.05); border-radius:10px; padding:0.6rem 0.9rem; color:var(--muted); text-align:center; font-size:0.95rem; }
+        :root[data-theme='light'] ~ body .light-note, :root[data-theme='light'] .light-note{ display:block; }
     </style>
 </head>
 <body>
@@ -33,14 +76,7 @@
             <p class="bio">Curated projects, demos and experiments.</p>
         </header>
 
-        @media (prefers-reduced-motion: reduce){ *{ transition:none!important; } }
-        /* Light-mode override when user forces theme */
-        :root[data-theme='light']{
-            --bg-1: #f7f9fc; --bg-2:#eef2f7; --card: rgba(10,10,10,0.03); --muted:#334155; --accent:#2563eb; color-scheme: light;
-        }
-        /* small humorous note shown in light mode */
-        .light-note{ display:none; margin:0.5rem auto 0; max-width:1100px; background:rgba(255,255,255,0.05); border-radius:10px; padding:0.6rem 0.9rem; color:var(--muted); text-align:center; font-size:0.95rem; }
-        :root[data-theme='light'] ~ body .light-note, :root[data-theme='light'] .light-note{ display:block; }
+        <div class="controls" role="region" aria-label="Project controls">
             <input class="search" id="search" placeholder="Search projects or technologies..." aria-label="Search projects" />
             <div class="tags" id="tagList" aria-hidden="false">
                 <button class="tag" data-tag="all">All</button>
@@ -50,11 +86,10 @@
                 <button class="tag" data-tag="gpu">GPU</button>
             </div>
             <button class="theme-toggle" id="themeToggle" aria-pressed="false">Theme</button>
-            </div>
+        </div>
 
-            <div class="light-note" id="lightNote" role="status">
-                Light mode enabled — sunglasses recommended. 😎<button id="dismissLightNote" style="margin-left:0.6rem;background:transparent;border:none;cursor:pointer;color:var(--muted)">Dismiss</button>
-            </div>
+        <div class="light-note" id="lightNote" role="status">
+            Light mode enabled — sunglasses recommended. 😎<button id="dismissLightNote" style="margin-left:0.6rem;background:transparent;border:none;cursor:pointer;color:var(--muted)">Dismiss</button>
         </div>
 
         <main class="grid" id="projectsGrid">
