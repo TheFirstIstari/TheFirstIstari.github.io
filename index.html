@@ -101,6 +101,41 @@
         }
         .links a:hover { background: var(--accent); color: var(--bg-1); }
         .projects { margin-top: 3rem; }
+        /* Responsive grid for project cards */
+        .projects-grid{
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1rem;
+            align-items: start;
+        }
+        .project-card{
+            display:flex;
+            flex-direction:column;
+            justify-content:space-between;
+        }
+        .project-thumb{
+            height:140px;
+            border-radius:8px;
+            background: linear-gradient(90deg, rgba(0,0,0,0.25), rgba(255,255,255,0.02));
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            color:var(--muted);
+            font-weight:600;
+            margin-bottom:0.75rem;
+            overflow:hidden;
+        }
+        .card-actions{ display:flex; gap:0.5rem; flex-wrap:wrap; margin-top:0.75rem; }
+        .card-actions a, .card-actions button{
+            background:transparent;
+            border:1px solid rgba(255,255,255,0.06);
+            color:var(--muted);
+            padding:0.35rem 0.6rem;
+            border-radius:12px;
+            text-decoration:none;
+            font-size:0.85rem;
+        }
+        .card-actions a.primary{ background:var(--accent); color:var(--bg-1); border-color:transparent; }
         h2 { font-size: 1.5rem; margin-bottom: 1.5rem; border-bottom: 2px solid var(--accent); padding-bottom: 0.5rem; }
         .project-card {
             background: var(--card);
@@ -144,48 +179,76 @@
 
         <section class="projects">
             <h2>Projects</h2>
-            
-            <div class="project-card">
-                <h3><a href="https://github.com/TheFirstIstari/CourseWorkRepo">Coursework</a></h3>
-                <p>A Sidequest Adventuring through Coursework and Examples.</p>
-                <div class="tech">
-                    <span>C#</span>
-                    <span>Raspberry Pi</span>
-                    <span>FFmpeg</span>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-thumb">Coursework</div>
+                    <div>
+                        <h3><a href="https://github.com/TheFirstIstari/CourseWorkRepo">Coursework Repo</a></h3>
+                        <p>A Sidequest Adventuring through Coursework and Examples.</p>
+                        <div class="tech">
+                            <span>C#</span>
+                            <span>Raspberry Pi</span>
+                            <span>FFmpeg</span>
+                        </div>
+                    </div>
+                    <div class="card-actions">
+                        <a class="primary" href="https://github.com/TheFirstIstari/CourseWorkRepo">GitHub</a>
+                        <a href="projects.html#coursework">More</a>
+                    </div>
                 </div>
-                <p style="margin-top:0.75rem;"><a href="projects.html#coursework">Details</a></p>
-            </div>
 
-            <div class="project-card">
-                <h3><a href="https://github.com/TheFirstIstari/Project-SteinLine">Project SteinLine</a></h3>
-                <p>A simple Qt based DataScience tool for the aggregation, inference and visualization of multimedia data.</p>
-                <div class="tech">
-                    <span>C</span>
-                    <span>Python</span>
-                    <span>Qt</span>
+                <div class="project-card">
+                    <div class="project-thumb">Project SteinLine</div>
+                    <div>
+                        <h3><a href="https://github.com/TheFirstIstari/Project-SteinLine">Project SteinLine</a></h3>
+                        <p>A Qt-based forensic pipeline — multimodal AI, edge storage and Qt visualization.</p>
+                        <div class="tech">
+                            <span>C</span>
+                            <span>Python</span>
+                            <span>Qt</span>
+                        </div>
+                    </div>
+                    <div class="card-actions">
+                        <a class="primary" href="https://github.com/TheFirstIstari/Project-SteinLine">GitHub</a>
+                        <a href="projects.html#steinline">More</a>
+                    </div>
                 </div>
-                <p style="margin-top:0.75rem;"><a href="projects.html#steinline">Details</a></p>
-            </div>
-            <div class="project-card">
-                <h3><a href="https://github.com/TheFirstIstari/BadAppleStein">BadAppleStein</a></h3>
-                <p>A simple program to match a database of pdf-files to any high contrast video.</p>
-                <div class="tech">
-                    <span>C</span>
-                    <span>Python</span>
-                    <span>FFmpeg</span>
-                </div>
-                <p style="margin-top:0.75rem;"><a href="projects.html#badapplestein">Details</a></p>
-            </div>
 
-            <div class="project-card">
-                <h3><a href="projects.html#ccc-gcc-studio">CCC - GCC Studio</a></h3>
-                <p>Flask-based interactive studio comparing GCC (ARM64) output with Claude's C Compiler (CCC); shows ASM and stats.</p>
-                <div class="tech">
-                    <span>Python</span>
-                    <span>C</span>
-                    <span>Web</span>
+                <div class="project-card">
+                    <div class="project-thumb">BadAppleStein</div>
+                    <div>
+                        <h3><a href="https://github.com/TheFirstIstari/BadAppleStein">BadAppleStein</a></h3>
+                        <p>Frame-to-PDF matching pipeline using Python and C for fast matching.</p>
+                        <div class="tech">
+                            <span>C</span>
+                            <span>Python</span>
+                            <span>FFmpeg</span>
+                        </div>
+                    </div>
+                    <div class="card-actions">
+                        <a class="primary" href="https://github.com/TheFirstIstari/BadAppleStein">GitHub</a>
+                        <a href="projects.html#badapplestein">Demo</a>
+                        <a href="projects.html#badapplestein">More</a>
+                    </div>
                 </div>
-                <p style="margin-top:0.75rem;"><a href="projects.html#ccc-gcc-studio">Details</a></p>
+
+                <div class="project-card">
+                    <div class="project-thumb">CCC - GCC Studio</div>
+                    <div>
+                        <h3><a href="projects.html#ccc-gcc-studio">CCC - GCC Studio</a></h3>
+                        <p>Flask-based interactive studio that compiles C with GCC (ARM64) and Claude's C Compiler (CCC).</p>
+                        <div class="tech">
+                            <span>Python</span>
+                            <span>C</span>
+                            <span>Web</span>
+                        </div>
+                    </div>
+                    <div class="card-actions">
+                        <a class="primary" href="projects.html#ccc-gcc-studio">Source</a>
+                        <a href="projects.html#ccc-gcc-studio">Run Locally</a>
+                        <a href="projects.html#ccc-gcc-studio">More</a>
+                    </div>
+                </div>
             </div>
         </section>
 
