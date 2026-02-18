@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800" role="img" aria-label="CCC - GCC Studio thumbnail">
+  <defs>
+    <linearGradient id="g" x1="0" x2="1">
+      <stop offset="0" stop-color="#0b3b3b" />
+      <stop offset="1" stop-color="#042f2f" />
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#g)" rx="18" />
+
+  <!-- Left: GCC (ARM64) panel -->
+  <g transform="translate(80,120)">
+    <rect width="460" height="560" rx="12" fill="#0f2540" opacity="0.85" />
+    <text x="30" y="60" fill="#7fd3ff" font-family="Inter, Arial, sans-serif" font-size="36" font-weight="700">GCC (ARM64)</text>
+    <g transform="translate(30,110)" fill="#cfeeff" font-family="monospace" font-size="20">
+      <text y="0">; gcc -O2 -S -fverbose-asm</text>
+      <text y="32">push   rbp</text>
+      <text y="64">mov    rbp, rsp</text>
+      <text y="96">mov    eax, 100</text>
+    </g>
+  </g>
+
+  <!-- Right: CCC (x86_64) panel -->
+  <g transform="translate(660,120)">
+    <rect width="460" height="560" rx="12" fill="#2b1f1f" opacity="0.9" />
+    <text x="30" y="60" fill="#ffc9b6" font-family="Inter, Arial, sans-serif" font-size="36" font-weight="700">CCC (x86_64)</text>
+    <g transform="translate(30,110)" fill="#ffd9c3" font-family="monospace" font-size="20">
+      <text y="0">; ccc -c test.c -o out</text>
+      <text y="32">push   rbp</text>
+      <text y="64">mov    rbp, rsp</text>
+      <text y="96">imul   edi, edi</text>
+    </g>
+  </g>
+
+  <!-- Footer label -->
+  <g transform="translate(60,700)">
+    <rect x="0" y="-10" width="1080" height="68" rx="10" fill="rgba(255,255,255,0.03)" />
+    <text x="24" y="36" fill="#d6f6ff" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="600">CCC - GCC Studio — Interactive assembly comparison</text>
+  </g>
+</svg>
