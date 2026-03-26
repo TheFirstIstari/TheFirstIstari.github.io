@@ -1,0 +1,130 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ThemeToggle from '../components/ThemeToggle';
+import ProjectCard from '../components/ProjectCard';
+import SectionTitle from '../components/SectionTitle';
+
+const projects = [
+  {
+    title: 'Benchmarks',
+    description: 'Performance benchmarking suite for Python, CUDA, and various compute workloads. Includes timing, profiling and comparison metrics across different implementations.',
+    tags: ['Python', 'Benchmark', 'GPU'],
+    github: 'https://github.com/TheFirstIstari/Benchmarks',
+  },
+  {
+    title: 'Coursework Repo',
+    description: 'A curated collection of C# coursework covering trees, graphs, algorithms and coding challenge solutions.',
+    tags: ['C#', 'Algorithms'],
+    github: 'https://github.com/TheFirstIstari/CourseWorkRepo',
+  },
+  {
+    title: 'TrackBound',
+    description: 'Realtime GPS track analysis, smoothing and lightweight map visualizations.',
+    tags: ['Rust', 'Python', 'GIS'],
+    github: 'https://github.com/TheFirstIstari/TrackBound',
+  },
+  {
+    title: 'Project SteinLine',
+    description: 'Asymmetrical distributed forensic platform for documents, images and video with GPU inference and a PySide6 visualization front-end.',
+    tags: ['Python', 'AI', 'GPU', 'Qt'],
+    github: 'https://github.com/TheFirstIstari/Project-SteinLine',
+  },
+  {
+    title: 'BadAppleStein',
+    description: 'Reconstructs high-contrast video animations by matching frames to a library of PDF pages. Fast C components and multiple rendering pipelines.',
+    tags: ['Python', 'C', 'FFmpeg'],
+    github: 'https://github.com/TheFirstIstari/BadAppleStein',
+    demo: 'https://www.youtube.com/watch?v=Ia1wR8HScm0',
+  },
+  {
+    title: 'CCC - GCC Studio',
+    description: 'A Flask app that compiles user C code with GCC (ARM64) and Claude\'s C Compiler (CCC), disassembles the outputs and shows them side-by-side for comparison.',
+    tags: ['Python', 'C', 'Web'],
+    github: 'https://github.com/TheFirstIstari/GCC-CCC-comparison',
+  },
+];
+
+const allTags = [...new Set(projects.flatMap(p => p.tags))];
+---
+
+<Layout title="TheFirstIstari | Projects">
+  <ThemeToggle client:load />
+  
+  <main class="min-h-screen py-20 px-4">
+    <div class="max-w-6xl mx-auto">
+      <a href="/" class="inline-flex items-center gap-2 text-[rgba(251,251,255,0.6)] hover:text-[#028090] transition-colors mb-8">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+        </svg>
+        Back
+      </a>
+      
+      <SectionTitle 
+        client:visible
+        title="Project Details"
+        description="Curated projects, demos and experiments."
+      />
+
+      <div class="mb-8">
+        <div class="flex flex-wrap gap-2">
+          <button
+            class="tag-btn active px-4 py-2 rounded-full text-sm border border-[rgba(255,255,255,0.1)] text-[rgba(251,251,255,0.8)] hover:border-[#028090] hover:text-[#028090] transition-colors"
+            data-tag="all"
+          >
+            All
+          </button>
+          {allTags.map(tag => (
+            <button
+              class="tag-btn px-4 py-2 rounded-full text-sm border border-[rgba(255,255,255,0.1)] text-[rgba(251,251,255,0.8)] hover:border-[#028090] hover:text-[#028090] transition-colors"
+              data-tag={tag}
+            >
+              {tag}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6" id="projects-grid">
+        {projects.map((project, index) => (
+          <ProjectCard
+            client:visible
+            title={project.title}
+            description={project.description}
+            tags={project.tags}
+            github={project.github}
+            demo={project.demo}
+            index={index}
+          />
+        ))}
+      </div>
+    </div>
+  </main>
+</Layout>
+
+<script>
+  const buttons = document.querySelectorAll('.tag-btn');
+  const cards = document.querySelectorAll('article');
+
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const tag = btn.getAttribute('data-tag');
+      
+      buttons.forEach(b => {
+        b.classList.remove('bg-[#028090]', 'text-[#020202]', 'border-[#028090]');
+      });
+      btn.classList.add('bg-[#028090]', 'text-[#020202]', 'border-[#028090]');
+
+      cards.forEach(card => {
+        const cardTags = card.getAttribute('data-tags')?.split(',') || [];
+        if (tag === 'all' || cardTags.includes(tag)) {
+          (card as HTMLElement).style.display = 'block';
+        } else {
+          (card as HTMLElement).style.display = 'none';
+        }
+      });
+    });
+  });
+
+  // Set initial active state
+  buttons[0].classList.add('bg-[#028090]', 'text-[#020202]', 'border-[#028090]');
+</script>
