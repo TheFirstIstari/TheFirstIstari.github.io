@@ -147,6 +147,7 @@
                 <button class="tag" data-tag="csharp">C#</button>
                 <button class="tag" data-tag="ai">AI</button>
                 <button class="tag" data-tag="gpu">GPU</button>
+                <button class="tag" data-tag="benchmark">Benchmark</button>
             </div>
             <button class="theme-toggle" id="themeToggle" aria-pressed="false">Theme</button>
         </div>
@@ -156,6 +157,25 @@
         </div>
 
         <main class="grid" id="projectsGrid">
+            <!-- Benchmarks -->
+            <article class="card" data-tags="python,benchmark,gpu" tabindex="0" id="benchmarks">
+                <div class="thumb" aria-hidden="true">
+                    <img loading="lazy" alt="Benchmarks thumbnail" src="assets/images/benchmarks.svg" />
+                </div>
+                <div>
+                    <div class="meta">
+                        <div>
+                            <div class="title">Benchmarks</div>
+                            <div class="desc">Performance benchmarking across Python, CUDA, and compute workloads.</div>
+                        </div>
+                        <div class="badges">
+                            <a class="badge" href="https://github.com/TheFirstIstari/Benchmarks" target="_blank" rel="noopener">GitHub</a>
+                            <button class="more" data-project='{"title":"Benchmarks","desc":"Performance benchmarking suite for Python, CUDA, and various compute workloads. Includes timing, profiling and comparison metrics across different implementations.","links":[{"label":"Repository","url":"https://github.com/TheFirstIstari/Benchmarks"}],"tags":["Python","Benchmark","GPU"]}'>More</button>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
             <!-- Coursework -->
             <article class="card" data-tags="csharp,algorithms" tabindex="0" id="coursework">
                 <div class="thumb" aria-hidden="true">
