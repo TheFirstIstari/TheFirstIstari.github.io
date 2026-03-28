@@ -1,11 +1,11 @@
-import { motion } from 'framer-motion';
+import { motion } from "framer-motion";
 
 export default function Hero() {
   return (
     <section className="min-h-[80vh] flex flex-col items-center justify-center relative overflow-hidden px-4">
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-[#028090]/20 via-transparent to-[#b6465f]/20" />
-      
+
       {/* Animated shapes */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div
@@ -43,10 +43,14 @@ export default function Hero() {
             <motion.div
               className="w-32 h-32 rounded-full p-1"
               style={{
-                background: 'linear-gradient(135deg, #028090, #b6465f)',
+                background: "linear-gradient(135deg, #028090, #b6465f)",
               }}
-              animate={{ 
-                boxShadow: ['0 0 20px rgba(2, 128, 144, 0.3)', '0 0 40px rgba(2, 128, 144, 0.5)', '0 0 20px rgba(2, 128, 144, 0.3)'] 
+              animate={{
+                boxShadow: [
+                  "0 0 20px rgba(2, 128, 144, 0.3)",
+                  "0 0 40px rgba(2, 128, 144, 0.5)",
+                  "0 0 20px rgba(2, 128, 144, 0.3)",
+                ],
               }}
               transition={{ duration: 3, repeat: Infinity }}
             >
@@ -67,15 +71,6 @@ export default function Hero() {
         >
           TheFirstIstari
         </motion.h1>
-
-        <motion.p
-          className="text-xl md:text-2xl text-[rgba(251,251,255,0.7)] max-w-xl mx-auto mb-8"
-          initial={{ y: 20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.4, duration: 0.6 }}
-        >
-          Developer, Creator, Builder
-        </motion.p>
 
         {/* Links */}
         <motion.div
@@ -131,8 +126,18 @@ export default function Hero() {
         animate={{ y: [0, 10, 0] }}
         transition={{ duration: 2, repeat: Infinity }}
       >
-        <svg className="w-6 h-6 text-[rgba(251,251,255,0.5)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+        <svg
+          className="w-6 h-6 text-[rgba(251,251,255,0.5)]"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M19 14l-7 7m0 0l-7-7m7 7V3"
+          />
         </svg>
       </motion.div>
     </section>

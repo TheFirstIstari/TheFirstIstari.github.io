@@ -9,7 +9,7 @@ const projects = [
   {
     title: 'Benchmarks',
     description: 'Performance benchmarking suite for Python, CUDA, and various compute workloads.',
-    tags: ['Python', 'Benchmark', 'GPU'],
+    tags: ['Python', 'Benchmark', 'CUDA'],
     github: 'https://github.com/TheFirstIstari/Benchmarks',
   },
   {
@@ -27,7 +27,7 @@ const projects = [
   {
     title: 'Project SteinLine',
     description: 'Distributed forensic pipeline — multimodal AI, edge storage and Qt visualization.',
-    tags: ['Python', 'AI', 'GPU', 'Qt'],
+    tags: ['Python', 'AI', 'CUDA', 'Qt'],
     github: 'https://github.com/TheFirstIstari/Project-SteinLine',
     more: '/projects#steinline',
   },
@@ -49,15 +49,15 @@ const projects = [
 
 <Layout title="TheFirstIstari | Projects">
   <ThemeToggle client:load />
-  
+
   <main class="min-h-screen">
     <Hero client:load />
-    
+
     <section class="py-20 px-4 max-w-6xl mx-auto" id="projects">
-      <SectionTitle 
+      <SectionTitle
         client:visible
         title="Projects"
-        description="A collection of projects spanning algorithms, AI, systems programming, and creative experiments."
+        description="A collection of projects spanning algorithms, AI and systems programming"
       />
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -76,24 +76,6 @@ const projects = [
       </div>
     </section>
 
-    <section class="py-20 px-4 max-w-4xl mx-auto" id="contact">
-      <SectionTitle 
-        client:visible
-        title="Get in Touch"
-        description="Feel free to reach out for collaborations, questions, or just to say hi."
-      />
-      
-      <div class="flex flex-wrap gap-4 justify-center">
-        <a
-          href="https://github.com/TheFirstIstari"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="px-6 py-3 rounded-full border border-[rgba(255,255,255,0.2)] text-[rgba(251,251,255,0.8)] hover:border-[#028090] hover:text-[#028090] transition-colors"
-        >
-          GitHub
-        </a>
-      </div>
-    </section>
 
     <footer class="py-8 text-center text-[rgba(251,251,255,0.4)] text-sm">
       <p>© {new Date().getFullYear()} TheFirstIstari. All rights reserved.</p>
