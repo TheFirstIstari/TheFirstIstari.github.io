@@ -6,13 +6,14 @@ interface ProjectCardProps {
   tags: string[];
   github?: string;
   demo?: string;
+  site?: string;
   more?: string;
   index: number;
   id?: string;
   detail?: string;
 }
 
-export default function ProjectCard({ title, description, tags, github, demo, more, index, id, detail }: ProjectCardProps) {
+export default function ProjectCard({ title, description, tags, github, demo, site, more, index, id, detail }: ProjectCardProps) {
   return (
     <motion.article
       id={id}
@@ -101,6 +102,22 @@ export default function ProjectCard({ title, description, tags, github, demo, mo
                 <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/>
               </svg>
               Demo
+            </motion.a>
+          )}
+          {site && (
+            <motion.a
+              href={site}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm transition-colors hover:text-[#b6465f] hover:border-[#b6465f]"
+              style={{ border: '1px solid var(--border)', color: 'var(--text-muted)' }}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+              </svg>
+              Live
             </motion.a>
           )}
           {more && (
