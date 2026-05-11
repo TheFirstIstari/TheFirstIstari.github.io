@@ -4,67 +4,67 @@ import Hero from '../components/Hero';
 import ProjectCard from '../components/ProjectCard';
 import ThemeToggle from '../components/ThemeToggle';
 import SectionTitle from '../components/SectionTitle';
-import About from '../components/About';
 import Skills from '../components/Skills';
 import NavBar from '../components/NavBar';
 
 const projects = [
   {
     title: 'DesiMapper',
-    description: '3D visualization of the DESI DR1 galaxy survey — ~40 million galaxies mapped across 14 billion years of cosmic time, with a Blender cinematic and a live Three.js/WebGL point cloud.',
+    description: 'Data pipeline and dual-output visualizer for the DESI DR1 galaxy survey. Processes ~40 million galaxy positions and produces a Blender cinematic fly-through and an interactive Three.js/WebGL point cloud.',
     tags: ['Python', 'Three.js', 'Blender', 'Astronomy'],
     github: 'https://github.com/TheFirstIstari/DesiMapper',
     more: '/projects#desimapper',
   },
   {
     title: 'SL Studio',
-    description: 'Local-first forensic document analysis desktop app with LLM inference, multi-pass pipelines, timeline/network/geo visualizations and evidence export.',
+    description: 'Desktop forensic document analysis platform. Ingests PDFs, images, audio and DOCX evidence files and runs local LLM inference via llama.cpp — no cloud dependencies.',
     tags: ['Tauri', 'Rust', 'SvelteKit', 'AI'],
     github: 'https://github.com/TheFirstIstari/sl-studio',
     more: '/projects#slstudio',
   },
   {
     title: 'Traincraft',
-    description: 'Complete rewrite of the classic Traincraft Minecraft mod for 1.21.1 using NeoForge — locomotives, wagons, tracks and industrial machinery.',
+    description: 'Complete rewrite of the original Traincraft Minecraft mod targeting 1.21.1 / NeoForge. Drivable steam and diesel locomotives, coupling physics, custom rails, Bezier curve tracks, and 80+ items.',
     tags: ['Java', 'NeoForge', 'Minecraft'],
+    github: 'https://github.com/TheFirstIstari/Traincraft',
     more: '/projects#traincraft',
   },
   {
     title: 'fervo',
-    description: 'Federated, auditable, zero-trust voting protocol using zero-knowledge proofs for open-source governance — end-to-end verifiable with no single point of trust.',
+    description: 'Draft protocol specification for a federated, auditable zero-trust voting system using zero-knowledge membership proofs and threshold cryptography for open-source governance.',
     tags: ['Protocol', 'ZK-Proofs', 'Cryptography'],
     more: '/projects#fervo',
   },
   {
     title: 'Project SteinLine',
-    description: 'Distributed forensic pipeline — multimodal AI, edge storage and Qt visualization.',
+    description: 'Asymmetrical distributed forensic platform — Raspberry Pi storage nodes feed a GPU inference server (RTX 3090/4090) with results visualised on an interactive PySide6 canvas.',
     tags: ['Python', 'AI', 'CUDA', 'Qt'],
     github: 'https://github.com/TheFirstIstari/Project-SteinLine',
     more: '/projects#steinline',
   },
   {
     title: 'BadAppleStein',
-    description: 'Frame-to-PDF matching pipeline using Python and C for fast matching.',
+    description: 'Reconstructs high-contrast video by matching each frame to the closest page from a PDF library. C core for fast matching, multiple Python rendering pipelines, assembled with FFmpeg.',
     tags: ['Python', 'C', 'FFmpeg'],
     github: 'https://github.com/TheFirstIstari/BadAppleStein',
     demo: 'https://www.youtube.com/watch?v=Ia1wR8HScm0',
   },
   {
     title: 'TrackBound',
-    description: 'Realtime GPS track analysis, smoothing and lightweight map visualizations.',
-    tags: ['Rust', 'Python', 'GIS'],
+    description: 'Flutter app for railway enthusiasts to log, visualise and track train journeys on an interactive map with a bundled rail network and edge-toggling progress system.',
+    tags: ['Flutter', 'Dart', 'Maps'],
     github: 'https://github.com/TheFirstIstari/TrackBound',
   },
   {
     title: 'CCC - GCC Studio',
-    description: 'Interactive web UI to compare GCC and Claude\'s C Compiler assembly.',
-    tags: ['Python', 'C', 'Web'],
+    description: 'Flask web tool that compiles the same C snippet with both GCC (ARM64) and Claude\'s C Compiler, then shows the disassembled output side-by-side.',
+    tags: ['Python', 'Flask', 'C'],
     github: 'https://github.com/TheFirstIstari/GCC-CCC-comparison',
   },
   {
     title: 'Benchmarks',
-    description: 'Performance benchmarking suite for Python, CUDA, and various compute workloads.',
-    tags: ['Python', 'Benchmark', 'CUDA'],
+    description: 'Cross-language benchmark suite covering C, C++, Rust, Python and Java across 12 categories. Includes an interactive TUI with graph/table views and SQLite result history.',
+    tags: ['C', 'Rust', 'Python', 'Benchmarks'],
     github: 'https://github.com/TheFirstIstari/Benchmarks',
   },
 ];
@@ -76,8 +76,6 @@ const projects = [
 
   <main class="min-h-screen">
     <Hero client:load />
-
-    <About client:visible />
 
     <Skills client:visible />
 
