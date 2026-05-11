@@ -4,25 +4,36 @@ import Hero from '../components/Hero';
 import ProjectCard from '../components/ProjectCard';
 import ThemeToggle from '../components/ThemeToggle';
 import SectionTitle from '../components/SectionTitle';
+import About from '../components/About';
+import Skills from '../components/Skills';
+import NavBar from '../components/NavBar';
 
 const projects = [
   {
-    title: 'Benchmarks',
-    description: 'Performance benchmarking suite for Python, CUDA, and various compute workloads.',
-    tags: ['Python', 'Benchmark', 'CUDA'],
-    github: 'https://github.com/TheFirstIstari/Benchmarks',
+    title: 'DesiMapper',
+    description: '3D visualization of the DESI DR1 galaxy survey — ~40 million galaxies mapped across 14 billion years of cosmic time, with a Blender cinematic and a live Three.js/WebGL point cloud.',
+    tags: ['Python', 'Three.js', 'Blender', 'Astronomy'],
+    github: 'https://github.com/TheFirstIstari/DesiMapper',
+    more: '/projects#desimapper',
   },
   {
-    title: 'Coursework Repo',
-    description: 'C# algorithms, data structures and practice exercises.',
-    tags: ['C#', 'Algorithms'],
-    github: 'https://github.com/TheFirstIstari/CourseWorkRepo',
+    title: 'SL Studio',
+    description: 'Local-first forensic document analysis desktop app with LLM inference, multi-pass pipelines, timeline/network/geo visualizations and evidence export.',
+    tags: ['Tauri', 'Rust', 'SvelteKit', 'AI'],
+    github: 'https://github.com/TheFirstIstari/sl-studio',
+    more: '/projects#slstudio',
   },
   {
-    title: 'TrackBound',
-    description: 'Realtime GPS track analysis, smoothing and lightweight map visualizations.',
-    tags: ['Rust', 'Python', 'GIS'],
-    github: 'https://github.com/TheFirstIstari/TrackBound',
+    title: 'Traincraft',
+    description: 'Complete rewrite of the classic Traincraft Minecraft mod for 1.21.1 using NeoForge — locomotives, wagons, tracks and industrial machinery.',
+    tags: ['Java', 'NeoForge', 'Minecraft'],
+    more: '/projects#traincraft',
+  },
+  {
+    title: 'fervo',
+    description: 'Federated, auditable, zero-trust voting protocol using zero-knowledge proofs for open-source governance — end-to-end verifiable with no single point of trust.',
+    tags: ['Protocol', 'ZK-Proofs', 'Cryptography'],
+    more: '/projects#fervo',
   },
   {
     title: 'Project SteinLine',
@@ -39,19 +50,36 @@ const projects = [
     demo: 'https://www.youtube.com/watch?v=Ia1wR8HScm0',
   },
   {
+    title: 'TrackBound',
+    description: 'Realtime GPS track analysis, smoothing and lightweight map visualizations.',
+    tags: ['Rust', 'Python', 'GIS'],
+    github: 'https://github.com/TheFirstIstari/TrackBound',
+  },
+  {
     title: 'CCC - GCC Studio',
     description: 'Interactive web UI to compare GCC and Claude\'s C Compiler assembly.',
     tags: ['Python', 'C', 'Web'],
     github: 'https://github.com/TheFirstIstari/GCC-CCC-comparison',
   },
+  {
+    title: 'Benchmarks',
+    description: 'Performance benchmarking suite for Python, CUDA, and various compute workloads.',
+    tags: ['Python', 'Benchmark', 'CUDA'],
+    github: 'https://github.com/TheFirstIstari/Benchmarks',
+  },
 ];
 ---
 
-<Layout title="TheFirstIstari | Projects">
+<Layout title="TheFirstIstari | Portfolio" description="TheFirstIstari — developer building systems tools, AI pipelines, astronomy visualisers and more.">
+  <NavBar client:load />
   <ThemeToggle client:load />
 
   <main class="min-h-screen">
     <Hero client:load />
+
+    <About client:visible />
+
+    <Skills client:visible />
 
     <section class="py-20 px-4 max-w-6xl mx-auto" id="projects">
       <SectionTitle
@@ -74,8 +102,19 @@ const projects = [
           />
         ))}
       </div>
-    </section>
 
+      <div class="mt-10 text-center">
+        <a
+          href="/projects"
+          class="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-[#028090] text-[#028090] hover:bg-[#028090] hover:text-[#020202] transition-colors text-sm font-medium"
+        >
+          View all projects with details
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+          </svg>
+        </a>
+      </div>
+    </section>
 
     <footer class="py-8 text-center text-[rgba(251,251,255,0.4)] text-sm">
       <p>© {new Date().getFullYear()} TheFirstIstari. All rights reserved.</p>

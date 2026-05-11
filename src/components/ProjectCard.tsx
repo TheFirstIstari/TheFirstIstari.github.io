@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion';
-import type { ReactNode } from 'react';
 
 interface ProjectCardProps {
   title: string;
@@ -9,11 +8,15 @@ interface ProjectCardProps {
   demo?: string;
   more?: string;
   index: number;
+  id?: string;
+  detail?: string;
 }
 
-export default function ProjectCard({ title, description, tags, github, demo, more, index }: ProjectCardProps) {
+export default function ProjectCard({ title, description, tags, github, demo, more, index, id, detail }: ProjectCardProps) {
   return (
     <motion.article
+      id={id}
+      data-tags={tags.join(',')}
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
@@ -22,22 +25,30 @@ export default function ProjectCard({ title, description, tags, github, demo, mo
         delay: index * 0.1,
         ease: "easeOut"
       }}
-      className="group relative bg-[rgba(255,255,255,0.03)] rounded-2xl p-6 backdrop-blur-sm border border-[rgba(255,255,255,0.05)] hover:border-[rgba(2,128,144,0.3)] transition-all duration-300 hover:transform hover:-translate-y-2"
+      className="group relative rounded-2xl p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-2"
       style={{
+        background: 'var(--bg-card)',
+        border: '1px solid var(--border)',
         boxShadow: '0 4px 24px rgba(0,0,0,0.2)',
+      }}
+      whileHover={{
+        borderColor: 'var(--border-hover)',
       }}
     >
       {/* Glow effect on hover */}
       <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#028090]/10 to-[#b6465f]/10" />
+        <div className="absolute inset-0 bg-gradient-to-br from-[#028090]/10 to-[#b6465f]/10 rounded-2xl" />
       </div>
 
       <div className="relative z-10">
-        <h3 className="text-xl font-semibold text-[#028090] mb-2 group-hover:text-[#b6465f] transition-colors">
+        <h3
+          className="text-xl font-semibold mb-2 group-hover:text-[#b6465f] transition-colors"
+          style={{ color: '#028090' }}
+        >
           {title}
         </h3>
         
-        <p className="text-[rgba(251,251,255,0.7)] mb-4 text-sm leading-relaxed">
+        <p className="mb-4 text-sm leading-relaxed" style={{ color: 'var(--text-muted)' }}>
           {description}
         </p>
 
@@ -46,7 +57,12 @@ export default function ProjectCard({ title, description, tags, github, demo, mo
           {tags.map((tag) => (
             <span
               key={tag}
-              className="px-3 py-1 text-xs rounded-full bg-[rgba(2,128,144,0.15)] text-[#028090] border border-[rgba(2,128,144,0.2)]"
+              className="px-3 py-1 text-xs rounded-full"
+              style={{
+                background: 'var(--tag-bg)',
+                color: 'var(--tag-text)',
+                border: '1px solid var(--tag-border)',
+              }}
             >
               {tag}
             </span>
@@ -60,8 +76,9 @@ export default function ProjectCard({ title, description, tags, github, demo, mo
               href={github}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-[#028090] text-[#020202] text-sm font-medium hover:bg-[#028090]/90 transition-colors"
-              whileHover={{ scale: 1.05 }}
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-colors"
+              style={{ background: '#028090', color: '#020202' }}
+              whileHover={{ scale: 1.05, filter: 'brightness(1.1)' }}
               whileTap={{ scale: 0.95 }}
             >
               <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
@@ -75,7 +92,8 @@ export default function ProjectCard({ title, description, tags, github, demo, mo
               href={demo}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-[rgba(255,255,255,0.2)] text-[rgba(251,251,255,0.8)] text-sm hover:border-[#b6465f] hover:text-[#b6465f] transition-colors"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm transition-colors hover:text-[#b6465f] hover:border-[#b6465f]"
+              style={{ border: '1px solid var(--border)', color: 'var(--text-muted)' }}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -88,7 +106,8 @@ export default function ProjectCard({ title, description, tags, github, demo, mo
           {more && (
             <motion.a
               href={more}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-[rgba(255,255,255,0.1)] text-[rgba(251,251,255,0.6)] text-sm hover:border-[#028090] hover:text-[#028090] transition-colors"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm transition-colors hover:text-[#028090] hover:border-[#028090]"
+              style={{ border: '1px solid var(--border)', color: 'var(--text-faint)' }}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -99,6 +118,18 @@ export default function ProjectCard({ title, description, tags, github, demo, mo
             </motion.a>
           )}
         </div>
+
+        {detail && (
+          <p
+            className="mt-4 pt-4 text-xs leading-relaxed"
+            style={{
+              borderTop: '1px solid var(--detail-border)',
+              color: 'var(--text-detail)',
+            }}
+          >
+            {detail}
+          </p>
+        )}
       </div>
     </motion.article>
   );

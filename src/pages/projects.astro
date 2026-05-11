@@ -6,53 +6,87 @@ import SectionTitle from '../components/SectionTitle';
 
 const projects = [
   {
-    title: 'Benchmarks',
-    description: 'Performance benchmarking suite for Python, CUDA, and various compute workloads. Includes timing, profiling and comparison metrics across different implementations.',
-    tags: ['Python', 'Benchmark', 'GPU'],
-    github: 'https://github.com/TheFirstIstari/Benchmarks',
+    id: 'desimapper',
+    title: 'DesiMapper',
+    description: '3D visualization of the DESI DR1 galaxy survey — ~40 million galaxies mapped across 14 billion years of cosmic time. Produces a Blender cinematic fly-through and an interactive Three.js/WebGL point cloud rendering ~500k galaxies at 60fps.',
+    tags: ['Python', 'Three.js', 'Blender', 'Astronomy'],
+    github: 'https://github.com/TheFirstIstari/DesiMapper',
+    detail: 'Uses the DESI LSS clustering catalogues (BGS, LRG, ELG, QSO tracers) processed with astropy, polars and numpy. The web viewer runs fully in-browser via WebGL and the cinematic pipeline runs through Blender\'s Python API.',
   },
   {
-    title: 'Coursework Repo',
-    description: 'A curated collection of C# coursework covering trees, graphs, algorithms and coding challenge solutions.',
-    tags: ['C#', 'Algorithms'],
-    github: 'https://github.com/TheFirstIstari/CourseWorkRepo',
+    id: 'slstudio',
+    title: 'SL Studio',
+    description: 'Local-first forensic document analysis desktop app. Ingest PDFs, images, audio, DOCX and plaintext evidence — all LLM inference runs locally via llama.cpp with no cloud dependencies.',
+    tags: ['Tauri', 'Rust', 'SvelteKit', 'AI'],
+    github: 'https://github.com/TheFirstIstari/sl-studio',
+    detail: 'Built on Tauri 2 + Rust backend with a SvelteKit 5 front-end. Features multi-pass analysis pipelines (Financial Crimes, Document Analysis, OCR, Audio), EXIF/PDF metadata extraction, fact deduplication, and timeline/network/geo visualizations. Exports to JSON, CSV, PDF and Excel.',
   },
   {
-    title: 'TrackBound',
-    description: 'Realtime GPS track analysis, smoothing and lightweight map visualizations.',
-    tags: ['Rust', 'Python', 'GIS'],
-    github: 'https://github.com/TheFirstIstari/TrackBound',
+    id: 'traincraft',
+    title: 'Traincraft',
+    description: 'Complete rewrite of the classic Traincraft Minecraft mod for 1.21.1 using NeoForge — locomotives, wagons, industrial machinery and a full track-laying system.',
+    tags: ['Java', 'NeoForge', 'Minecraft'],
+    detail: 'Rebuilds the original Traincraft from the ground up. Features 20+ blocks including a Distillery, Assembly Tables, Open Hearth Furnace, power generation (Water Wheel, Wind Mill, Diesel Generator), and the core train infrastructure for track routing and locomotive control.',
   },
   {
+    id: 'fervo',
+    title: 'fervo',
+    description: 'Federated, auditable, zero-trust voting protocol using Semaphore-style zero-knowledge membership proofs. Supports public-signed and secret-ballot modes with end-to-end verifiability via append-only transparency logs.',
+    tags: ['Protocol', 'ZK-Proofs', 'Cryptography'],
+    detail: 'No single operator can manipulate outcomes or de-anonymise voters. Voters are light clients — casting a ballot requires no consensus infrastructure. Designed to scale from small project elections (≤10k voters) to foundation-grade elections (~1M voters) under a phased deployment roadmap.',
+  },
+  {
+    id: 'steinline',
     title: 'Project SteinLine',
     description: 'Asymmetrical distributed forensic platform for documents, images and video with GPU inference and a PySide6 visualization front-end.',
     tags: ['Python', 'AI', 'GPU', 'Qt'],
     github: 'https://github.com/TheFirstIstari/Project-SteinLine',
+    detail: 'Multimodal AI pipeline with edge storage nodes and a central Qt-based visualization client. GPU-accelerated inference via CUDA for image and video forensics.',
   },
   {
+    id: 'badapplestein',
     title: 'BadAppleStein',
     description: 'Reconstructs high-contrast video animations by matching frames to a library of PDF pages. Fast C components and multiple rendering pipelines.',
     tags: ['Python', 'C', 'FFmpeg'],
     github: 'https://github.com/TheFirstIstari/BadAppleStein',
     demo: 'https://www.youtube.com/watch?v=Ia1wR8HScm0',
+    detail: 'Each frame of an input video is matched against thousands of PDF page thumbnails using perceptual hashing in C. The matched pages are assembled back into a video via FFmpeg, recreating the animation using document pages as pixels.',
   },
   {
+    id: 'trackbound',
+    title: 'TrackBound',
+    description: 'Realtime GPS track analysis, smoothing and lightweight map visualizations.',
+    tags: ['Rust', 'Python', 'GIS'],
+    github: 'https://github.com/TheFirstIstari/TrackBound',
+    detail: 'Parses GPX/FIT track data, applies Kalman smoothing and Douglas-Peucker simplification, and renders interactive map overlays. Rust core for performance-critical smoothing with a Python CLI for data import and export.',
+  },
+  {
+    id: 'ccc-gcc',
     title: 'CCC - GCC Studio',
     description: 'A Flask app that compiles user C code with GCC (ARM64) and Claude\'s C Compiler (CCC), disassembles the outputs and shows them side-by-side for comparison.',
     tags: ['Python', 'C', 'Web'],
     github: 'https://github.com/TheFirstIstari/GCC-CCC-comparison',
+    detail: 'Compile the same C snippet with both GCC and an AI-assisted compiler and immediately compare the generated assembly. Useful for studying compiler optimizations and AI-generated code quality.',
+  },
+  {
+    id: 'benchmarks',
+    title: 'Benchmarks',
+    description: 'Performance benchmarking suite for Python, CUDA, and various compute workloads. Includes timing, profiling and comparison metrics across different implementations.',
+    tags: ['Python', 'Benchmark', 'CUDA'],
+    github: 'https://github.com/TheFirstIstari/Benchmarks',
+    detail: 'A collection of micro and macro benchmarks covering pure Python, NumPy, Numba, and CUDA kernels. Outputs structured timing data for easy comparison across hardware and implementations.',
   },
 ];
 
 const allTags = [...new Set(projects.flatMap(p => p.tags))];
 ---
 
-<Layout title="TheFirstIstari | Projects">
+<Layout title="TheFirstIstari | Projects" description="All projects by TheFirstIstari — systems programming, AI, astronomy visualizations, cryptography and more.">
   <ThemeToggle client:load />
   
   <main class="min-h-screen py-20 px-4">
     <div class="max-w-6xl mx-auto">
-      <a href="/" class="inline-flex items-center gap-2 text-[rgba(251,251,255,0.6)] hover:text-[#028090] transition-colors mb-8">
+      <a href="/" class="inline-flex items-center gap-2 text-[rgba(251,251,255,0.6)] hover:text-[#028090] transition-colors mb-8 dark:text-[rgba(251,251,255,0.6)] light:text-[rgba(2,2,2,0.6)]">
         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
         </svg>
@@ -61,8 +95,8 @@ const allTags = [...new Set(projects.flatMap(p => p.tags))];
       
       <SectionTitle 
         client:visible
-        title="Project Details"
-        description="Curated projects, demos and experiments."
+        title="Projects"
+        description="Curated projects, demos and experiments spanning systems programming, AI, astronomy and more."
       />
 
       <div class="mb-8">
@@ -94,6 +128,8 @@ const allTags = [...new Set(projects.flatMap(p => p.tags))];
             github={project.github}
             demo={project.demo}
             index={index}
+            id={project.id}
+            detail={project.detail}
           />
         ))}
       </div>
@@ -127,4 +163,13 @@ const allTags = [...new Set(projects.flatMap(p => p.tags))];
 
   // Set initial active state
   buttons[0].classList.add('bg-[#028090]', 'text-[#020202]', 'border-[#028090]');
+
+  // Scroll to anchor if hash present
+  const hash = window.location.hash;
+  if (hash) {
+    const el = document.querySelector(hash);
+    if (el) {
+      setTimeout(() => el.scrollIntoView({ behavior: 'smooth', block: 'center' }), 300);
+    }
+  }
 </script>
