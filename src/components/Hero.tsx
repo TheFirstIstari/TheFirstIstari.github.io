@@ -1,6 +1,17 @@
 import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
 
 export default function Hero() {
+  const [isLight, setIsLight] = useState(false);
+
+  useEffect(() => {
+    const check = () => setIsLight(document.documentElement.classList.contains("light"));
+    check();
+    const observer = new MutationObserver(check);
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ["class"] });
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <section className="min-h-[80vh] flex flex-col items-center justify-center relative overflow-hidden px-4">
       {/* Background gradient */}
@@ -64,7 +75,12 @@ export default function Hero() {
         </motion.div>
 
         <motion.h1
-          className="text-5xl md:text-7xl font-bold mb-4 bg-gradient-to-r from-[#fbfbff] via-[#fbfbff] to-[#028090] bg-clip-text text-transparent"
+          className="text-5xl md:text-7xl font-bold mb-4 bg-clip-text text-transparent"
+          style={{
+            backgroundImage: isLight
+              ? "linear-gradient(to right, #0a1a1e, #028090, #b6465f)"
+              : "linear-gradient(to right, #fbfbff, #fbfbff, #028090)",
+          }}
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.3, duration: 0.6 }}
@@ -111,7 +127,11 @@ export default function Hero() {
             href="https://www.youtube.com/@TheFirstIstari"
             target="_blank"
             rel="noopener noreferrer"
-            className="px-6 py-3 rounded-full border border-[rgba(251,251,255,0.3)] text-[rgba(251,251,255,0.8)] hover:border-[#b6465f] hover:text-[#b6465f] transition-colors"
+            className="px-6 py-3 rounded-full transition-colors hover:border-[#b6465f] hover:text-[#b6465f]"
+            style={{
+              border: isLight ? "1px solid rgba(10,26,30,0.3)" : "1px solid rgba(251,251,255,0.3)",
+              color: isLight ? "rgba(10,26,30,0.75)" : "rgba(251,251,255,0.8)",
+            }}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
