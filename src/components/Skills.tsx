@@ -7,7 +7,7 @@ const skillGroups = [
   },
   {
     label: 'AI / ML',
-    skills: ['llama.cpp', 'CUDA', 'NumPy', 'Polars', 'MASt3R', 'Local LLM Inference'],
+    skills: ['llama.cpp', 'CUDA', 'NumPy', 'Polars', 'Local LLM Inference'],
   },
   {
     label: 'Systems & Desktop',
