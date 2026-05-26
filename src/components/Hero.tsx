@@ -13,7 +13,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="min-h-[80vh] flex flex-col items-center justify-center relative overflow-hidden px-4">
+    <section className="min-h-[82vh] flex flex-col items-center justify-center relative overflow-hidden px-4 pt-20">
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-[#028090]/20 via-transparent to-[#b6465f]/20" />
 
@@ -41,7 +41,7 @@ export default function Hero() {
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
-        className="relative z-10 text-center"
+        className="relative z-10 text-center max-w-5xl"
       >
         {/* Avatar */}
         <motion.div
@@ -87,6 +87,35 @@ export default function Hero() {
         >
           TheFirstIstari
         </motion.h1>
+
+        <motion.p
+          className="mx-auto mb-6 max-w-3xl text-lg md:text-xl leading-relaxed"
+          style={{ color: "var(--text-muted)" }}
+          initial={{ y: 20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ delay: 0.4, duration: 0.6 }}
+        >
+          Building local-first AI tools, realtime apps, astronomy visualisers, Minecraft systems, and weird performance experiments.
+        </motion.p>
+
+        <motion.div
+          className="mb-8 grid grid-cols-2 md:grid-cols-4 gap-3"
+          initial={{ y: 20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ delay: 0.45, duration: 0.6 }}
+        >
+          {[
+            ["40M+", "DESI objects"],
+            ["1.21.1", "NeoForge target"],
+            ["Realtime", "shared boards"],
+            ["Local", "AI inference"],
+          ].map(([value, label]) => (
+            <div key={label} className="rounded-2xl px-4 py-3" style={{ background: "var(--bg-card)", border: "1px solid var(--border)" }}>
+              <div className="text-lg font-semibold" style={{ color: "#028090" }}>{value}</div>
+              <div className="text-xs uppercase tracking-widest" style={{ color: "var(--text-faint)" }}>{label}</div>
+            </div>
+          ))}
+        </motion.div>
 
         {/* Links */}
         <motion.div

@@ -7,7 +7,7 @@ const skillGroups = [
   },
   {
     label: 'AI / ML',
-    skills: ['llama.cpp', 'CUDA', 'NumPy', 'Polars', 'Local LLM Inference'],
+    skills: ['llama.cpp', 'CUDA', 'NumPy', 'Polars', 'MASt3R', 'Local LLM Inference'],
   },
   {
     label: 'Systems & Desktop',
@@ -15,11 +15,11 @@ const skillGroups = [
   },
   {
     label: 'Web & Visualisation',
-    skills: ['Astro', 'SvelteKit', 'Three.js / WebGL', 'React', 'Tailwind'],
+    skills: ['Astro', 'Next.js', 'SvelteKit', 'Three.js / WebGL', 'React', 'Tailwind'],
   },
   {
     label: 'Data & Infra',
-    skills: ['astropy', 'Blender Python API', 'GIS / GPX', 'Git', 'GitHub Actions'],
+    skills: ['SpacetimeDB', 'SQLite', 'astropy', 'Blender Python API', 'GIS / GPX', 'GitHub Actions'],
   },
   {
     label: 'Cryptography',

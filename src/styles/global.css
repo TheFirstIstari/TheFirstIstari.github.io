@@ -25,6 +25,9 @@
   --tag-bg: rgba(2, 128, 144, 0.15);
   --tag-border: rgba(2, 128, 144, 0.2);
   --tag-text: #028090;
+  --status-bg: rgba(182, 70, 95, 0.12);
+  --status-border: rgba(182, 70, 95, 0.28);
+  --status-text: #b6465f;
   --nav-bg: rgba(2, 2, 2, 0.85);
   --detail-border: rgba(255, 255, 255, 0.06);
 }
@@ -43,6 +46,9 @@
   --tag-bg: rgba(2, 128, 144, 0.1);
   --tag-border: rgba(2, 128, 144, 0.25);
   --tag-text: #016a78;
+  --status-bg: rgba(182, 70, 95, 0.1);
+  --status-border: rgba(182, 70, 95, 0.25);
+  --status-text: #8f2338;
   --nav-bg: rgba(234, 246, 246, 0.9);
   --detail-border: rgba(2, 128, 144, 0.1);
 }

@@ -8,12 +8,13 @@ interface ProjectCardProps {
   demo?: string;
   site?: string;
   more?: string;
+  status?: string;
   index: number;
   id?: string;
   detail?: string;
 }
 
-export default function ProjectCard({ title, description, tags, github, demo, site, more, index, id, detail }: ProjectCardProps) {
+export default function ProjectCard({ title, description, tags, github, demo, site, more, status, index, id, detail }: ProjectCardProps) {
   return (
     <motion.article
       id={id}
@@ -42,12 +43,19 @@ export default function ProjectCard({ title, description, tags, github, demo, si
       </div>
 
       <div className="relative z-10">
-        <h3
-          className="text-xl font-semibold mb-2 group-hover:text-[#b6465f] transition-colors"
-          style={{ color: '#028090' }}
-        >
-          {title}
-        </h3>
+        <div className="mb-2 flex items-start justify-between gap-3">
+          <h3
+            className="text-xl font-semibold group-hover:text-[#b6465f] transition-colors"
+            style={{ color: '#028090' }}
+          >
+            {title}
+          </h3>
+          {status && (
+            <span className="shrink-0 rounded-full px-2.5 py-1 text-[0.65rem] font-semibold uppercase tracking-widest" style={{ background: 'var(--status-bg)', color: 'var(--status-text)', border: '1px solid var(--status-border)' }}>
+              {status}
+            </span>
+          )}
+        </div>
         
         <p className="mb-4 text-sm leading-relaxed" style={{ color: 'var(--text-muted)' }}>
           {description}

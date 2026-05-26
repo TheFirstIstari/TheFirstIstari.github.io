@@ -3,84 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import ThemeToggle from '../components/ThemeToggle';
 import ProjectCard from '../components/ProjectCard';
 import SectionTitle from '../components/SectionTitle';
-
-const projects = [
-  {
-    id: 'desimapper',
-    title: 'DesiMapper',
-    description: 'Data pipeline and dual-output visualizer for the DESI DR1 galaxy survey. Processes ~40 million galaxy positions and produces a Blender cinematic fly-through and an interactive Three.js/WebGL point cloud.',
-    tags: ['Python', 'Three.js', 'Blender', 'Astronomy'],
-    github: 'https://github.com/TheFirstIstari/DesiMapper',
-    site: 'https://desi.tweak.wiki',
-    detail: 'Uses the DESI LSS clustering catalogues (BGS, LRG, ELG, QSO tracers). Raw FITS files are fetched, converted to Parquet, projected from RA/Dec/redshift to 3D Cartesian coordinates, then downsampled to ~500k points for the browser. The web viewer is pure Three.js/WebGL; the cinematic is rendered via Blender\'s Python API and exported as MP4.',
-  },
-  {
-    id: 'slstudio',
-    title: 'SL Studio',
-    description: 'Desktop forensic document analysis platform. Ingests PDFs, images, audio and DOCX evidence files and runs local LLM inference via llama.cpp — no cloud dependencies.',
-    tags: ['Tauri', 'Rust', 'SvelteKit', 'AI'],
-    github: 'https://github.com/TheFirstIstari/sl-studio',
-    detail: 'Built on Tauri 2 + Rust backend with a SvelteKit 5 front-end. Runs GGUF models locally via llama.cpp with Metal GPU acceleration on Apple Silicon. Features multi-pass analysis pipelines (Basic Facts, Financial Crimes, Document Analysis, OCR, Audio), EXIF/PDF metadata extraction, fact deduplication, and timeline/network graph/geo visualizations. Exports to JSON, CSV, PDF and Excel.',
-  },
-  {
-    id: 'traincraft',
-    title: 'Traincraft',
-    description: 'Complete rewrite of the original Traincraft Minecraft mod targeting 1.21.1 / NeoForge. Drivable steam and diesel locomotives, coupling physics, custom rails, Bezier curve tracks, and 80+ items.',
-    tags: ['Java', 'NeoForge', 'Minecraft'],
-    github: 'https://github.com/TheFirstIstari/Traincraft',
-    detail: 'Exceeds the legacy 1.12.2 mod in almost every category: 20 blocks, 80+ items, 14 dyeable armour pieces, 3 fluid types, and 5 entity types. Drivable rolling stock with W/S throttle, fuel-gated acceleration, steam whistle, and spring-force coupling that persists across world reloads. Curved rails use a two-click Bezier placement tool. Full JEI recipe integration and an in-game guide book.',
-  },
-  {
-    id: 'fervo',
-    title: 'fervo',
-    description: 'Draft protocol specification for a federated, auditable zero-trust voting system using zero-knowledge membership proofs and threshold cryptography for open-source governance.',
-    tags: ['Protocol', 'ZK-Proofs', 'Cryptography'],
-    detail: 'Currently a detailed pre-implementation specification (v0.1.0-draft). Separates voter identity from cast ballot via Semaphore-style Groth16 Merkle membership proofs. Supports public-signed and secret-ballot modes; results are verifiable via append-only transparency logs. Planned Rust monorepo with crates for core types, ZK circuits (Circom/Noir), Raft/CometBFT consensus, ballot construction, tally, and a standalone light-client verifier.',
-  },
-  {
-    id: 'steinline',
-    title: 'Project SteinLine',
-    description: 'Asymmetrical distributed forensic platform — Raspberry Pi storage nodes feed a GPU inference server (RTX 3090/4090) with results visualised on an interactive PySide6 canvas.',
-    tags: ['Python', 'AI', 'CUDA', 'Qt'],
-    github: 'https://github.com/TheFirstIstari/Project-SteinLine',
-    detail: 'Processes documents, images, and video evidence using multimodal AI. Recursive windowing avoids information loss on long documents. Integrated PDF deconstruction, OCR, and audio transcription pipelines. Source evidence is always read-only. Visualized on a 2D infinite canvas built with PySide6.',
-  },
-  {
-    id: 'badapplestein',
-    title: 'BadAppleStein',
-    description: 'Reconstructs high-contrast video by matching each frame to the closest page from a PDF library. C core for fast matching, multiple Python rendering pipelines, assembled with FFmpeg.',
-    tags: ['Python', 'C', 'FFmpeg'],
-    github: 'https://github.com/TheFirstIstari/BadAppleStein',
-    demo: 'https://www.youtube.com/watch?v=Ia1wR8HScm0',
-    detail: 'The matching core is written in C and compiled to a shared object called from Python. Multiple arrangement scripts (greedy, hyper) select and place PDF pages per frame; multiple render scripts assemble the output at varying quality/speed trade-offs. The final video is encoded by FFmpeg.',
-  },
-  {
-    id: 'trackbound',
-    title: 'TrackBound',
-    description: 'Flutter app for railway enthusiasts to log, visualise and track train journeys on an interactive map with a bundled rail network and edge-toggling progress system.',
-    tags: ['Flutter', 'Dart', 'Maps'],
-    github: 'https://github.com/TheFirstIstari/TrackBound',
-    detail: 'Ships with a precomputed rail edge dataset loaded into SQLite on first run. Tap rail segments on the map to mark them as travelled; segments can be grouped into station/junction progression groups. The seed is versioned so schema or data updates trigger an automatic reseed on upgrade.',
-  },
-  {
-    id: 'ccc-gcc',
-    title: 'CCC - GCC Studio',
-    description: 'Flask web tool that compiles the same C snippet with both GCC (ARM64) and Claude\'s C Compiler, then shows the disassembled output side-by-side.',
-    tags: ['Python', 'Flask', 'C'],
-    github: 'https://github.com/TheFirstIstari/GCC-CCC-comparison',
-    detail: 'Submit a C snippet via a browser form. The backend compiles it with GCC and with Claude\'s C Compiler, disassembles both outputs, and returns the assembly for a side-by-side diff view. Useful for studying what an AI compiler does differently to a production compiler.',
-  },
-  {
-    id: 'benchmarks',
-    title: 'Benchmarks',
-    description: 'Cross-language benchmark suite covering C, C++, Rust, Python and Java across 12 categories. Includes an interactive TUI with graph/table views and SQLite result history.',
-    tags: ['C', 'Rust', 'Python', 'Benchmarks'],
-    github: 'https://github.com/TheFirstIstari/Benchmarks',
-    detail: 'Benchmarks 12 categories including matrix ops, sorting, hashing, regex, JSON, file I/O, networking, cryptography, and concurrency. Results are stored in SQLite for cross-run comparison. The interactive TUI supports row selection, drill-down, statistical analysis (stddev, quartiles, min/max), and both graph and table views.',
-  },
-];
-
-const allTags = [...new Set(projects.flatMap(p => p.tags))];
+import { allTags, projects } from '../data/projects';
 ---
 
 <Layout title="TheFirstIstari | Projects" description="All projects by TheFirstIstari — systems programming, AI, astronomy visualizations, cryptography and more.">
@@ -98,7 +21,7 @@ const allTags = [...new Set(projects.flatMap(p => p.tags))];
       <SectionTitle 
         client:visible
         title="Projects"
-        description="Curated projects, demos and experiments spanning systems programming, AI, astronomy and more."
+        description="Current projects, prototypes and experiments across systems, AI, data visualisation, realtime apps and creative tooling."
       />
 
       <div class="mb-8">
@@ -130,6 +53,7 @@ const allTags = [...new Set(projects.flatMap(p => p.tags))];
             github={project.github}
             demo={project.demo}
             site={project.site}
+            status={project.status}
             index={index}
             id={project.id}
             detail={project.detail}
