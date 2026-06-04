@@ -33,9 +33,9 @@ export default function About() {
           className="flex items-center gap-2 px-4 py-2.5"
           style={{ borderBottom: '1px solid var(--border)' }}
         >
-          <span className="w-2.5 h-2.5 rounded-full" style={{ background: '#e06b82' }} />
-          <span className="w-2.5 h-2.5 rounded-full" style={{ background: '#e3b341' }} />
-          <span className="w-2.5 h-2.5 rounded-full" style={{ background: '#2dd4bf' }} />
+          <span className="w-2.5 h-2.5 rounded-full" style={{ background: 'var(--dot)' }} />
+          <span className="w-2.5 h-2.5 rounded-full" style={{ background: 'var(--dot)' }} />
+          <span className="w-2.5 h-2.5 rounded-full" style={{ background: 'var(--dot)' }} />
           <span className="ml-3 text-xs" style={{ color: 'var(--text-faint)' }}>
             ~/about
           </span>

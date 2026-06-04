@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 
 const links = [
   { label: 'skills', href: '/#skills' },
-  { label: 'projects', href: '/projects' },
+  { label: 'projects', href: '/projects/' },
 ];
 
 export default function NavBar() {

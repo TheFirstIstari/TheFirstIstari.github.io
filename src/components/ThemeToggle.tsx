@@ -8,8 +8,7 @@ export default function ThemeToggle() {
   useEffect(() => {
     setMounted(true);
     const saved = localStorage.getItem('theme');
-    const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
-    const initial = (saved || (prefersLight ? 'light' : 'dark')) as 'dark' | 'light';
+    const initial = (saved || 'light') as 'dark' | 'light';
     setTheme(initial);
     applyTheme(initial);
   }, []);

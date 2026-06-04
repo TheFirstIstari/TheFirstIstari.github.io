@@ -59,10 +59,8 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? 'https://tweak.wi
     if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
       return localStorage.getItem('theme');
     }
-    if (window.matchMedia('(prefers-color-scheme: light)').matches) {
-      return 'light';
-    }
-    return 'dark';
+    // Light is the default
+    return 'light';
   };
 
   const setTheme = (theme) => {

@@ -40,7 +40,7 @@ import { featuredProjects } from '../data/projects';
             demo={project.demo}
             site={project.site}
             status={project.status}
-            more={`/projects#${project.id}`}
+            more={`/projects/#${project.id}`}
             index={index}
           />
         ))}
@@ -48,7 +48,7 @@ import { featuredProjects } from '../data/projects';
 
       <div class="mt-10">
         <a
-          href="/projects"
+          href="/projects/"
           class="inline-flex items-center gap-2 px-4 py-2 rounded-md text-sm font-medium transition-colors"
           style="border: 1px solid var(--tag-border); color: var(--accent);"
         >

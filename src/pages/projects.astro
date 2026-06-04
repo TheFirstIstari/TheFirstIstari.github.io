@@ -66,45 +66,50 @@ import { allTags, projects } from '../data/projects';
 </Layout>
 
 <script>
-  const buttons = document.querySelectorAll<HTMLElement>('.tag-btn');
-  const cards = document.querySelectorAll('article');
+  // Runs on first load AND on every client-side navigation (Astro ClientRouter).
+  function initProjectsPage() {
+    const buttons = document.querySelectorAll<HTMLElement>('.tag-btn');
+    if (!buttons.length) return;
+    const cards = document.querySelectorAll('article');
 
-  const setActive = (btn: HTMLElement) => {
-    buttons.forEach(b => {
-      b.style.borderColor = 'var(--border)';
-      b.style.color = 'var(--text-muted)';
-      b.style.background = 'transparent';
-    });
-    btn.style.borderColor = 'var(--accent)';
-    btn.style.color = 'var(--accent)';
-    btn.style.background = 'var(--tag-bg)';
-  };
+    const setActive = (btn: HTMLElement) => {
+      buttons.forEach(b => {
+        b.style.borderColor = 'var(--border)';
+        b.style.color = 'var(--text-muted)';
+        b.style.background = 'transparent';
+      });
+      btn.style.borderColor = 'var(--accent)';
+      btn.style.color = 'var(--accent)';
+      btn.style.background = 'var(--tag-bg)';
+    };
 
-  buttons.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const tag = btn.getAttribute('data-tag');
-      setActive(btn);
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const tag = btn.getAttribute('data-tag');
+        setActive(btn);
 
-      cards.forEach(card => {
-        const cardTags = card.getAttribute('data-tags')?.split(',') || [];
-        if (tag === 'all' || (tag && cardTags.includes(tag))) {
-          (card as HTMLElement).style.display = 'block';
-        } else {
-          (card as HTMLElement).style.display = 'none';
-        }
+        cards.forEach(card => {
+          const cardTags = card.getAttribute('data-tags')?.split(',') || [];
+          if (tag === 'all' || (tag && cardTags.includes(tag))) {
+            (card as HTMLElement).style.display = 'block';
+          } else {
+            (card as HTMLElement).style.display = 'none';
+          }
+        });
       });
     });
-  });
 
-  // Set initial active state
-  setActive(buttons[0]);
+    setActive(buttons[0]);
 
-  // Scroll to anchor if hash present
-  const hash = window.location.hash;
-  if (hash) {
-    const el = document.querySelector(hash);
-    if (el) {
-      setTimeout(() => el.scrollIntoView({ behavior: 'smooth', block: 'center' }), 300);
+    // Scroll to anchor if hash present
+    const hash = window.location.hash;
+    if (hash) {
+      const el = document.querySelector(hash);
+      if (el) {
+        setTimeout(() => el.scrollIntoView({ behavior: 'smooth', block: 'center' }), 300);
+      }
     }
   }
+
+  document.addEventListener('astro:page-load', initProjectsPage);
 </script>

@@ -15,7 +15,7 @@ const SCRIPT: Line[] = [
 
 const LINKS = [
   { label: "github", href: "https://github.com/TheFirstIstari", color: "var(--accent)" },
-  { label: "projects", href: "/projects", color: "var(--accent)" },
+  { label: "projects", href: "/projects/", color: "var(--accent)" },
   { label: "youtube", href: "https://www.youtube.com/@TheFirstIstari", color: "var(--accent-2)" },
   { label: "instagram", href: "https://instagram.com/TheFirstIstari", color: "var(--accent-2)" },
 ];
@@ -141,9 +141,9 @@ export default function Hero() {
             className="flex items-center gap-2 px-4 py-2.5"
             style={{ borderBottom: "1px solid var(--border)" }}
           >
-            <span className="w-3 h-3 rounded-full" style={{ background: "#e06b82" }} />
-            <span className="w-3 h-3 rounded-full" style={{ background: "#e3b341" }} />
-            <span className="w-3 h-3 rounded-full" style={{ background: "#2dd4bf" }} />
+            <span className="w-3 h-3 rounded-full" style={{ background: "var(--dot)" }} />
+            <span className="w-3 h-3 rounded-full" style={{ background: "var(--dot)" }} />
+            <span className="w-3 h-3 rounded-full" style={{ background: "var(--dot)" }} />
             <span
               className="ml-3 text-xs"
               style={{ color: "var(--text-faint)" }}
