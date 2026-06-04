@@ -6,38 +6,39 @@ import SectionTitle from '../components/SectionTitle';
 import { allTags, projects } from '../data/projects';
 ---
 
-<Layout title="TheFirstIstari | Projects" description="All projects by TheFirstIstari — systems programming, AI, astronomy visualizations, cryptography and more.">
+<Layout title="TheFirstIstari | Projects" description="All projects by TheFirstIstari — systems programming, performance, security, cryptography, data visualisation and more.">
   <ThemeToggle client:load />
   
-  <main class="min-h-screen py-20 px-4">
+  <main class="relative z-10 min-h-screen py-20 px-4">
     <div class="max-w-6xl mx-auto">
-      <a href="/" class="inline-flex items-center gap-2 text-[rgba(251,251,255,0.6)] hover:text-[#028090] transition-colors mb-8 dark:text-[rgba(251,251,255,0.6)] light:text-[rgba(2,2,2,0.6)]">
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-        </svg>
-        Back
+      <a href="/" class="inline-flex items-center gap-2 transition-colors mb-8" style="color: var(--text-muted);">
+        <span style="color: var(--accent-2);">❯</span> cd ..
       </a>
       
       <SectionTitle 
         client:visible
-        title="Projects"
-        description="Current projects, prototypes and experiments across systems, AI, data visualisation, realtime apps and creative tooling."
+        command="ls"
+        title="projects/ -la"
+        description="everything — systems, performance, security, cryptography, data visualisation, realtime apps and creative tooling."
       />
 
       <div class="mb-8">
+        <p class="text-xs mb-3" style="color: var(--comment);">// grep --tag</p>
         <div class="flex flex-wrap gap-2">
           <button
-            class="tag-btn active px-4 py-2 rounded-full text-sm border border-[rgba(255,255,255,0.1)] text-[rgba(251,251,255,0.8)] hover:border-[#028090] hover:text-[#028090] transition-colors"
+            class="tag-btn active px-3 py-1.5 rounded-md text-xs transition-colors"
             data-tag="all"
+            style="border: 1px solid var(--border); color: var(--text-muted);"
           >
-            All
+            #all
           </button>
           {allTags.map(tag => (
             <button
-              class="tag-btn px-4 py-2 rounded-full text-sm border border-[rgba(255,255,255,0.1)] text-[rgba(251,251,255,0.8)] hover:border-[#028090] hover:text-[#028090] transition-colors"
+              class="tag-btn px-3 py-1.5 rounded-md text-xs transition-colors"
               data-tag={tag}
+              style="border: 1px solid var(--border); color: var(--text-muted);"
             >
-              {tag}
+              #{tag.replace(/\s+/g, '')}
             </button>
           ))}
         </div>
@@ -65,21 +66,28 @@ import { allTags, projects } from '../data/projects';
 </Layout>
 
 <script>
-  const buttons = document.querySelectorAll('.tag-btn');
+  const buttons = document.querySelectorAll<HTMLElement>('.tag-btn');
   const cards = document.querySelectorAll('article');
+
+  const setActive = (btn: HTMLElement) => {
+    buttons.forEach(b => {
+      b.style.borderColor = 'var(--border)';
+      b.style.color = 'var(--text-muted)';
+      b.style.background = 'transparent';
+    });
+    btn.style.borderColor = 'var(--accent)';
+    btn.style.color = 'var(--accent)';
+    btn.style.background = 'var(--tag-bg)';
+  };
 
   buttons.forEach(btn => {
     btn.addEventListener('click', () => {
       const tag = btn.getAttribute('data-tag');
-      
-      buttons.forEach(b => {
-        b.classList.remove('bg-[#028090]', 'text-[#020202]', 'border-[#028090]');
-      });
-      btn.classList.add('bg-[#028090]', 'text-[#020202]', 'border-[#028090]');
+      setActive(btn);
 
       cards.forEach(card => {
         const cardTags = card.getAttribute('data-tags')?.split(',') || [];
-        if (tag === 'all' || cardTags.includes(tag)) {
+        if (tag === 'all' || (tag && cardTags.includes(tag))) {
           (card as HTMLElement).style.display = 'block';
         } else {
           (card as HTMLElement).style.display = 'none';
@@ -89,7 +97,7 @@ import { allTags, projects } from '../data/projects';
   });
 
   // Set initial active state
-  buttons[0].classList.add('bg-[#028090]', 'text-[#020202]', 'border-[#028090]');
+  setActive(buttons[0]);
 
   // Scroll to anchor if hash present
   const hash = window.location.hash;

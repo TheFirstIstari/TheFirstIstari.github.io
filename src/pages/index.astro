@@ -5,24 +5,28 @@ import ProjectCard from '../components/ProjectCard';
 import ThemeToggle from '../components/ThemeToggle';
 import SectionTitle from '../components/SectionTitle';
 import Skills from '../components/Skills';
+import About from '../components/About';
 import NavBar from '../components/NavBar';
 import { featuredProjects } from '../data/projects';
 ---
 
-<Layout title="TheFirstIstari | Portfolio" description="TheFirstIstari — developer building systems tools, AI pipelines, astronomy visualisers and more.">
+<Layout title="TheFirstIstari | Portfolio" description="TheFirstIstari — systems engineer focused on performance, security and complex, hard-to-build software.">
   <NavBar client:load />
   <ThemeToggle client:load />
 
   <main class="min-h-screen">
     <Hero client:load />
 
+    <About client:visible />
+
     <Skills client:visible />
 
-    <section class="py-20 px-4 max-w-6xl mx-auto" id="projects">
+    <section class="relative z-10 py-20 px-4 max-w-6xl mx-auto" id="projects">
       <SectionTitle
         client:visible
-        title="Projects"
-        description="Current builds: realtime apps, astronomical data visualisation, local-first AI and systems-heavy tooling."
+        command="ls"
+        title="projects/"
+        description="selected work — performance-critical, security-focused and structurally complex builds."
       />
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -42,21 +46,19 @@ import { featuredProjects } from '../data/projects';
         ))}
       </div>
 
-      <div class="mt-10 text-center">
+      <div class="mt-10">
         <a
           href="/projects"
-          class="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-[#028090] text-[#028090] hover:bg-[#028090] hover:text-[#020202] transition-colors text-sm font-medium"
+          class="inline-flex items-center gap-2 px-4 py-2 rounded-md text-sm font-medium transition-colors"
+          style="border: 1px solid var(--tag-border); color: var(--accent);"
         >
-          View all projects with details
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-          </svg>
+          <span style="color: var(--accent-2);">❯</span> cd projects/ --all
         </a>
       </div>
     </section>
 
-    <footer class="py-8 text-center text-[rgba(251,251,255,0.4)] text-sm">
-      <p>© {new Date().getFullYear()} TheFirstIstari. All rights reserved.</p>
+    <footer class="relative z-10 py-10 px-4 max-w-6xl mx-auto text-sm" style="color: var(--text-faint); border-top: 1px solid var(--border);">
+      <p><span style="color: var(--comment);">#</span> © {new Date().getFullYear()} TheFirstIstari — built with Astro, deployed on Render.</p>
     </footer>
   </main>
 </Layout>

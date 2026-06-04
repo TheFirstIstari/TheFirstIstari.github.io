@@ -2,8 +2,8 @@ import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 
 const links = [
-  { label: 'Skills', href: '/#skills' },
-  { label: 'Projects', href: '/projects' },
+  { label: 'skills', href: '/#skills' },
+  { label: 'projects', href: '/projects' },
 ];
 
 export default function NavBar() {
@@ -30,19 +30,21 @@ export default function NavBar() {
       <div className="max-w-6xl mx-auto px-4 h-14 flex items-center justify-between">
         <a
           href="/"
-          className="font-semibold text-sm transition-colors hover:text-[#028090]"
+          className="font-semibold text-sm transition-colors"
           style={{ color: 'var(--text)' }}
         >
-          TheFirstIstari
+          <span style={{ color: 'var(--accent)' }}>~</span>
+          <span style={{ color: 'var(--text-faint)' }}>/</span>tweak.wiki
         </a>
         <div className="flex items-center gap-1">
           {links.map(link => (
             <a
               key={link.href}
               href={link.href}
-              className="px-3 py-1.5 text-sm rounded-lg transition-colors hover:text-[#028090]"
+              className="group px-3 py-1.5 text-sm rounded-md transition-colors"
               style={{ color: 'var(--text-muted)' }}
             >
+              <span style={{ color: 'var(--accent)' }} className="opacity-0 group-hover:opacity-100 transition-opacity">cd </span>
               {link.label}
             </a>
           ))}

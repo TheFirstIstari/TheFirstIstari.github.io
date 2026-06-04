@@ -1,25 +1,35 @@
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 
 interface SectionTitleProps {
   title: string;
   description?: string;
+  command?: string;
 }
 
-export default function SectionTitle({ title, description }: SectionTitleProps) {
+export default function SectionTitle({ title, description, command }: SectionTitleProps) {
+  const reduced = useReducedMotion() ?? false;
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
+      initial={reduced ? false : { opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.6 }}
-      className="text-center mb-12"
+      className="mb-10"
     >
-      <h2 className="text-3xl md:text-4xl font-bold mb-4" style={{ color: 'var(--text)' }}>
-        {title}
+      <h2 className="text-2xl md:text-3xl font-bold" style={{ color: 'var(--text)' }}>
+        <span style={{ color: 'var(--accent-2)' }}>❯ </span>
+        {command ? (
+          <>
+            <span style={{ color: 'var(--accent)' }}>{command} </span>
+            {title}
+          </>
+        ) : (
+          title
+        )}
       </h2>
       {description && (
-        <p className="max-w-xl mx-auto" style={{ color: 'var(--text-muted)' }}>
-          {description}
+        <p className="mt-2 text-sm max-w-2xl" style={{ color: 'var(--comment)' }}>
+          // {description}
         </p>
       )}
     </motion.div>

@@ -13,6 +13,17 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    id: 'module-explorer',
+    title: 'Module Explorer',
+    description: 'Interactive prerequisite graph and completion planner for university modules.',
+    tags: ['TypeScript', 'Vite', 'Canvas', 'Data Visualisation'],
+    github: 'https://github.com/TheFirstIstari/module-graph',
+    site: '/module-explorer/',
+    status: 'Live',
+    featured: true,
+    detail: 'Canvas-based graph explorer generated from module data. It lays out modules by level and term, traces prerequisite trees, highlights unlocked follow-on modules, filters by pathway/search, and includes a planner mode for marking completed modules and seeing eligible next choices.',
+  },
+  {
     id: 'desimapper',
     title: 'DesiMapper',
     description: '3D DESI DR1 galaxy-survey visualiser: data pipeline, Blender cinematic, and interactive Three.js/WebGL point cloud.',
@@ -47,10 +58,10 @@ export const projects: Project[] = [
     id: 'slstudio',
     title: 'SL Studio',
     description: 'Local-first forensic document analysis platform for PDFs, images, audio, and DOCX evidence files.',
-    tags: ['Tauri', 'Rust', 'SvelteKit', 'AI'],
+    tags: ['Tauri', 'Rust', 'SvelteKit', 'Forensics'],
     github: 'https://github.com/TheFirstIstari/sl-studio',
     status: 'Prototype',
-    detail: 'Built on Tauri 2 + Rust backend with SvelteKit 5 frontend. Runs GGUF models locally via llama.cpp with Metal acceleration. Pipelines cover facts, financial crimes, document analysis, OCR and audio; exports JSON, CSV, PDF and Excel.',
+    detail: 'Built on Tauri 2 + Rust with a SvelteKit 5 frontend. Fully local-first — evidence never leaves the device and there are no outbound network calls, so chain-of-custody stays intact. Metal-accelerated on-device compute drives the document, OCR, financial-crime and audio pipelines; exports JSON, CSV, PDF and Excel.',
   },
   {
     id: 'fervo',
@@ -63,10 +74,10 @@ export const projects: Project[] = [
   {
     id: 'steinline',
     title: 'Project SteinLine',
-    description: 'Asymmetrical distributed forensic platform: storage nodes feed GPU inference, visualised on an infinite canvas.',
-    tags: ['Python', 'AI', 'CUDA', 'Qt'],
+    description: 'Asymmetric distributed forensic platform: low-power storage nodes feed GPU compute, visualised on an infinite canvas.',
+    tags: ['Python', 'CUDA', 'Qt', 'Distributed'],
     github: 'https://github.com/TheFirstIstari/Project-SteinLine',
-    detail: 'Optimised for Raspberry Pi 5 storage nodes plus RTX 3090/4090 inference. Processes documents, images and video using multimodal AI, recursive windowing, PDF deconstruction, OCR and audio transcription. Source evidence stays read-only.',
+    detail: 'Asymmetric architecture pairs low-power Raspberry Pi 5 storage nodes with RTX 3090/4090 GPU compute. Processes documents, images and video through recursive windowing, PDF deconstruction, OCR and audio transcription. Source evidence is mounted strictly read-only to preserve integrity.',
   },
   {
     id: 'trackbound',
@@ -88,10 +99,10 @@ export const projects: Project[] = [
   {
     id: 'ccc-gcc',
     title: 'CCC - GCC Studio',
-    description: 'Flask tool comparing assembly output from GCC and Claude C Compiler for the same C snippet.',
+    description: 'Flask tool that diffs the assembly output of two C compiler backends for the same source snippet.',
     tags: ['Python', 'Flask', 'C'],
     github: 'https://github.com/TheFirstIstari/GCC-CCC-comparison',
-    detail: 'Browser form submits C code. Backend compiles with GCC and Claude C Compiler, disassembles both outputs, then returns side-by-side assembly for studying compiler differences.',
+    detail: 'Browser form submits C source. The backend compiles it through two different compiler backends, disassembles each binary, and returns side-by-side assembly for studying code-generation and optimisation differences.',
   },
   {
     id: 'benchmarks',
@@ -99,7 +110,7 @@ export const projects: Project[] = [
     description: 'Cross-language benchmark suite for C, C++, Rust, Python and Java with interactive TUI results.',
     tags: ['C', 'Rust', 'Python', 'Benchmarks'],
     github: 'https://github.com/TheFirstIstari/Benchmarks',
-    detail: 'Benchmarks 12 categories including matrix ops, sorting, hashing, regex, JSON, file I/O, networking, crypto, ML and concurrency. Results persist to SQLite and can be explored through graph/table TUI views.',
+    detail: 'Benchmarks 12 categories including matrix ops, sorting, hashing, regex, JSON, file I/O, networking, cryptography and concurrency. Results persist to SQLite and can be explored through graph/table TUI views.',
   },
 ];
 

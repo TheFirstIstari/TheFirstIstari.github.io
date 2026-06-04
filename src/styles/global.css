@@ -8,49 +8,65 @@
   --color-accent: #890620;
   --color-light: #fbfbff;
   --color-muted: #456990;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
 }
 
 /* ---- Semantic colour tokens ---- */
 :root {
   --bg: #020202;
   --bg-secondary: #071014;
-  --bg-card: rgba(255, 255, 255, 0.03);
-  --bg-card-hover: rgba(255, 255, 255, 0.06);
-  --border: rgba(255, 255, 255, 0.05);
-  --border-hover: rgba(2, 128, 144, 0.3);
+  --bg-card: rgba(255, 255, 255, 0.025);
+  --bg-card-hover: rgba(2, 128, 144, 0.06);
+  --border: rgba(255, 255, 255, 0.07);
+  --border-hover: rgba(45, 212, 191, 0.45);
   --text: #fbfbff;
   --text-muted: rgba(251, 251, 255, 0.6);
   --text-faint: rgba(251, 251, 255, 0.4);
   --text-detail: rgba(251, 251, 255, 0.45);
-  --tag-bg: rgba(2, 128, 144, 0.15);
-  --tag-border: rgba(2, 128, 144, 0.2);
-  --tag-text: #028090;
+  --tag-bg: rgba(2, 128, 144, 0.12);
+  --tag-border: rgba(2, 128, 144, 0.25);
+  --tag-text: #2dd4bf;
   --status-bg: rgba(182, 70, 95, 0.12);
   --status-border: rgba(182, 70, 95, 0.28);
-  --status-text: #b6465f;
-  --nav-bg: rgba(2, 2, 2, 0.85);
+  --status-text: #e06b82;
+  --nav-bg: rgba(2, 2, 2, 0.8);
   --detail-border: rgba(255, 255, 255, 0.06);
+
+  /* Terminal accents */
+  --accent: #2dd4bf;          /* bright terminal teal */
+  --accent-dim: #028090;      /* brand teal */
+  --accent-2: #e06b82;        /* crimson */
+  --comment: rgba(69, 105, 144, 0.85); /* muted blue, "code comment" */
+  --grid-line: rgba(45, 212, 191, 0.05);
+  --prompt: #2dd4bf;
 }
 
 .light {
-  --bg: #eaf6f6;
+  --bg: #f4f8f8;
   --bg-secondary: #fbfdff;
-  --bg-card: rgba(2, 128, 144, 0.04);
+  --bg-card: rgba(2, 128, 144, 0.035);
   --bg-card-hover: rgba(2, 128, 144, 0.08);
-  --border: rgba(2, 128, 144, 0.12);
-  --border-hover: rgba(2, 128, 144, 0.45);
-  --text: #0a1a1e;
-  --text-muted: rgba(10, 26, 30, 0.65);
-  --text-faint: rgba(10, 26, 30, 0.4);
-  --text-detail: rgba(10, 26, 30, 0.5);
+  --border: rgba(2, 128, 144, 0.14);
+  --border-hover: rgba(2, 128, 144, 0.5);
+  --text: #07171b;
+  --text-muted: rgba(7, 23, 27, 0.65);
+  --text-faint: rgba(7, 23, 27, 0.4);
+  --text-detail: rgba(7, 23, 27, 0.5);
   --tag-bg: rgba(2, 128, 144, 0.1);
-  --tag-border: rgba(2, 128, 144, 0.25);
+  --tag-border: rgba(2, 128, 144, 0.28);
   --tag-text: #016a78;
   --status-bg: rgba(182, 70, 95, 0.1);
-  --status-border: rgba(182, 70, 95, 0.25);
-  --status-text: #8f2338;
-  --nav-bg: rgba(234, 246, 246, 0.9);
+  --status-border: rgba(182, 70, 95, 0.28);
+  --status-text: #98263b;
+  --nav-bg: rgba(244, 248, 248, 0.85);
   --detail-border: rgba(2, 128, 144, 0.1);
+
+  --accent: #017a87;
+  --accent-dim: #028090;
+  --accent-2: #98263b;
+  --comment: rgba(69, 105, 144, 0.95);
+  --grid-line: rgba(2, 128, 144, 0.06);
+  --prompt: #017a87;
 }
 
 html {
@@ -58,61 +74,85 @@ html {
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: var(--font-mono);
   background-color: var(--bg);
   color: var(--text);
   transition: background-color 0.3s ease, color 0.3s ease;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ---- Faint blueprint grid background ---- */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(ellipse 100% 80% at 50% 0%, #000 40%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse 100% 80% at 50% 0%, #000 40%, transparent 100%);
 }
 
 /* ---- Utility classes that reference tokens ---- */
-.text-muted {
-  color: var(--text-muted);
-}
+.text-muted { color: var(--text-muted); }
+.text-comment { color: var(--comment); }
+.text-accent { color: var(--accent); }
+.font-mono { font-family: var(--font-mono); }
 
 .card {
   background: var(--bg-card);
   border: 1px solid var(--border);
 }
-
 .card:hover {
   border-color: var(--border-hover);
   background: var(--bg-card-hover);
 }
 
+/* ---- Blinking terminal cursor ---- */
+.cursor-blink {
+  display: inline-block;
+  width: 0.6ch;
+  background: var(--accent);
+  margin-left: 1px;
+  animation: blink 1.05s steps(1) infinite;
+}
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  50.01%, 100% { opacity: 0; }
+}
+
+/* ---- Animations ---- */
 @keyframes float {
   0%, 100% { transform: translateY(0px); }
   50% { transform: translateY(-10px); }
 }
-
-@keyframes glow {
-  0%, 100% { opacity: 0.5; }
-  50% { opacity: 1; }
-}
-
 @keyframes slideUp {
-  from { 
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to { 
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-float { animation: float 3s ease-in-out infinite; }
+.animate-slide-up { animation: slideUp 0.6s ease-out forwards; }
+
+/* Subtle scanline sweep on hero terminal */
+@keyframes scan {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
 }
 
-.animate-float {
-  animation: float 3s ease-in-out infinite;
-}
-
-.animate-glow {
-  animation: glow 2s ease-in-out infinite;
-}
-
-.animate-slide-up {
-  animation: slideUp 0.6s ease-out forwards;
-}
-
+/* View transitions */
 ::view-transition-old(root),
 ::view-transition-new(root) {
   animation-duration: 0.3s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cursor-blink { animation: none; opacity: 1; }
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
 }

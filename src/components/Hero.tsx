@@ -1,174 +1,199 @@
-import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
+import { motion, useReducedMotion } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
 
-export default function Hero() {
-  const [isLight, setIsLight] = useState(false);
+type Line =
+  | { kind: "cmd"; text: string }
+  | { kind: "out"; text: string }
+  | { kind: "links" };
+
+const SCRIPT: Line[] = [
+  { kind: "cmd", text: "whoami" },
+  { kind: "out", text: "TheFirstIstari" },
+  { kind: "cmd", text: "cat focus.txt" },
+  {
+    kind: "out",
+    text: "Systems engineer. I build for performance, security,\nand genuinely hard technical problems.",
+  },
+  { kind: "cmd", text: "ls ~/links" },
+  { kind: "links" },
+];
+
+const LINKS = [
+  { label: "github", href: "https://github.com/TheFirstIstari", color: "var(--accent)" },
+  { label: "projects", href: "/projects", color: "var(--accent)" },
+  { label: "youtube", href: "https://www.youtube.com/@TheFirstIstari", color: "var(--accent-2)" },
+  { label: "instagram", href: "https://instagram.com/TheFirstIstari", color: "var(--accent-2)" },
+];
+
+function useTypewriter(reduced: boolean) {
+  // step = index into SCRIPT currently being revealed
+  const [step, setStep] = useState(reduced ? SCRIPT.length : 0);
+  const [typed, setTyped] = useState("");
+  const timer = useRef<number | undefined>(undefined);
 
   useEffect(() => {
-    const check = () => setIsLight(document.documentElement.classList.contains("light"));
-    check();
-    const observer = new MutationObserver(check);
-    observer.observe(document.documentElement, { attributes: true, attributeFilter: ["class"] });
-    return () => observer.disconnect();
-  }, []);
+    if (reduced || step >= SCRIPT.length) return;
+    const line = SCRIPT[step];
+
+    if (line.kind === "cmd") {
+      if (typed.length < line.text.length) {
+        timer.current = window.setTimeout(
+          () => setTyped(line.text.slice(0, typed.length + 1)),
+          38,
+        );
+      } else {
+        timer.current = window.setTimeout(() => {
+          setTyped("");
+          setStep((s) => s + 1);
+        }, 360);
+      }
+    } else {
+      // output / links appear instantly, brief pause, advance
+      timer.current = window.setTimeout(() => setStep((s) => s + 1), 220);
+    }
+    return () => window.clearTimeout(timer.current);
+  }, [step, typed, reduced]);
+
+  return { step, typed };
+}
+
+function Prompt() {
+  return (
+    <span style={{ color: "var(--prompt)" }}>
+      <span style={{ opacity: 0.55 }}>tweak.wiki</span>
+      <span style={{ color: "var(--accent-2)" }}> ❯ </span>
+    </span>
+  );
+}
+
+export default function Hero() {
+  const reduced = useReducedMotion() ?? false;
+  const { step, typed } = useTypewriter(reduced);
+
+  const renderLine = (line: Line, i: number) => {
+    const visible = i < step;
+    const active = i === step;
+    if (!visible && !active) return null;
+
+    if (line.kind === "cmd") {
+      return (
+        <div key={i} className="whitespace-pre-wrap break-words">
+          <Prompt />
+          <span style={{ color: "var(--text)" }}>{active ? typed : line.text}</span>
+          {active && <span className="cursor-blink">&nbsp;</span>}
+        </div>
+      );
+    }
+    if (line.kind === "out") {
+      return (
+        <div
+          key={i}
+          className="whitespace-pre-wrap break-words pl-1"
+          style={{ color: "var(--text-muted)" }}
+        >
+          {line.text}
+        </div>
+      );
+    }
+    // links
+    return (
+      <div key={i} className="flex flex-wrap gap-2 pt-1 pb-1">
+        {LINKS.map((l, li) => (
+          <motion.a
+            key={l.label}
+            href={l.href}
+            target={l.href.startsWith("http") ? "_blank" : undefined}
+            rel={l.href.startsWith("http") ? "noopener noreferrer" : undefined}
+            initial={reduced ? false : { opacity: 0, y: 6 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.05 * li }}
+            whileHover={{ y: -2 }}
+            className="px-3 py-1.5 text-sm transition-colors"
+            style={{
+              border: "1px solid var(--border)",
+              borderRadius: 6,
+              color: l.color,
+            }}
+          >
+            <span style={{ opacity: 0.5 }}>[</span> {l.label}{" "}
+            <span style={{ opacity: 0.5 }}>]</span>
+          </motion.a>
+        ))}
+      </div>
+    );
+  };
 
   return (
-    <section className="min-h-[82vh] flex flex-col items-center justify-center relative overflow-hidden px-4 pt-20">
-      {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[#028090]/20 via-transparent to-[#b6465f]/20" />
-
-      {/* Animated shapes */}
-      <div className="absolute inset-0 overflow-hidden">
-        <motion.div
-          className="absolute top-20 left-10 w-32 h-32 rounded-full bg-[#028090]/10 blur-3xl"
-          animate={{
-            x: [0, 30, 0],
-            y: [0, -20, 0],
-          }}
-          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-        />
-        <motion.div
-          className="absolute bottom-20 right-10 w-40 h-40 rounded-full bg-[#b6465f]/10 blur-3xl"
-          animate={{
-            x: [0, -30, 0],
-            y: [0, 30, 0],
-          }}
-          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-        />
-      </div>
-
+    <section className="relative z-10 min-h-[88vh] flex items-center justify-center px-4 pt-24 pb-12">
       <motion.div
-        initial={{ opacity: 0, scale: 0.8 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
-        className="relative z-10 text-center max-w-5xl"
+        initial={reduced ? false : { opacity: 0, y: 18 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        className="w-full max-w-3xl"
       >
-        {/* Avatar */}
-        <motion.div
-          className="mb-6 inline-block"
-          initial={{ y: 20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.2, duration: 0.6 }}
-        >
-          <div className="relative">
-            <motion.div
-              className="w-32 h-32 rounded-full p-1"
-              style={{
-                background: "linear-gradient(135deg, #028090, #b6465f)",
-              }}
-              animate={{
-                boxShadow: [
-                  "0 0 20px rgba(2, 128, 144, 0.3)",
-                  "0 0 40px rgba(2, 128, 144, 0.5)",
-                  "0 0 20px rgba(2, 128, 144, 0.3)",
-                ],
-              }}
-              transition={{ duration: 3, repeat: Infinity }}
-            >
-              <img
-                src="https://github.com/TheFirstIstari.png"
-                alt="Profile"
-                className="w-full h-full rounded-full object-cover"
-              />
-            </motion.div>
-          </div>
-        </motion.div>
-
-        <motion.h1
-          className="text-5xl md:text-7xl font-bold mb-4 bg-clip-text text-transparent"
+        {/* Terminal window */}
+        <div
+          className="relative overflow-hidden rounded-xl"
           style={{
-            backgroundImage: isLight
-              ? "linear-gradient(to right, #0a1a1e, #028090, #b6465f)"
-              : "linear-gradient(to right, #fbfbff, #fbfbff, #028090)",
+            background: "color-mix(in srgb, var(--bg-secondary) 70%, transparent)",
+            border: "1px solid var(--border)",
+            boxShadow: "0 24px 80px -20px rgba(0,0,0,0.6)",
+            backdropFilter: "blur(8px)",
           }}
-          initial={{ y: 20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.3, duration: 0.6 }}
         >
-          TheFirstIstari
-        </motion.h1>
+          {/* Title bar */}
+          <div
+            className="flex items-center gap-2 px-4 py-2.5"
+            style={{ borderBottom: "1px solid var(--border)" }}
+          >
+            <span className="w-3 h-3 rounded-full" style={{ background: "#e06b82" }} />
+            <span className="w-3 h-3 rounded-full" style={{ background: "#e3b341" }} />
+            <span className="w-3 h-3 rounded-full" style={{ background: "#2dd4bf" }} />
+            <span
+              className="ml-3 text-xs"
+              style={{ color: "var(--text-faint)" }}
+            >
+              thefirstistari — zsh — 80×24
+            </span>
+          </div>
 
+          {/* Scanline sweep */}
+          {!reduced && (
+            <div
+              className="pointer-events-none absolute inset-0 z-20"
+              aria-hidden="true"
+              style={{
+                background:
+                  "linear-gradient(to bottom, transparent, rgba(45,212,191,0.06), transparent)",
+                height: "40%",
+                animation: "scan 6s linear infinite",
+                mixBlendMode: "screen",
+              }}
+            />
+          )}
+
+          {/* Body */}
+          <div className="relative z-10 p-5 md:p-7 text-[0.95rem] md:text-base leading-7 space-y-1.5">
+            {SCRIPT.map(renderLine)}
+            {step >= SCRIPT.length && (
+              <div>
+                <Prompt />
+                <span className="cursor-blink">&nbsp;</span>
+              </div>
+            )}
+          </div>
+        </div>
+
+        {/* Sub-caption */}
         <motion.p
-          className="mx-auto mb-6 max-w-3xl text-lg md:text-xl leading-relaxed"
-          style={{ color: "var(--text-muted)" }}
-          initial={{ y: 20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.4, duration: 0.6 }}
+          initial={reduced ? false : { opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.2, duration: 0.6 }}
+          className="mt-5 text-center text-xs"
+          style={{ color: "var(--comment)" }}
         >
-          Building local-first AI tools, realtime apps, astronomy visualisers, Minecraft systems, and weird performance experiments.
+          // performance · security · systems · the deliberately difficult
         </motion.p>
-
-        {/* Links */}
-        <motion.div
-          className="flex flex-wrap gap-4 justify-center"
-          initial={{ y: 20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.5, duration: 0.6 }}
-        >
-          <motion.a
-            href="https://github.com/TheFirstIstari"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="px-6 py-3 rounded-full border border-[#028090] text-[#028090] hover:bg-[#028090] hover:text-[#020202] transition-colors"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            GitHub
-          </motion.a>
-          <motion.a
-            href="https://instagram.com/TheFirstIstari"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="px-6 py-3 rounded-full border border-[#b6465f] text-[#b6465f] hover:bg-[#b6465f] hover:text-[#fbfbff] transition-colors"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            Instagram
-          </motion.a>
-          <motion.a
-            href="/projects"
-            className="px-6 py-3 rounded-full bg-[#028090] text-[#020202] font-medium hover:bg-[#028090]/90 transition-colors"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            Projects
-          </motion.a>
-          <motion.a
-            href="https://www.youtube.com/@TheFirstIstari"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="px-6 py-3 rounded-full transition-colors hover:border-[#b6465f] hover:text-[#b6465f]"
-            style={{
-              border: isLight ? "1px solid rgba(10,26,30,0.3)" : "1px solid rgba(251,251,255,0.3)",
-              color: isLight ? "rgba(10,26,30,0.75)" : "rgba(251,251,255,0.8)",
-            }}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            YouTube
-          </motion.a>
-        </motion.div>
-      </motion.div>
-
-      {/* Scroll indicator */}
-      <motion.div
-        className="absolute bottom-10"
-        animate={{ y: [0, 10, 0] }}
-        transition={{ duration: 2, repeat: Infinity }}
-      >
-        <svg
-          className="w-6 h-6 text-[rgba(251,251,255,0.5)]"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M19 14l-7 7m0 0l-7-7m7 7V3"
-          />
-        </svg>
       </motion.div>
     </section>
   );

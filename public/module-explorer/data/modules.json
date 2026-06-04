@@ -1,0 +1,3011 @@
+{
+  "generatedAt": "2026-05-27T19:21:56.124Z",
+  "academicYear": "2025-2026",
+  "modules": [
+    {
+      "code": "CS1811",
+      "title": "Object Oriented Programming 1",
+      "level": 4,
+      "year": 1,
+      "credits": 15,
+      "semester": 1,
+      "pathway": "programming",
+      "type": "core",
+      "tags": [
+        "module/cs1",
+        "year/1",
+        "level/4",
+        "type/core",
+        "pathway/programming",
+        "domain/programming"
+      ],
+      "overview": "This module introduces fundamental concepts of object-oriented programming including classes, objects, inheritance, and polymorphism.",
+      "prerequisitesText": "- Basic programming knowledge (typically from an introductory programming module)",
+      "outcomes": [
+        "Understand and implement core object-oriented concepts",
+        "Design and implement classes and objects",
+        "Apply principles of inheritance and polymorphism",
+        "Develop simple object-oriented programs"
+      ],
+      "assessment": [
+        "Coursework: Programming assignments",
+        "Exam: Final examination covering theoretical and practical aspects"
+      ],
+      "academicYear": "2025-2026",
+      "prerequisites": []
+    },
+    {
+      "code": "CS1812",
+      "title": "Object Oriented Programming 2",
+      "level": 4,
+      "year": 1,
+      "credits": 15,
+      "semester": 2,
+      "pathway": "programming",
+      "type": "core",
+      "tags": [
+        "module/cs1",
+        "year/1",
+        "level/4",
+        "type/core",
+        "pathway/programming",
+        "domain/programming"
+      ],
+      "overview": "This module builds upon the foundational concepts introduced in Object Oriented Programming 1, exploring advanced object-oriented programming techniques including design patterns, exception handling, generic programming, and advanced use of inheritance and polymorphism. Students will develop larger-scale object-oriented applications with emphasis on code quality, testing, and maintainability.",
+      "prerequisitesText": "- [[CS1811 Object Oriented Programming 1]]\n- Basic understanding of classes, objects, inheritance, and polymorphism\n- [[CS1821 Programming Laboratory]] (concurrent or completed)",
+      "outcomes": [
+        "Apply advanced object-oriented programming concepts including templates/generics and operator overloading",
+        "Implement and utilise common design patterns (Singleton, Factory, Observer, Strategy)",
+        "Develop robust code with proper exception handling and resource management",
+        "Design and implement programs using UML class diagrams",
+        "Write unit tests and apply test-driven development principles",
+        "Analyse and refactor existing code to improve design quality"
+      ],
+      "assessment": [
+        "Coursework: Programming assignments (individual and pair-based)",
+        "Project: Larger-scale object-oriented application development",
+        "Exam: Written examination covering design patterns and advanced OO concepts"
+      ],
+      "academicYear": "2025-2026",
+      "prerequisites": [
+        "CS1811"
+      ]
+    },
+    {
+      "code": "CS1813",
+      "title": "Software Development",
+      "level": 4,
+      "year": 1,
+      "credits": 15,
+      "semester": 2,
+      "pathway": "programming",
+      "type": "core",
+      "tags": [
+        "module/cs1",
+        "year/1",
+        "level/4",
+        "type/core",
+        "pathway/programming",
+        "domain/programming"
+      ],
+      "overview": "This 2025-2026 module provides an alternative first-year software development route for students with prior programming experience, developing practical programming, design, testing, and implementation skills for later software engineering modules.",
+      "prerequisitesText": "- Prior programming experience or permission to take the Software Development route",
+      "outcomes": [
+        "Design and implement software using appropriate programming constructs",
+        "Apply basic software development, testing, and debugging practices",
+        "Use development tools to build maintainable programs",
+        "Prepare for intermediate software engineering modules"
+      ],
+      "assessment": [
+        "Coursework and practical programming assessment",
+        "Examination or timed programming assessment"
+      ],
+      "academicYear": "2025-2026",
+      "prerequisites": []
+    },
+    {
+      "code": "CS1821",
+      "title": "Programming Laboratory",
+      "level": 4,
+      "year": 1,
+      "credits": 15,
+      "semester": 1,
+      "pathway": "programming",
+      "type": "core",
+      "tags": [
+        "module/cs1",
+        "year/1",
+        "level/4",
+        "type/core",
+        "pathway/programming",
+        "domain/programming"
+      ],
+      "overview": "This practical, project-based module provides students with hands-on programming experience alongside the core theory modules. Students work on structured programming exercises and small projects that reinforce concepts from concurrent modules. The lab setting emphasises good programming practices, debugging techniques, version control, and collaborative development.",
+      "prerequisitesText": "- Introductory programming experience\n- Concurrent enrolment with [[CS1811 Object Oriented Programming 1]] or equivalent",
+      "outcomes": [
+        "Develop, test, and debug programs in a structured laboratory environment",
+        "Use version control systems (e.g., Git) for source code management",
+        "Apply systematic debugging and testing strategies",
+        "Work effectively on programming tasks within time constraints",
+        "Document code appropriately using comments and documentation tools",
+        "Navigate the development toolchain (compiler, linker, build systems, IDE)"
+      ],
+      "assessment": [
+        "Continuous assessment: Lab exercises and programming assignments",
+        "Practical tests: Timed programming assessments",
+        "Project work: Small to medium programming projects"
+      ],
+      "academicYear": "2025-2026",
+      "prerequisites": []
+    },
+    {
+      "code": "CS1822",
+      "title": "Programming Laboratory",
+      "level": 4,
+      "year": 1,
+      "credits": 30,
+      "semester": 1,
+      "pathway": "programming",
+      "type": "core",
+      "tags": [
+        "module/cs1",
+        "year/1",
+        "level/4",
+        "type/core",
+        "pathway/programming",
+        "domain/programming"
+      ],
+      "overview": "This intensive practical module provides hands-on programming experience across multiple domains. Students work on substantial programming projects including robot programming, developing software engineering skills through group work, and building competence in essential programming tools and practices. The module emphasises practical application of programming concepts through project-based learning.",
+      "prerequisitesText": "- None (core first-year module)",
+      "outcomes": [
+        "Design, implement, test and debug substantial programs",
+        "Work effectively in a team on a software development project",
+        "Apply version control and collaborative development practices",
+        "Program robotics platforms and embedded systems",
+        "Demonstrate proficiency in multiple programming paradigms",
+        "Read and understand technical documentation and specifications"
+      ],
+      "assessment": [
+        "Practical programming assignments",
+        "Robot programming project (group work)",
+        "Continuous assessment through laboratory exercises",
+        "Written examination"
+      ],
+      "academicYear": "2025-2026",
+      "prerequisites": []
+    },
+    {
+      "code": "CS1840",
+      "title": "Internet Services",
+      "level": 4,
+      "year": 1,
+      "credits": 15,
+      "semester": 1,
+      "pathway": "internet-systems",
+      "type": "core",
+      "tags": [
+        "module/cs1",
+        "year/1",
+        "level/4",
+        "type/core",
+        "pathway/internet-systems",
+        "domain/networks"
+      ],
+      "overview": "This module introduces the fundamental technologies and protocols that underpin the internet and web services. Topics include network architectures, the TCP/IP protocol stack, HTTP/HTTPS, DNS, email protocols, and basic web server configuration. Students gain both theoretical understanding and practical experience in configuring and interacting with core internet services.",
+      "prerequisitesText": "- Basic understanding of computer systems ([[CS1870 Machine Fundamentals]] or equivalent)\n- Familiarity with operating a computer and basic networking concepts",
+      "outcomes": [
+        "Explain the architecture and operation of the TCP/IP protocol suite",
+        "Configure and manage basic internet services (web servers, DNS, email)",
+        "Understand the client-server model and its application to internet services",
+        "Analyse HTTP traffic and understand web service communication",
+        "Implement simple network clients and servers",
+        "Describe the security considerations relevant to internet services"
+      ],
+      "assessment": [
+        "Coursework: Practical exercises in configuring internet services",
+        "Laboratory reports: Documentation of network experiments",
+        "Exam: Written examination covering protocols and architectures"
+      ],
+      "academicYear": "2025-2026",
+      "prerequisites": []
+    },
+    {
+      "code": "CS1860",
+      "title": "Mathematical Structures",
+      "level": 4,
+      "year": 1,
+      "credits": 15,
+      "semester": 1,
+      "pathway": "theory",
+      "type": "core",
+      "tags": [
+        "module/cs1",
+        "year/1",
+        "level/4",
+        "type/core",
+        "pathway/theory",
+        "domain/mathematics"
+      ],
+      "overview": "This module provides the mathematical foundations necessary for computer science. Topics include propositional and predicate logic, set theory, relations and functions, proof techniques (induction, contradiction), combinatorics, graph theory, and an introduction to algebraic structures. The module emphasises rigorous mathematical reasoning and its application to computing problems.",
+      "prerequisitesText": "- A-level Mathematics (or equivalent)\n- No specific programming prerequisites",
+      "outcomes": [
+        "Apply propositional and predicate logic to model and reason about computational problems",
+        "Use set theory, relations, and functions as formal modelling tools",
+        "Construct rigorous mathematical proofs using appropriate techniques",
+        "Solve combinatorial problems and apply counting principles",
+        "Analyse graph structures and apply graph algorithms",
+        "Recognise and apply algebraic structures relevant to computing"
+      ],
+      "assessment": [
+        "Coursework: Problem sheets and assignments",
+        "Mid-term test: Progress assessment",
+        "Exam: Final written examination"
+      ],
+      "academicYear": "2025-2026",
+      "prerequisites": []
+    },
+    {
+      "code": "CS1870",
+      "title": "Machine Fundamentals",
+      "level": 4,
+      "year": 1,
+      "credits": 15,
+      "semester": 2,
+      "pathway": "systems",
+      "type": "core",
+      "tags": [
+        "module/cs1",
+        "year/1",
+        "level/4",
+        "type/core",
+        "pathway/systems",
+        "domain/systems"
+      ],
+      "overview": "This module introduces the fundamental concepts of computer hardware and low-level programming. Topics include digital logic, binary representation, processor architecture, memory hierarchy, assembly language programming, and the interface between hardware and software. Students gain an understanding of how high-level programs execute on physical machines.",
+      "prerequisitesText": "- Basic mathematics (binary, hexadecimal arithmetic)\n- No prior programming experience required",
+      "outcomes": [
+        "Explain the representation of data at the machine level (binary, hexadecimal, two's complement, floating point)",
+        "Describe the basic organisation of a processor (ALU, control unit, registers, memory)",
+        "Write and debug simple assembly language programs",
+        "Understand the fetch-decode-execute cycle and instruction pipelining",
+        "Explain memory hierarchy and its impact on performance",
+        "Describe how high-level language constructs are translated to machine code"
+      ],
+      "assessment": [
+        "Coursework: Assembly programming assignments",
+        "Laboratory work: Digital logic simulations and hardware exercises",
+        "Exam: Written examination covering architecture and low-level concepts"
+      ],
+      "academicYear": "2025-2026",
+      "prerequisites": []
+    },
+    {
+      "code": "CS1890",
+      "title": "Software Design",
+      "level": 4,
+      "year": 1,
+      "credits": 15,
+      "semester": 2,
+      "pathway": "programming",
+      "type": "core",
+      "tags": [
+        "module/cs1",
+        "year/1",
+        "level/4",
+        "type/core",
+        "pathway/programming",
+        "domain/design"
+      ],
+      "overview": "This module introduces the principles and practices of software design. Topics include the software development lifecycle, requirements analysis, system modelling using UML, architectural design, user interface design principles, and design documentation. The module emphasises a systematic approach to designing software systems before implementation.",
+      "prerequisitesText": "- [[CS1811 Object Oriented Programming 1]] (concurrent or completed)\n- Basic programming competency",
+      "outcomes": [
+        "Apply a systematic software design process to solve problems",
+        "Create and interpret UML diagrams (class, sequence, activity, state machine)",
+        "Analyse and document software requirements",
+        "Evaluate alternative design solutions using appropriate criteria",
+        "Design user interfaces following established principles",
+        "Prepare design documentation suitable for use in development teams"
+      ],
+      "assessment": [
+        "Coursework: Design exercises and UML modelling tasks",
+        "Project: Complete software design document for a given problem",
+        "Exam: Written examination covering design principles and methodologies"
+      ],
+      "academicYear": "2025-2026",
+      "prerequisites": []
+    },
+    {
+      "code": "CS2800",
+      "title": "Software Engineering",
+      "level": 5,
+      "year": 2,
+      "credits": 15,
+      "semester": 1,
+      "pathway": "software-engineering",
+      "type": "core",
+      "tags": [
+        "module/cs2",
+        "year/2",
+        "level/5",
+        "type/core",
+        "pathway/software-engineering",
+        "domain/programming"
+      ],
+      "overview": "This module provides a comprehensive introduction to software engineering principles and practices. Topics include software process models (Waterfall, Agile, Scrum), requirements engineering, software architecture, design patterns, testing strategies, software maintenance, and project management fundamentals. Students apply these concepts through team-based software development projects.",
+      "prerequisitesText": "- [[CS1890 Software Design]]\n- [[CS1812 Object Oriented Programming 2]]\n- [[CS1821 Programming Laboratory]]\n- Proficiency in at least one programming language",
+      "outcomes": [
+        "Select and apply appropriate software development process models",
+        "Elicit, analyse, document, and validate software requirements",
+        "Design software architectures using appropriate styles and patterns",
+        "Implement and execute a comprehensive testing strategy (unit, integration, system)",
+        "Apply refactoring and software maintenance techniques",
+        "Estimate project effort and manage software development schedules",
+        "Work effectively as part of a software development team"
+      ],
+      "assessment": [
+        "Coursework: Team-based software development project with deliverables",
+        "Group report: Documentation of process, design decisions, and reflections",
+        "Individual contribution assessment",
+        "Exam: Written examination covering software engineering theory"
+      ],
+      "academicYear": "2025-2026",
+      "prerequisites": [
+        "CS1890",
+        "CS1812",
+        "CS1821"
+      ]
+    },
+    {
+      "code": "CS2810",
+      "title": "Team Project",
+      "level": 5,
+      "year": 2,
+      "credits": 15,
+      "semester": 2,
+      "pathway": "software-engineering",
+      "type": "core",
+      "tags": [],
+      "overview": "This major module requires students to work in teams to develop a substantial software project from inception to delivery. Teams of 4-6 students collaboratively design, implement, test, and deliver a software system, applying the principles of software engineering, project management, and team collaboration. The module simulates real-world software development and emphasises both technical and interpersonal skills.",
+      "prerequisitesText": "- [[CS2800 Software Engineering]]\n- [[CS1812 Object Oriented Programming 2]]\n- [[CS1890 Software Design]]\n- Proficiency in programming and development tools",
+      "outcomes": [
+        "Plan, manage, and execute a substantial team-based software project",
+        "Apply software engineering methodologies to a realistic development scenario",
+        "Design and implement a software solution that meets specified requirements",
+        "Use professional development tools (version control, issue tracking, CI/CD)",
+        "Communicate technical work effectively through reports, presentations, and demonstrations",
+        "Reflect critically on team processes and individual contribution",
+        "Resolve conflicts and coordinate work across team members"
+      ],
+      "assessment": [
+        "Project deliverables: Software product with source code and documentation",
+        "Team reports: Requirements, design, testing, and project management documentation",
+        "Presentations: Project proposal, progress review, and final demonstration",
+        "Peer assessment: Evaluation of individual contributions within the team",
+        "Individual report: Personal reflection on the project experience"
+      ],
+      "academicYear": "2025-2026",
+      "prerequisites": [
+        "CS2800",
+        "CS1812",
+        "CS1890"
+      ]
+    },
+    {
+      "code": "CS2815",
+      "title": "Small Enterprise Team Project",
+      "level": 5,
+      "year": 2,
+      "credits": 15,
+      "semester": 2,
+      "pathway": "software-engineering",
+      "type": "optional",
+      "tags": [
+        "module/cs2",
+        "year/2",
+        "level/5",
+        "type/optional",
+        "pathway/software-engineering",
+        "domain/programming"
+      ],
+      "overview": "This module extends the team project experience by focusing on the unique challenges of developing software for small enterprises and startups. Students work with real or simulated clients in a small business context, addressing constraints such as limited resources, rapid iteration, and close client collaboration. The module emphasises agile practices, MVP development, and entrepreneurial thinking.",
+      "prerequisitesText": "- [[CS2800 Software Engineering]]\n- [[CS1812 Object Oriented Programming 2]]\n- [[CS2810 Team Project]] (concurrent or completed)\n- Programming competency and team-working experience",
+      "outcomes": [
+        "Adapt software engineering practices to the small enterprise context",
+        "Elicit and prioritise requirements in collaboration with real or simulated clients",
+        "Develop and iterate a minimum viable product (MVP) under resource constraints",
+        "Apply lean and agile methodologies in a fast-paced environment",
+        "Demonstrate entrepreneurial awareness in software development decisions",
+        "Communicate effectively with non-technical stakeholders"
+      ],
+      "assessment": [
+        "Project deliverables: Working software product with documentation",
+        "Client engagement: Requirement sessions, progress reviews, final presentation",
+        "Team reports: Process documentation and retrospective",
+        "Peer and client assessment of team and individual contributions"
+      ],
+      "academicYear": "2025-2026",
+      "prerequisites": [
+        "CS2800",
+        "CS1812"
+      ]
+    },
+    {
+      "code": "CS2840",
+      "title": "Internet Services",
+      "level": 5,
+      "year": 2,
+      "credits": 15,
+      "semester": 2,
+      "pathway": "internet-systems",
+      "type": "optional",
+      "tags": [
+        "module/cs2",
+        "year/2",
+        "level/5",
+        "type/optional",
+        "pathway/internet-systems",
+        "domain/networks"
+      ],
+      "overview": "This advanced module explores the design, implementation, and deployment of internet-based services. Building on foundational networking concepts, topics include RESTful API design, web services (SOAP, REST, GraphQL), cloud computing fundamentals, service-oriented architecture, containerisation (Docker), microservices, and performance considerations for internet-scale services.",
+      "prerequisitesText": "- [[CS1840 Internet Services]] or equivalent networking knowledge\n- [[CS1812 Object Oriented Programming 2]]\n- Proficiency in at least one programming language for server-side development",
+      "outcomes": [
+        "Design and implement RESTful and GraphQL web services",
+        "Deploy and manage internet services using cloud platforms",
+        "Apply containerisation (Docker) and orchestration concepts",
+        "Understand and evaluate service-oriented and microservice architectures",
+        "Implement security measures for internet services (authentication, authorisation, HTTPS)",
+        "Measure and optimise the performance of internet services",
+        "Use API documentation standards (OpenAPI/Swagger)"
+      ],
+      "assessment": [
+        "Coursework: Implementation of internet services with API endpoints",
+        "Practical exercises: Containerisation, deployment, and performance testing",
+        "Project: Design and deploy a complete internet service",
+        "Exam: Written examination covering service architecture and protocols"
+      ],
+      "academicYear": "2025-2026",
+      "prerequisites": [
+        "CS1812"
+      ]
+    },
+    {
+      "code": "CS2850",
+      "title": "Operating Systems",
+      "level": 5,
+      "year": 2,
+      "credits": 15,
+      "semester": 1,
+      "pathway": "systems",
+      "type": "core",
+      "tags": [
+        "module/cs2",
+        "year/2",
+        "level/5",
+        "type/core",
+        "pathway/systems",
+        "domain/systems"
+      ],
+      "overview": "This module provides a comprehensive study of operating system concepts and design. Topics include process and thread management, CPU scheduling, memory management (paging, segmentation, virtual memory), file systems, I/O management, deadlock detection and prevention, and an introduction to distributed systems. The module includes practical exercises in systems programming.",
+      "prerequisitesText": "- [[CS1870 Machine Fundamentals]]\n- [[CS1811 Object Oriented Programming 1]]\n- Understanding of data structures and programming in C/C++",
+      "outcomes": [
+        "Explain the roles and responsibilities of an operating system",
+        "Implement process management and scheduling algorithms",
+        "Analyse memory management techniques and virtual memory systems",
+        "Describe file system organisation and implementation",
+        "Identify, prevent, and handle deadlock situations",
+        "Write systems-level programs that interact with the OS (system calls, signals)",
+        "Understand the principles of concurrency and synchronisation"
+      ],
+      "assessment": [
+        "Coursework: Systems programming assignments (process management, memory, file systems)",
+        "Practical exercises: Simulating OS algorithms",
+        "Exam: Written examination covering OS theory and design"
+      ],
+      "academicYear": "2025-2026",
+      "prerequisites": [
+        "CS1870",
+        "CS1811"
+      ]
+    },
+    {
+      "code": "CS2855",
+      "title": "Databases",
+      "level": 5,
+      "year": 2,
+      "credits": 15,
+      "semester": 1,
+      "pathway": "databases",
+      "type": "core",
+      "tags": [
+        "module/cs2",
+        "year/2",
+        "level/5",
+        "type/core",
+        "pathway/databases",
+        "domain/data"
+      ],
+      "overview": "This module introduces the theory and practice of database systems. Topics include the relational model, SQL (DDL, DML, DQL), database design using entity-relationship modelling, normalisation, transaction processing, concurrency control, indexing and query optimisation, and an introduction to NoSQL databases. Students gain practical experience in designing, querying, and managing databases.",
+      "prerequisitesText": "- [[CS1860 Mathematical Structures]] (useful for relational algebra)\n- Programming experience sufficient to implement database-connected applications",
+      "outcomes": [
+        "Design relational databases using entity-relationship modelling and normalisation",
+        "Write complex SQL queries including joins, subqueries, aggregation, and transactions",
+        "Implement database applications using a programming language (e.g., Python, Java)",
+        "Understand transaction processing and concurrency control mechanisms",
+        "Explain indexing strategies and query optimisation techniques",
+        "Compare relational and NoSQL database approaches for different use cases",
+        "Apply database security principles (access control, SQL injection prevention)"
+      ],
+      "assessment": [
+        "Coursework: Database design exercises and SQL assignments",
+        "Practical project: Design and implement a database for a given application",
+        "Exam: Written examination covering database theory and design"
+      ],
+      "academicYear": "2025-2026",
+      "prerequisites": [
+        "CS1860"
+      ]
+    },
+    {
+      "code": "CS2860",
+      "title": "Algorithms and Complexity",
+      "level": 5,
+      "year": 2,
+      "credits": 15,
+      "semester": 2,
+      "pathway": "theory",
+      "type": "core",
+      "tags": [
+        "module/cs2",
+        "year/2",
+        "level/5",
+        "type/core",
+        "pathway/theory",
+        "domain/mathematics"
+      ],
+      "overview": "This module covers the design and analysis of algorithms, focusing on algorithm efficiency and computational complexity. Topics include asymptotic analysis (Big-O notation), sorting and searching algorithms, divide-and-conquer, dynamic programming, greedy algorithms, graph algorithms, and an introduction to NP-completeness. Emphasis is placed on rigorous analysis of time and space complexity.",
+      "prerequisitesText": "- [[CS1860 Mathematical Structures]]\n- [[CS1811 Object Oriented Programming 1]]\n- Proficiency in at least one programming language for implementing algorithms",
+      "outcomes": [
+        "Analyse algorithm efficiency using asymptotic notation (Big-O, Theta, Omega)",
+        "Design and implement efficient algorithms using divide-and-conquer, dynamic programming, and greedy approaches",
+        "Implement and analyse fundamental graph algorithms (BFS, DFS, shortest paths, minimum spanning trees)",
+        "Apply algorithmic problem-solving strategies to new problems",
+        "Classify problems by complexity class (P, NP, NP-complete)",
+        "Understand the trade-offs between time and space complexity",
+        "Implement correct and efficient data structures (heaps, hash tables, balanced trees)"
+      ],
+      "assessment": [
+        "Coursework: Algorithm implementation and analysis assignments",
+        "Problem sheets: Written exercises in algorithm design and complexity analysis",
+        "Exam: Final written examination covering algorithm analysis and design"
+      ],
+      "academicYear": "2025-2026",
+      "prerequisites": [
+        "CS1860",
+        "CS1811"
+      ]
+    },
+    {
+      "code": "CS2900",
+      "title": "Multi-dimensional Data Processing",
+      "level": 5,
+      "year": 2,
+      "credits": 15,
+      "semester": 2,
+      "pathway": "data-science",
+      "type": "optional",
+      "tags": [
+        "module/cs2",
+        "year/2",
+        "level/5",
+        "type/optional",
+        "pathway/data-science",
+        "domain/data"
+      ],
+      "overview": "This module covers techniques for processing, analysing, and visualising multi-dimensional datasets. Topics include data representation in multiple dimensions, dimensionality reduction (PCA, t-SNE), multi-dimensional indexing and search structures (R-trees, kd-trees), similarity measures, clustering algorithms, and visualisation techniques for high-dimensional data. Applications include scientific computing, data analytics, and information retrieval.",
+      "prerequisitesText": "- [[CS1860 Mathematical Structures]] (recommended background)\n- [[CS2860 Algorithms and Complexity]] (recommended background)\n- Programming proficiency (Python recommended)\n- Basic statistics and linear algebra knowledge",
+      "outcomes": [
+        "Represent and manipulate multi-dimensional data using appropriate data structures",
+        "Apply dimensionality reduction techniques to high-dimensional datasets",
+        "Implement efficient multi-dimensional search and indexing algorithms",
+        "Apply clustering algorithms to discover patterns in data",
+        "Design effective visualisations for multi-dimensional data",
+        "Evaluate the quality of dimensionality reduction and clustering results",
+        "Process large-scale multi-dimensional data efficiently"
+      ],
+      "assessment": [
+        "Coursework: Programming assignments implementing multi-dimensional algorithms",
+        "Project: Data analysis and visualisation of a real-world multi-dimensional dataset",
+        "Exam: Written examination covering theory and techniques"
+      ],
+      "academicYear": "2025-2026",
+      "prerequisites": []
+    },
+    {
+      "code": "CS2910",
+      "title": "Symbolic Artificial Intelligence",
+      "level": 5,
+      "year": 2,
+      "credits": 15,
+      "semester": 2,
+      "pathway": "artificial-intelligence",
+      "type": "optional",
+      "tags": [
+        "module/cs2",
+        "year/2",
+        "level/5",
+        "type/optional",
+        "pathway/artificial-intelligence",
+        "domain/ai"
+      ],
+      "overview": "This module introduces the classical, symbolic approach to artificial intelligence. Topics include knowledge representation (logic, semantic networks, frames, ontologies), search algorithms (uninformed, informed, heuristic, adversarial), automated reasoning and inference, planning, rule-based expert systems, and an introduction to natural language processing from a symbolic perspective.",
+      "prerequisitesText": "- [[CS1860 Mathematical Structures]] (particularly logic)\n- [[CS2860 Algorithms and Complexity]]\n- Programming proficiency",
+      "outcomes": [
+        "Represent knowledge using logical formalisms (propositional logic, first-order logic)",
+        "Implement and analyse search algorithms for problem-solving",
+        "Design and implement rule-based reasoning systems",
+        "Apply automated planning techniques to structured problems",
+        "Evaluate the strengths and limitations of symbolic AI approaches",
+        "Understand the historical context and philosophical questions of AI",
+        "Compare symbolic AI with connectionist (neural) approaches"
+      ],
+      "assessment": [
+        "Coursework: Implementation of search algorithms and reasoning systems",
+        "Problem sheets: Knowledge representation and logical inference exercises",
+        "Project: Build a rule-based expert system or planning system",
+        "Exam: Written examination covering AI theory and techniques"
+      ],
+      "academicYear": "2025-2026",
+      "prerequisites": [
+        "CS1860",
+        "CS2860"
+      ]
+    },
+    {
+      "code": "IY2760",
+      "title": "Introduction to Information Security",
+      "level": 5,
+      "year": 2,
+      "credits": 15,
+      "semester": 1,
+      "pathway": "security",
+      "type": "core",
+      "tags": [
+        "module/iy2",
+        "year/2",
+        "level/5",
+        "type/core",
+        "pathway/security",
+        "domain/security"
+      ],
+      "overview": "This module provides a broad introduction to information security. Topics include security fundamentals (confidentiality, integrity, availability), cryptographic primitives, security policies, authentication and access control, network security basics, web security, malware, social engineering, and legal/ethical aspects of cyber security. The module establishes the foundational knowledge required for advanced security modules.",
+      "prerequisitesText": "- [[CS1870 Machine Fundamentals]] (recommended)\n- [[CS1840 Internet Services]] (recommended)\n- Basic understanding of computer networks and operating systems",
+      "outcomes": [
+        "Explain the core principles of information security (CIA triad)",
+        "Understand and apply basic cryptographic concepts (symmetric/asymmetric encryption, hashing)",
+        "Identify common security threats and vulnerabilities",
+        "Implement basic authentication and access control mechanisms",
+        "Recognise common attack patterns (phishing, SQL injection, XSS, buffer overflows)",
+        "Understand the legal and ethical framework for information security",
+        "Apply security best practices to protect systems and data"
+      ],
+      "assessment": [
+        "Coursework: Security analysis exercises and reports",
+        "Practical assignments: Security tool usage and basic penetration testing",
+        "Exam: Written examination covering security fundamentals"
+      ],
+      "academicYear": "2025-2026",
+      "prerequisites": []
+    },
+    {
+      "code": "IY2840",
+      "title": "Computer and Network Security",
+      "level": 5,
+      "year": 2,
+      "credits": 15,
+      "semester": 2,
+      "pathway": "security",
+      "type": "core",
+      "tags": [
+        "module/iy2",
+        "year/2",
+        "level/5",
+        "type/core",
+        "pathway/security",
+        "domain/security"
+      ],
+      "overview": "This module provides an in-depth study of computer and network security. Topics include network security protocols (IPSec, TLS/SSL, SSH), firewalls and intrusion detection/prevention systems, VPNs, wireless security, authentication protocols, access control models, operating system security, and security evaluation and assurance. The module combines theoretical understanding with practical configuration and analysis.",
+      "prerequisitesText": "- [[IY2760 Introduction to Information Security]]\n- [[CS1840 Internet Services]] or equivalent networking knowledge\n- [[CS2850 Operating Systems]] (recommended)",
+      "outcomes": [
+        "Analyse and configure network security protocols (IPSec, TLS, SSH)",
+        "Design and implement firewall rules and network segmentation",
+        "Configure and evaluate intrusion detection/prevention systems",
+        "Implement secure VPN solutions",
+        "Analyse and evaluate authentication protocols",
+        "Apply operating system security mechanisms",
+        "Conduct security assessments of networked systems",
+        "Understand security evaluation standards and methodologies"
+      ],
+      "assessment": [
+        "Coursework: Network security configuration exercises",
+        "Practical assignments: Firewall rules, IDS configuration, security assessments",
+        "Project: Security audit of a networked system",
+        "Exam: Written examination covering network and computer security"
+      ],
+      "academicYear": "2025-2026",
+      "prerequisites": [
+        "IY2760"
+      ]
+    },
+    {
+      "code": "CS3003",
+      "title": "IT Project Management",
+      "level": 6,
+      "year": 3,
+      "credits": 15,
+      "semester": 1,
+      "pathway": "software-engineering",
+      "type": "optional",
+      "tags": [
+        "module/cs3",
+        "year/3",
+        "level/6",
+        "type/optional",
+        "pathway/software-engineering",
+        "domain/management"
+      ],
+      "overview": "This module covers the principles and practices of managing IT projects. Topics include project lifecycle models, project planning and scheduling, risk management, resource estimation, budget management, quality assurance, stakeholder management, and agile project management frameworks (Scrum, Kanban). The module prepares students for leadership roles in software development and IT delivery.",
+      "prerequisitesText": "- [[CS2800 Software Engineering]] or equivalent experience\n- Some team project experience ( [[CS2810 Team Project]]",
+      "outcomes": [
+        "Develop comprehensive project plans including schedules, budgets, and resource allocations",
+        "Identify, assess, and mitigate IT project risks",
+        "Apply appropriate project management methodologies (Waterfall, Agile, Hybrid)",
+        "Monitor and control project progress using appropriate metrics",
+        "Manage stakeholder expectations and communicate project status effectively",
+        "Lead project teams and resolve conflicts",
+        "Understand professional, legal, and ethical issues in IT project management"
+      ],
+      "assessment": [
+        "Coursework: Project management plans and risk assessments",
+        "Case study analysis: Evaluation of real-world IT project successes and failures",
+        "Group exercise: Simulated project management scenarios",
+        "Exam: Written examination covering PM theory and frameworks"
+      ],
+      "academicYear": "2025-2026",
+      "prerequisites": [
+        "CS2810"
+      ]
+    },
+    {
+      "code": "CS3450",
+      "title": "Software Verification",
+      "level": 6,
+      "year": 3,
+      "credits": 15,
+      "semester": 1,
+      "pathway": "theory",
+      "type": "optional",
+      "tags": [
+        "module/cs3",
+        "year/3",
+        "level/6",
+        "type/optional",
+        "pathway/theory",
+        "domain/mathematics"
+      ],
+      "overview": "This module covers formal and informal techniques for verifying the correctness of software systems. Topics include formal specification languages, program verification using Hoare logic, model checking, static analysis, theorem proving, and software testing methodologies. The module emphasises rigorous approaches to ensuring software reliability and safety.",
+      "prerequisitesText": "- [[CS1860 Mathematical Structures]] (logic and proof techniques)\n- [[CS2800 Software Engineering]]\n- [[CS2860 Algorithms and Complexity]]\n- Proficiency in at least one programming language",
+      "outcomes": [
+        "Write formal specifications for software components",
+        "Apply Hoare logic to prove program correctness",
+        "Use model checking tools to verify system properties",
+        "Implement and apply static analysis techniques",
+        "Design systematic testing strategies based on formal criteria",
+        "Understand the theoretical foundations of program verification",
+        "Evaluate the limitations and trade-offs of different verification approaches"
+      ],
+      "assessment": [
+        "Coursework: Formal specification and verification exercises",
+        "Practical assignments: Using verification tools (model checkers, static analysers)",
+        "Project: Formal verification of a non-trivial program",
+        "Exam: Written examination covering verification theory"
+      ],
+      "academicYear": "2025-2026",
+      "prerequisites": [
+        "CS1860",
+        "CS2800",
+        "CS2860"
+      ]
+    },
+    {
+      "code": "CS3470",
+      "title": "Compilers and Code Generation",
+      "level": 6,
+      "year": 3,
+      "credits": 15,
+      "semester": 1,
+      "pathway": "languages",
+      "type": "optional",
+      "tags": [
+        "module/cs3",
+        "year/3",
+        "level/6",
+        "type/optional",
+        "pathway/languages",
+        "domain/programming"
+      ],
+      "overview": "This module covers the theory and practice of compiler construction. Topics include lexical analysis, syntax analysis (parsing), semantic analysis, intermediate representations, code optimisation, and code generation. Students implement key components of a compiler, gaining a deep understanding of how high-level programs are translated into executable code.",
+      "prerequisitesText": "- [[CS1870 Machine Fundamentals]]\n- [[CS2860 Algorithms and Complexity]]\n- [[CS1860 Mathematical Structures]]\n- Proficiency in a systems programming language (C, C++, Rust)\n- [[CS3480 Software Language Engineering]] (concurrent or completed, recommended)",
+      "outcomes": [
+        "Design and implement lexical analysers (scanners) using regular expressions",
+        "Implement parsers using context-free grammars (recursive descent, LALR, LL)",
+        "Construct abstract syntax trees and perform semantic analysis",
+        "Generate intermediate code from abstract syntax trees",
+        "Apply code optimisation techniques (constant folding, loop optimisation, register allocation)",
+        "Generate target machine code or bytecode",
+        "Understand the trade-offs in compiler design decisions"
+      ],
+      "assessment": [
+        "Coursework: Incremental implementation of compiler components",
+        "Project: Complete compiler for a small programming language",
+        "Exam: Written examination covering compiler theory and algorithms"
+      ],
+      "academicYear": "2025-2026",
+      "prerequisites": [
+        "CS1870",
+        "CS2860",
+        "CS1860"
+      ]
+    },
+    {
+      "code": "CS3480",
+      "title": "Software Language Engineering",
+      "level": 6,
+      "year": 3,
+      "credits": 15,
+      "semester": 2,
+      "pathway": "languages",
+      "type": "optional",
+      "tags": [
+        "module/cs3",
+        "year/3",
+        "level/6",
+        "type/optional",
+        "pathway/languages",
+        "domain/programming"
+      ],
+      "overview": "This module covers the design, implementation, and analysis of programming and domain-specific languages. Topics include language design principles, syntax and semantics, type systems, domain-specific languages (DSLs), language workbenches, metaprogramming, and the theoretical foundations of programming languages (lambda calculus, type theory).",
+      "prerequisitesText": "- [[CS1860 Mathematical Structures]] (logic and algebra)\n- [[CS1812 Object Oriented Programming 2]]\n- [[CS2860 Algorithms and Complexity]]",
+      "outcomes": [
+        "Analyse and compare programming language paradigms and their features",
+        "Design and implement domain-specific languages (DSLs)",
+        "Understand type systems and their role in program correctness",
+        "Apply formal semantics (operational, denotational, axiomatic) to describe language behaviour",
+        "Implement interpreters and compilers for small languages",
+        "Use language workbenches to develop DSLs",
+        "Understand metaprogramming and code generation techniques"
+      ],
+      "assessment": [
+        "Coursework: Language design and implementation exercises",
+        "Project: Design and implement a domain-specific language",
+        "Exam: Written examination covering language theory and design"
+      ],
+      "academicYear": "2025-2026",
+      "prerequisites": [
+        "CS1860",
+        "CS1812",
+        "CS2860"
+      ]
+    },
+    {
+      "code": "CS3490",
+      "title": "Computational Optimization",
+      "level": 6,
+      "year": 3,
+      "credits": 15,
+      "semester": 2,
+      "pathway": "theory",
+      "type": "optional",
+      "tags": [
+        "module/cs3",
+        "year/3",
+        "level/6",
+        "type/optional",
+        "pathway/theory",
+        "domain/mathematics"
+      ],
+      "overview": "This module covers the theory and practice of computational optimisation techniques. Topics include linear programming, integer programming, convex optimisation, gradient-based methods, metaheuristic algorithms (genetic algorithms, simulated annealing), constraint satisfaction, and multi-objective optimisation. Applications include resource allocation, scheduling, logistics, and engineering design.",
+      "prerequisitesText": "- [[CS1860 Mathematical Structures]]\n- [[CS2860 Algorithms and Complexity]]\n- Linear algebra and basic calculus\n- Programming proficiency (Python recommended)",
+      "outcomes": [
+        "Formulate real-world problems as mathematical optimisation problems",
+        "Solve linear and integer programming problems using appropriate algorithms",
+        "Apply convex optimisation techniques to appropriate problems",
+        "Implement and apply gradient descent and its variants",
+        "Design and apply metaheuristic algorithms for hard problems",
+        "Use constraint programming for combinatorial problems",
+        "Compare and select appropriate optimisation techniques for different problem classes"
+      ],
+      "assessment": [
+        "Coursework: Implementation of optimisation algorithms",
+        "Problem sheets: Mathematical formulation and analysis",
+        "Project: Apply optimisation techniques to a real-world problem",
+        "Exam: Written examination covering optimisation theory"
+      ],
+      "academicYear": "2025-2026",
+      "prerequisites": [
+        "CS1860",
+        "CS2860"
+      ]
+    },
+    {
+      "code": "CS3510",
+      "title": "Functional Programming and Applications",
+      "level": 6,
+      "year": 3,
+      "credits": 15,
+      "semester": 2,
+      "pathway": "programming",
+      "type": "optional",
+      "tags": [
+        "module/cs3",
+        "year/3",
+        "level/6",
+        "type/optional",
+        "pathway/programming",
+        "domain/programming"
+      ],
+      "overview": "This 2025-2026 module introduces functional programming principles and applications, including recursion, abstraction, higher-order functions, data types, pattern matching, and combining functional and object-oriented programming styles.",
+      "prerequisitesText": "- [[CS1811 Object Oriented Programming 1]] or equivalent programming experience\n- [[CS1812 Object Oriented Programming 2]] or [[CS1813 Software Development]] recommended",
+      "outcomes": [
+        "Explain the foundations and advantages of functional programming",
+        "Use recursion, abstraction, higher-order functions, and functional data types",
+        "Apply pattern matching and functional design techniques",
+        "Compare functional, imperative, and object-oriented programming paradigms",
+        "Develop applications using functional programming concepts"
+      ],
+      "assessment": [
+        "Coursework",
+        "Examination"
+      ],
+      "academicYear": "2025-2026",
+      "prerequisites": []
+    },
+    {
+      "code": "CS3600",
+      "title": "Quantum Computation",
+      "level": 6,
+      "year": 3,
+      "credits": 15,
+      "semester": 2,
+      "pathway": "quantum",
+      "type": "optional",
+      "tags": [
+        "module/cs3",
+        "year/3",
+        "level/6",
+        "type/optional",
+        "pathway/quantum",
+        "domain/mathematics"
+      ],
+      "overview": "This module provides an introduction to the theory and practice of quantum computing. Topics include the mathematical foundations of quantum mechanics (state vectors, superposition, measurement), quantum gates and circuits, quantum algorithms (Deutsch-Jozsa, Shor's algorithm, Grover's search), quantum error correction, and the physics of quantum computation. The module covers both theoretical principles and practical implementation using quantum computing frameworks.",
+      "prerequisitesText": "- [[CS1860 Mathematical Structures]]\n- [[CS2860 Algorithms and Complexity]]\n- Linear algebra (vector spaces, complex numbers, matrix operations)\n- Physics background desirable but not essential",
+      "outcomes": [
+        "Explain the fundamental principles of quantum computing (superposition, entanglement, interference)",
+        "Represent quantum states mathematically and apply quantum gates",
+        "Design and analyse simple quantum circuits",
+        "Understand and explain key quantum algorithms (Deutsch-Jozsa, Shor, Grover)",
+        "Compare quantum and classical computational complexity",
+        "Implement quantum algorithms using quantum computing frameworks",
+        "Understand the current limitations and challenges in quantum computing"
+      ],
+      "assessment": [
+        "Coursework: Quantum circuit design and algorithm implementation",
+        "Problem sheets: Mathematical exercises in quantum mechanics and computation",
+        "Project: Implement and analyse a quantum algorithm",
+        "Exam: Written examination covering quantum computing theory"
+      ],
+      "academicYear": "2025-2026",
+      "prerequisites": [
+        "CS1860",
+        "CS2860"
+      ]
+    },
+    {
+      "code": "CS3821",
+      "title": "Full Unit Project",
+      "level": 6,
+      "year": 3,
+      "credits": 30,
+      "semester": 1,
+      "pathway": "software-engineering",
+      "type": "core",
+      "tags": [
+        "module/cs3",
+        "year/3",
+        "level/6",
+        "type/core",
+        "pathway/software-engineering",
+        "domain/project"
+      ],
+      "overview": "This module is the mandatory final-year individual project for BSc Computer Science students at Royal Holloway. Students undertake a substantial piece of independent work under the supervision of a member of academic staff, demonstrating their ability to plan, execute, and deliver a significant software or research project. The project runs across the full academic year, requiring students to apply and integrate knowledge from across their degree programme. **Official data:** 10 contact hours, 290 self-study hours, 100% coursework assessment, 30 credits, FHEQ Level 6, Mandatory Condonable (MC). > The BCS and EQANIE accreditation requirements mandate that students must successfully complete and pass the final year project.",
+      "prerequisitesText": "- Successful completion of all Year 1 and Year 2 compulsory modules\n- [[CS2810 Team Project]] or [[CS2815 Small enterprise team project]] provides relevant team-based project experience\n- Relevant pathway modules providing domain knowledge for project topic",
+      "outcomes": [
+        "Plan and manage a substantial independent project from inception to completion",
+        "Research and evaluate relevant literature, technologies, and methodologies",
+        "Design, implement, and test a significant software system or conduct rigorous research",
+        "Critically evaluate their own work and reflect on the process and outcomes",
+        "Communicate technical work effectively through written reports and oral presentations",
+        "Demonstrate professional judgement, ethical awareness, and independent problem-solving"
+      ],
+      "assessment": [
+        "**Project Proposal & Ethics Clearance** (formative)",
+        "**Interim Report / Progress Review** (typically 20-30%)",
+        "**Final Dissertation / Report** (typically 50-60%)",
+        "**Demonstration & Oral Presentation / Viva** (typically 20-30%)"
+      ],
+      "academicYear": "2025-2026",
+      "prerequisites": [
+        "CS2810",
+        "CS2815"
+      ]
+    },
+    {
+      "code": "CS3870",
+      "title": "Advanced Algorithms and Complexity",
+      "level": 6,
+      "year": 3,
+      "credits": 15,
+      "semester": 1,
+      "pathway": "theory",
+      "type": "optional",
+      "tags": [
+        "module/cs3",
+        "year/3",
+        "level/6",
+        "type/optional",
+        "pathway/theory",
+        "domain/mathematics"
+      ],
+      "overview": "This module explores advanced topics in algorithm design and computational complexity theory. Topics include advanced data structures (Fibonacci heaps, splay trees, union-find), amortised analysis, approximation algorithms, randomised algorithms, online algorithms, parameterised complexity, and advanced NP-completeness reductions. The module provides a rigorous treatment of the theoretical foundations of efficient computation.",
+      "prerequisitesText": "- [[CS2860 Algorithms and Complexity]] (strong performance expected)\n- [[CS1860 Mathematical Structures]]\n- Comfortable with mathematical proof techniques and asymptotic analysis",
+      "outcomes": [
+        "Design and analyse algorithms using advanced techniques (amortised analysis, potential functions)",
+        "Implement and analyse advanced data structures",
+        "Design approximation algorithms for NP-hard problems",
+        "Analyse randomised algorithms using probabilistic methods",
+        "Apply parameterised complexity concepts to classify problems",
+        "Construct NP-completeness reductions for complex problems",
+        "Understand the limits of efficient computation"
+      ],
+      "assessment": [
+        "Coursework: Algorithm design and analysis problem sets",
+        "Programming assignments: Implementation of advanced algorithms",
+        "Exam: Rigorous written examination covering advanced theoretical content"
+      ],
+      "academicYear": "2025-2026",
+      "prerequisites": [
+        "CS2860",
+        "CS1860"
+      ]
+    },
+    {
+      "code": "CS3920",
+      "title": "Machine Learning",
+      "level": 6,
+      "year": 3,
+      "credits": 15,
+      "semester": 1,
+      "pathway": "artificial-intelligence",
+      "type": "optional",
+      "tags": [
+        "module/cs3",
+        "year/3",
+        "level/6",
+        "type/optional",
+        "pathway/artificial-intelligence",
+        "domain/ai"
+      ],
+      "overview": "This module provides a broad introduction to machine learning. Topics include supervised learning (linear regression, logistic regression, decision trees, support vector machines, neural networks), unsupervised learning (k-means, hierarchical clustering, Gaussian mixture models), model evaluation and selection (cross-validation, bias-variance trade-off, regularisation), and an introduction to deep learning. The module emphasises both theoretical understanding and practical application.",
+      "prerequisitesText": "- [[CS1860 Mathematical Structures]] (probability, linear algebra)\n- [[CS2860 Algorithms and Complexity]]\n- [[CS2900 Multi-dimensional Data Processing]] (recommended)\n- Programming proficiency in Python\n- Basic statistics knowledge",
+      "outcomes": [
+        "Understand and implement core supervised learning algorithms",
+        "Apply unsupervised learning techniques for pattern discovery",
+        "Evaluate model performance using appropriate metrics and validation strategies",
+        "Apply regularisation techniques to prevent overfitting",
+        "Preprocess and transform data for machine learning pipelines",
+        "Use machine learning libraries effectively (scikit-learn, TensorFlow, PyTorch)",
+        "Communicate results and model limitations effectively"
+      ],
+      "assessment": [
+        "Coursework: Implementation of ML algorithms from scratch",
+        "Practical assignments: Applied ML using established libraries",
+        "Project: End-to-end machine learning project on a real dataset",
+        "Exam: Written examination covering ML theory and methodology"
+      ],
+      "academicYear": "2025-2026",
+      "prerequisites": [
+        "CS1860",
+        "CS2860"
+      ]
+    },
+    {
+      "code": "CS3930",
+      "title": "Computational Finance",
+      "level": 6,
+      "year": 3,
+      "credits": 15,
+      "semester": 2,
+      "pathway": "finance",
+      "type": "optional",
+      "tags": [
+        "module/cs3",
+        "year/3",
+        "level/6",
+        "type/optional",
+        "pathway/finance",
+        "domain/data"
+      ],
+      "overview": "This module applies computational techniques to problems in finance. Topics include financial data analysis, time series modelling, algorithmic trading strategies, portfolio optimisation, risk management, derivatives pricing (Monte Carlo methods, binomial trees), and machine learning applications in finance. The module combines programming, statistical analysis, and financial theory.",
+      "prerequisitesText": "- [[CS3920 Machine Learning]] (recommended)\n- [[CS1860 Mathematical Structures]] (probability and statistics)\n- Programming proficiency (Python)\n- Basic understanding of financial markets and instruments (desirable but not essential)",
+      "outcomes": [
+        "Analyse financial time series data using statistical methods",
+        "Implement algorithmic trading strategies and backtest their performance",
+        "Apply portfolio optimisation techniques (Markowitz, Black-Litterman)",
+        "Price financial derivatives using Monte Carlo simulation and lattice methods",
+        "Apply machine learning techniques to financial prediction tasks",
+        "Assess and manage financial risk using computational tools",
+        "Understand the limitations and risks of quantitative finance models"
+      ],
+      "assessment": [
+        "Coursework: Programming assignments implementing financial models",
+        "Project: Develop and backtest a trading strategy or risk management system",
+        "Exam: Written examination covering computational finance theory and methods"
+      ],
+      "academicYear": "2025-2026",
+      "prerequisites": [
+        "CS1860"
+      ]
+    },
+    {
+      "code": "CS3940",
+      "title": "Intelligent Agents and Multi-Agent Systems",
+      "level": 6,
+      "year": 3,
+      "credits": 15,
+      "semester": 2,
+      "pathway": "artificial-intelligence",
+      "type": "optional",
+      "tags": [
+        "module/cs3",
+        "year/3",
+        "level/6",
+        "type/optional",
+        "pathway/artificial-intelligence",
+        "domain/ai"
+      ],
+      "overview": "This module covers the design and implementation of intelligent agents and multi-agent systems. Topics include agent architectures (reactive, deliberative, hybrid), agent communication languages, coordination and cooperation mechanisms, negotiation protocols, distributed problem solving, and applications in robotics, simulation, and decentralised systems.",
+      "prerequisitesText": "- [[CS2910 Symbolic Artificial Intelligence]]\n- [[CS2860 Algorithms and Complexity]]\n- Programming proficiency\n- [[CS3920 Machine Learning]] (recommended)",
+      "outcomes": [
+        "Design and implement intelligent agents using appropriate architectures",
+        "Implement agent communication and interaction protocols",
+        "Apply coordination and cooperation mechanisms in multi-agent systems",
+        "Design and analyse negotiation protocols",
+        "Develop distributed problem-solving strategies",
+        "Understand the applications and limitations of agent-based systems",
+        "Evaluate multi-agent system designs using appropriate metrics"
+      ],
+      "assessment": [
+        "Coursework: Implementation of agent architectures and interaction protocols",
+        "Project: Design and implement a multi-agent system for a given problem",
+        "Exam: Written examination covering agent theory and design"
+      ],
+      "academicYear": "2025-2026",
+      "prerequisites": [
+        "CS2910",
+        "CS2860"
+      ]
+    },
+    {
+      "code": "CS3950",
+      "title": "Deep Learning",
+      "level": 6,
+      "year": 3,
+      "credits": 15,
+      "semester": 2,
+      "pathway": "artificial-intelligence",
+      "type": "optional",
+      "tags": [
+        "module/cs3",
+        "year/3",
+        "level/6",
+        "type/optional",
+        "pathway/artificial-intelligence",
+        "domain/ai"
+      ],
+      "overview": "This module provides a comprehensive introduction to deep learning. Topics include neural network architectures (feedforward, convolutional, recurrent, transformers), training techniques (backpropagation, optimisation, regularisation, batch normalisation), representation learning, generative models (GANs, VAEs, diffusion models), and practical considerations for deploying deep learning models. The module emphasises both theoretical foundations and hands-on implementation.",
+      "prerequisitesText": "- [[CS3920 Machine Learning]] or equivalent\n- [[CS1860 Mathematical Structures]] (linear algebra, calculus, probability)\n- Strong programming skills in Python\n- Experience with NumPy and data processing",
+      "outcomes": [
+        "Design, implement, and train deep neural networks for various tasks",
+        "Understand and apply convolutional neural networks for image-based tasks",
+        "Implement recurrent neural networks and transformers for sequential data",
+        "Apply regularisation and optimisation techniques to improve training",
+        "Understand the theory underlying backpropagation and gradient-based learning",
+        "Implement generative models for data synthesis",
+        "Deploy deep learning models in practical applications"
+      ],
+      "assessment": [
+        "Coursework: Implementation of neural network architectures from scratch",
+        "Practical assignments: Applied deep learning using PyTorch/TensorFlow",
+        "Project: End-to-end deep learning project on a substantial dataset",
+        "Exam: Written examination covering deep learning theory"
+      ],
+      "academicYear": "2025-2026",
+      "prerequisites": [
+        "CS1860"
+      ]
+    },
+    {
+      "code": "CS3990",
+      "title": "Natural Language Processing",
+      "level": 6,
+      "year": 3,
+      "credits": 15,
+      "semester": 2,
+      "pathway": "artificial-intelligence",
+      "type": "optional",
+      "tags": [
+        "module/cs3",
+        "year/3",
+        "level/6",
+        "type/optional",
+        "pathway/artificial-intelligence",
+        "domain/ai"
+      ],
+      "overview": "This module introduces the theory and practice of natural language processing. Topics include text preprocessing, language modelling (n-grams, neural language models), part-of-speech tagging, parsing (constituency, dependency), named entity recognition, sentiment analysis, machine translation, and modern transformer-based models (BERT, GPT, T5). The module covers both traditional statistical NLP and contemporary deep learning approaches.",
+      "prerequisitesText": "- [[CS3920 Machine Learning]] or equivalent\n- [[CS1860 Mathematical Structures]] (probability, statistics)\n- Programming proficiency in Python\n- [[CS3950 Deep Learning]] (recommended, concurrent permitted)",
+      "outcomes": [
+        "Preprocess and analyse textual data for NLP tasks",
+        "Implement language models from n-grams to neural approaches",
+        "Apply sequence labelling techniques (POS tagging, NER)",
+        "Implement and evaluate parsing algorithms",
+        "Build sentiment analysis and text classification systems",
+        "Use transformer-based models (BERT, GPT) for NLP tasks",
+        "Evaluate NLP systems using appropriate metrics and datasets"
+      ],
+      "assessment": [
+        "Coursework: Implementation of NLP algorithms and models",
+        "Practical assignments: Applied NLP using modern libraries",
+        "Project: End-to-end NLP system for a given task (e.g., question answering, summarisation)",
+        "Exam: Written examination covering NLP theory and techniques"
+      ],
+      "academicYear": "2025-2026",
+      "prerequisites": [
+        "CS1860"
+      ]
+    },
+    {
+      "code": "IY3501",
+      "title": "Security Management",
+      "level": 6,
+      "year": 3,
+      "credits": 15,
+      "semester": 1,
+      "pathway": "security",
+      "type": "optional",
+      "tags": [
+        "module/iy3",
+        "year/3",
+        "level/6",
+        "type/optional",
+        "pathway/security",
+        "domain/security"
+      ],
+      "overview": "This module covers the management of information security in organisations. Topics include security governance frameworks (ISO 27001, NIST, COBIT), security policy development, risk assessment and management methodologies, business continuity planning, incident response management, security awareness and training, compliance and audit, and security metrics. The module emphasises the organisational and human dimensions of security.",
+      "prerequisitesText": "- [[IY2760 Introduction to Information Security]]\n- Understanding of organisational structures and management principles\n- [[CS3003 IT Project Management]] (recommended)",
+      "outcomes": [
+        "Develop and implement information security policies and procedures",
+        "Conduct security risk assessments using established methodologies",
+        "Design and implement security governance frameworks",
+        "Develop business continuity and disaster recovery plans",
+        "Manage security incidents through their lifecycle",
+        "Plan and evaluate security awareness and training programmes",
+        "Understand compliance requirements and audit processes",
+        "Measure and report on security performance using appropriate metrics"
+      ],
+      "assessment": [
+        "Coursework: Security policy development and risk assessment reports",
+        "Case study analysis: Security management scenarios",
+        "Project: Comprehensive security management plan for an organisation",
+        "Exam: Written examination covering security management theory"
+      ],
+      "academicYear": "2025-2026",
+      "prerequisites": [
+        "IY2760"
+      ]
+    },
+    {
+      "code": "IY3606",
+      "title": "Smart Cards, RFIDs and Embedded Systems Security",
+      "level": 6,
+      "year": 3,
+      "credits": 15,
+      "semester": 2,
+      "pathway": "security",
+      "type": "optional",
+      "tags": [
+        "module/iy3",
+        "year/3",
+        "level/6",
+        "type/optional",
+        "pathway/security",
+        "domain/security"
+      ],
+      "overview": "This module covers security challenges and solutions for smart cards, RFID systems, and embedded devices. Topics include smart card architectures and operating systems, cryptographic coprocessors, RFID communication protocols, near-field communication (NFC), embedded system security (secure boot, trusted execution environments), side-channel attacks, fault injection, and security for IoT devices.",
+      "prerequisitesText": "- [[IY2760 Introduction to Information Security]]\n- [[CS1870 Machine Fundamentals]] (hardware knowledge)\n- Basic cryptography understanding ([[IY3660 Applications of Cryptography]] recommended)\n- Embedded systems or electronics knowledge (desirable)",
+      "outcomes": [
+        "Understand smart card architectures and security features",
+        "Analyse RFID communication protocols and their security properties",
+        "Implement security mechanisms for embedded systems",
+        "Understand and mitigate side-channel attacks",
+        "Apply secure boot and trusted execution environment concepts",
+        "Evaluate security of IoT devices and architectures",
+        "Design secure embedded systems considering resource constraints",
+        "Conduct security assessments of smart card and embedded systems"
+      ],
+      "assessment": [
+        "Coursework: Security analysis of smart card and embedded systems",
+        "Practical assignments: Implementation of embedded security mechanisms",
+        "Project: Security evaluation of an embedded system or IoT device",
+        "Exam: Written examination covering embedded systems security"
+      ],
+      "academicYear": "2025-2026",
+      "prerequisites": [
+        "IY2760",
+        "CS1870"
+      ]
+    },
+    {
+      "code": "IY3609",
+      "title": "Digital Forensics",
+      "level": 6,
+      "year": 3,
+      "credits": 15,
+      "semester": 2,
+      "pathway": "security",
+      "type": "optional",
+      "tags": [
+        "module/iy3",
+        "year/3",
+        "level/6",
+        "type/optional",
+        "pathway/security",
+        "domain/security"
+      ],
+      "overview": "This module covers the principles and practices of digital forensics investigation. Topics include forensic methodology, evidence acquisition and preservation, disk and file system forensics, memory forensics, network forensics, mobile device forensics, forensic analysis tools, anti-forensics techniques, and legal considerations for digital evidence. The module emphasises both technical skills and adherence to legal and ethical standards.",
+      "prerequisitesText": "- [[IY2760 Introduction to Information Security]]\n- [[CS2850 Operating Systems]] (file systems, memory management)\n- [[CS1840 Internet Services]] (network fundamentals)\n- Understanding of legal frameworks for evidence (desirable)",
+      "outcomes": [
+        "Apply systematic forensic investigation methodologies",
+        "Acquire digital evidence while maintaining chain of custody",
+        "Perform disk and file system forensic analysis",
+        "Conduct memory forensics to identify running processes, network connections, and artefacts",
+        "Analyse network traffic for forensic evidence",
+        "Perform forensic analysis of mobile devices",
+        "Use forensic analysis tools effectively",
+        "Prepare forensic reports suitable for legal proceedings"
+      ],
+      "assessment": [
+        "Coursework: Forensic investigation reports for simulated scenarios",
+        "Practical assignments: Hands-on forensic analysis exercises",
+        "Project: Comprehensive digital forensics investigation",
+        "Exam: Written examination covering forensics methodology and techniques"
+      ],
+      "academicYear": "2025-2026",
+      "prerequisites": [
+        "IY2760",
+        "CS2850",
+        "CS1840"
+      ]
+    },
+    {
+      "code": "IY3612",
+      "title": "Critical Infrastructure Security",
+      "level": 6,
+      "year": 3,
+      "credits": 15,
+      "semester": 1,
+      "pathway": "security",
+      "type": "optional",
+      "tags": [
+        "module/iy3",
+        "year/3",
+        "level/6",
+        "type/optional",
+        "pathway/security",
+        "domain/security"
+      ],
+      "overview": "This module addresses the security of critical national infrastructure systems. Topics include industrial control systems (ICS) and SCADA architecture, cyber-physical system security, threat landscapes for critical infrastructure, security standards for critical infrastructure (NERC CIP, IEC 62443), risk assessment for safety-critical systems, incident response for industrial environments, and national/international policy frameworks for infrastructure protection.",
+      "prerequisitesText": "- [[IY2840 Computer and Network Security]]\n- [[IY2760 Introduction to Information Security]]\n- Understanding of operational technology (OT) versus IT (desirable)\n- [[CS2850 Operating Systems]]",
+      "outcomes": [
+        "Understand the architecture and components of industrial control systems (ICS, SCADA, PLCs)",
+        "Identify security vulnerabilities specific to cyber-physical systems",
+        "Apply security standards and frameworks for critical infrastructure",
+        "Conduct risk assessments for safety-critical systems",
+        "Develop incident response plans for industrial environments",
+        "Understand the convergence of IT and OT security",
+        "Analyse national and international critical infrastructure protection policies",
+        "Evaluate the security implications of emerging technologies in critical infrastructure"
+      ],
+      "assessment": [
+        "Coursework: Security analysis of critical infrastructure scenarios",
+        "Case study analysis: Historical critical infrastructure incidents (Stuxnet, Ukraine power grid)",
+        "Project: Security assessment and protection plan for a critical infrastructure system",
+        "Exam: Written examination covering critical infrastructure security"
+      ],
+      "academicYear": "2025-2026",
+      "prerequisites": [
+        "IY2840",
+        "IY2760",
+        "CS2850"
+      ]
+    },
+    {
+      "code": "IY3660",
+      "title": "Applications of Cryptography",
+      "level": 6,
+      "year": 3,
+      "credits": 15,
+      "semester": 1,
+      "pathway": "security",
+      "type": "optional",
+      "tags": [
+        "module/iy3",
+        "year/3",
+        "level/6",
+        "type/optional",
+        "pathway/security",
+        "domain/security"
+      ],
+      "overview": "This module covers the practical application of cryptographic techniques to secure systems. Topics include symmetric encryption algorithms (AES, ChaCha20), asymmetric encryption (RSA, ECC), hash functions, message authentication codes, digital signatures, key management and PKI, cryptographic protocols (TLS, SSH, PGP), post-quantum cryptography, and implementation considerations (side-channel resistance, constant-time implementation).",
+      "prerequisitesText": "- [[IY2760 Introduction to Information Security]]\n- [[CS1860 Mathematical Structures]] (number theory, modular arithmetic)\n- Programming proficiency (C or Python recommended)",
+      "outcomes": [
+        "Understand the mathematical foundations of cryptographic algorithms",
+        "Implement and use symmetric and asymmetric encryption algorithms",
+        "Apply hash functions and MACs for data integrity and authentication",
+        "Design and evaluate digital signature schemes",
+        "Manage cryptographic keys and certificates in PKI systems",
+        "Configure and analyse cryptographic protocols (TLS, SSH, PGP)",
+        "Understand the implications of quantum computing for cryptography",
+        "Avoid common cryptographic implementation pitfalls"
+      ],
+      "assessment": [
+        "Coursework: Implementation of cryptographic algorithms and protocols",
+        "Practical assignments: Key management, certificate handling, protocol analysis",
+        "Project: Secure communication system implementation",
+        "Exam: Written examination covering cryptography theory and applications"
+      ],
+      "academicYear": "2025-2026",
+      "prerequisites": [
+        "IY2760",
+        "CS1860"
+      ]
+    },
+    {
+      "code": "PC3001",
+      "title": "User-Centred Design",
+      "level": 6,
+      "year": 3,
+      "credits": 15,
+      "semester": 1,
+      "pathway": "hci",
+      "type": "optional",
+      "tags": [
+        "module/pc3",
+        "year/3",
+        "level/6",
+        "type/optional",
+        "pathway/hci",
+        "domain/design"
+      ],
+      "overview": "This module introduces the principles and practices of user-centred design (UCD). Topics include user research methods (interviews, surveys, observation), persona development, user journey mapping, information architecture, interaction design, prototyping (low and high fidelity), usability evaluation methods, accessibility standards (WCAG), and iterative design processes. The module emphasises designing digital products that meet user needs and provide positive user experiences.",
+      "prerequisitesText": "- Basic understanding of software development processes\n- Some programming or web development experience (helpful but not essential)\n- [[CS1890 Software Design]] (recommended)",
+      "outcomes": [
+        "Apply user research methods to understand user needs and behaviours",
+        "Create user personas, scenarios, and journey maps",
+        "Design information architectures for digital products",
+        "Develop low and high-fidelity prototypes",
+        "Conduct usability evaluations using appropriate methods",
+        "Apply accessibility standards to ensure inclusive design",
+        "Iterate designs based on user feedback and evaluation results",
+        "Communicate design rationale effectively to stakeholders"
+      ],
+      "assessment": [
+        "Coursework: User research reports and analysis",
+        "Practical assignments: Prototyping and design exercises",
+        "Project: End-to-end user-centred design process for a digital product",
+        "Portfolio: Design process documentation with rationale"
+      ],
+      "academicYear": "2025-2026",
+      "prerequisites": []
+    },
+    {
+      "code": "CS4100",
+      "title": "Data Analysis",
+      "level": 7,
+      "year": 4,
+      "credits": 30,
+      "semester": 1,
+      "pathway": "data-science",
+      "type": "optional",
+      "tags": [],
+      "overview": "This module covers the theory and practice of data analysis from a computational perspective. Topics include exploratory data analysis, statistical inference, hypothesis testing, regression analysis, Bayesian methods, time series analysis, causal inference, and reproducible research practices. The module emphasises rigorous statistical methodology applied to real-world datasets using modern data analysis tools.",
+      "prerequisitesText": "- [[CS1860 Mathematical Structures]] (probability and statistics)\n- [[CS2900 Multi-dimensional Data Processing]]\n- Programming proficiency (Python, R)\n- [[CS3920 Machine Learning]] (recommended)",
+      "outcomes": [
+        "Conduct exploratory data analysis using visual and statistical methods",
+        "Apply appropriate statistical tests for hypothesis testing",
+        "Build and evaluate regression models for prediction and inference",
+        "Apply Bayesian methods for data analysis",
+        "Analyse time series data using appropriate models",
+        "Apply causal inference techniques to observational data",
+        "Produce reproducible data analysis reports",
+        "Communicate data-driven findings effectively"
+      ],
+      "assessment": [
+        "Coursework: Data analysis reports on real-world datasets",
+        "Practical assignments: Statistical modelling and inference exercises",
+        "Project: Comprehensive data analysis project from data collection to final report",
+        "Exam: Written examination covering statistical methodology"
+      ],
+      "academicYear": "2025-2026",
+      "prerequisites": [
+        "CS1860",
+        "CS2900"
+      ]
+    },
+    {
+      "code": "CS4200",
+      "title": "On-line Machine Learning",
+      "level": 7,
+      "year": 4,
+      "credits": 15,
+      "semester": 2,
+      "pathway": "artificial-intelligence",
+      "type": "optional",
+      "tags": [
+        "module/cs4",
+        "year/4",
+        "level/7",
+        "type/optional",
+        "pathway/artificial-intelligence",
+        "domain/ai"
+      ],
+      "overview": "This module covers machine learning in settings where data arrives sequentially and models must be updated incrementally. Topics include online learning algorithms (FTRL, Hedge algorithm, exponentiated gradient), bandit problems (multi-armed bandits, contextual bandits), regret analysis, concept drift detection, active learning, and applications in recommendation systems, advertising, and real-time prediction.",
+      "prerequisitesText": "- No formal prerequisites listed for 2025-2026 module choice\n- Background in machine learning, probability, linear algebra, algorithms, and programming is recommended",
+      "outcomes": [
+        "Understand the online learning framework and compare with batch learning",
+        "Implement online learning algorithms and analyse their regret bounds",
+        "Formulate and solve multi-armed and contextual bandit problems",
+        "Detect and adapt to concept drift in streaming data",
+        "Apply active learning strategies to reduce labelling costs",
+        "Design online learning systems for real-world applications",
+        "Evaluate online learning algorithms using appropriate metrics"
+      ],
+      "assessment": [
+        "Coursework: Implementation of online learning algorithms",
+        "Practical assignments: Bandit algorithm evaluation and comparison",
+        "Project: Build an online learning system for a streaming data application",
+        "Exam: Written examination covering online learning theory"
+      ],
+      "academicYear": "2025-2026",
+      "prerequisites": []
+    },
+    {
+      "code": "CS4234",
+      "title": "Large-Scale Data Storage and Processing",
+      "level": 7,
+      "year": 4,
+      "credits": 15,
+      "semester": 1,
+      "pathway": "databases",
+      "type": "optional",
+      "tags": [
+        "module/cs4",
+        "year/4",
+        "level/7",
+        "type/optional",
+        "pathway/databases",
+        "domain/data"
+      ],
+      "overview": "This module covers technologies and techniques for storing, processing, and analysing data at scale. Topics include distributed file systems (HDFS), NoSQL databases (key-value, document, column-family, graph), MapReduce and Spark programming models, stream processing, data warehousing, and distributed query processing. The module emphasises practical skills in building scalable data pipelines.",
+      "prerequisitesText": "- [[CS2855 Databases]]\n- [[CS2850 Operating Systems]]\n- [[CS2840 Internet Services]] (recommended)\n- Programming proficiency in Python or Java\n- [[CS2860 Algorithms and Complexity]]",
+      "outcomes": [
+        "Design and implement scalable storage solutions using NoSQL databases",
+        "Write MapReduce and Spark programs for large-scale data processing",
+        "Design and implement stream processing pipelines",
+        "Evaluate and select appropriate storage technologies for different use cases",
+        "Understand the trade-offs in distributed data systems (CAP theorem, consistency models)",
+        "Deploy and manage distributed data processing clusters",
+        "Optimise data processing workflows for performance and cost"
+      ],
+      "assessment": [
+        "Coursework: Implementation of data processing pipelines",
+        "Practical assignments: NoSQL database design and querying",
+        "Project: Build a scalable data processing system for a large dataset",
+        "Exam: Written examination covering distributed data systems theory"
+      ],
+      "academicYear": "2025-2026",
+      "prerequisites": [
+        "CS2855",
+        "CS2850",
+        "CS2860"
+      ]
+    },
+    {
+      "code": "CS4250",
+      "title": "Visualisation and Exploratory Analysis",
+      "level": 7,
+      "year": 4,
+      "credits": 15,
+      "semester": 2,
+      "pathway": "data-science",
+      "type": "optional",
+      "tags": [
+        "module/cs4",
+        "year/4",
+        "level/7",
+        "type/optional",
+        "pathway/data-science",
+        "domain/data"
+      ],
+      "overview": "This module covers the principles and practices of data visualisation and exploratory data analysis. Topics include visual perception and design principles, chart typologies, interactive visualisation, dashboard design, visual analytics, storytelling with data, and exploratory analysis techniques. Students learn to create effective visualisations for data exploration, analysis, and communication.",
+      "prerequisitesText": "- [[CS2900 Multi-dimensional Data Processing]]\n- [[CS4100 Data Analysis]] (concurrent or completed)\n- Programming proficiency (Python, JavaScript/TypeScript)\n- Basic statistics knowledge",
+      "outcomes": [
+        "Apply principles of visual perception and design to create effective visualisations",
+        "Select appropriate visualisation types for different data and analytical tasks",
+        "Create interactive visualisations and dashboards",
+        "Use visual analytics techniques to explore and discover patterns in data",
+        "Design data stories that communicate findings to diverse audiences",
+        "Critically evaluate the effectiveness of visualisations",
+        "Implement visualisations using modern web-based frameworks"
+      ],
+      "assessment": [
+        "Coursework: Visualisation design exercises and critiques",
+        "Practical assignments: Implementation of interactive visualisations",
+        "Project: Design and build a comprehensive visual analytics system for a real dataset",
+        "Portfolio: Collection of visualisation work with design rationale"
+      ],
+      "academicYear": "2025-2026",
+      "prerequisites": [
+        "CS2900"
+      ]
+    },
+    {
+      "code": "CS4504",
+      "title": "Business Intelligence Systems, Infrastructures and Technologies",
+      "level": 7,
+      "year": 4,
+      "credits": 15,
+      "semester": 1,
+      "pathway": "data-science",
+      "type": "optional",
+      "tags": [
+        "module/cs4",
+        "year/4",
+        "level/7",
+        "type/optional",
+        "pathway/data-science",
+        "domain/data"
+      ],
+      "overview": "This module covers the design, implementation, and management of business intelligence systems. Topics include data warehousing architectures, ETL/ELT processes, OLAP and multidimensional analysis, reporting and dashboard systems, business performance management, and the integration of BI with organisational decision-making processes. The module also covers the infrastructure and technologies that support modern BI systems.",
+      "prerequisitesText": "- [[CS2855 Databases]]\n- [[CS4234 Large-Scale Data Storage and Processing]] (recommended)\n- [[CS4100 Data Analysis]] (recommended)\n- Understanding of business processes (desirable)",
+      "outcomes": [
+        "Design and implement data warehouse architectures (star schema, snowflake schema)",
+        "Build ETL/ELT pipelines for data integration",
+        "Implement OLAP cubes and perform multidimensional analysis",
+        "Design and develop BI dashboards and reporting systems",
+        "Apply business performance management frameworks",
+        "Evaluate and select BI technologies for organisational needs",
+        "Understand the role of BI in organisational decision-making"
+      ],
+      "assessment": [
+        "Coursework: Data warehouse design and ETL implementation",
+        "Practical assignments: BI dashboard and report development",
+        "Project: End-to-end BI system implementation",
+        "Exam: Written examination covering BI theory and architecture"
+      ],
+      "academicYear": "2025-2026",
+      "prerequisites": [
+        "CS2855"
+      ]
+    },
+    {
+      "code": "CS4825",
+      "title": "MSci Team Project",
+      "level": 7,
+      "year": 4,
+      "credits": 30,
+      "semester": 1,
+      "pathway": "software-engineering",
+      "type": "core",
+      "tags": [
+        "module/cs4",
+        "year/4",
+        "level/7",
+        "type/core",
+        "pathway/software-engineering",
+        "domain/project"
+      ],
+      "overview": "This 2025-2026 module is the MSci team project, requiring students to plan, develop, manage, and deliver a substantial group software or research project at Level 7.",
+      "prerequisitesText": "- Successful completion of earlier compulsory project and software engineering modules\n- [[CS2810 Team Project]] or [[CS2815 Small enterprise team project]] provides relevant team-based project experience\n- Relevant pathway modules providing domain knowledge for the project topic",
+      "outcomes": [
+        "Work effectively in a project team to deliver a substantial technical artefact",
+        "Plan, manage, and communicate progress on a complex project",
+        "Apply software engineering, research, and evaluation methods at MSci level",
+        "Produce professional project documentation and technical reports",
+        "Reflect on individual and team contributions"
+      ],
+      "assessment": [
+        "Project software or artefact",
+        "Project report and documentation",
+        "Team and individual contribution assessment",
+        "Demonstration or presentation"
+      ],
+      "academicYear": "2025-2026",
+      "prerequisites": [
+        "CS2810",
+        "CS2815"
+      ]
+    },
+    {
+      "code": "CS4860",
+      "title": "Advanced Distributed Systems and Communication Networks",
+      "level": 7,
+      "year": 4,
+      "credits": 15,
+      "semester": 1,
+      "pathway": "systems",
+      "type": "optional",
+      "tags": [
+        "module/cs4",
+        "year/4",
+        "level/7",
+        "type/optional",
+        "pathway/systems",
+        "domain/systems"
+      ],
+      "overview": "This module explores advanced topics in distributed systems and computer networks. Topics include distributed system architectures, consistency and replication, distributed consensus protocols (Paxos, Raft), distributed transaction processing, peer-to-peer systems, network routing protocols, quality of service, software-defined networking (SDN), and the design of large-scale networked systems.",
+      "prerequisitesText": "- [[CS2850 Operating Systems]]\n- [[CS2840 Internet Services]]\n- [[CS2860 Algorithms and Complexity]]\n- Strong programming skills and systems programming experience",
+      "outcomes": [
+        "Design and evaluate distributed system architectures",
+        "Implement distributed consensus protocols",
+        "Apply consistency models and replication strategies appropriately",
+        "Understand and implement distributed transaction mechanisms",
+        "Analyse and design network routing protocols",
+        "Apply software-defined networking concepts",
+        "Evaluate the performance and reliability characteristics of distributed systems",
+        "Reason about fault tolerance and availability in distributed environments"
+      ],
+      "assessment": [
+        "Coursework: Implementation of distributed algorithms and protocols",
+        "Practical assignments: Network configuration and SDN programming",
+        "Project: Design and implement a distributed system component",
+        "Exam: Written examination covering distributed systems theory"
+      ],
+      "academicYear": "2025-2026",
+      "prerequisites": [
+        "CS2850",
+        "CS2840",
+        "CS2860"
+      ]
+    },
+    {
+      "code": "CS4950",
+      "title": "Deep Learning",
+      "level": 7,
+      "year": 4,
+      "credits": 15,
+      "semester": 1,
+      "pathway": "artificial-intelligence",
+      "type": "optional",
+      "tags": [
+        "module/cs4",
+        "year/4",
+        "level/7",
+        "type/optional",
+        "pathway/artificial-intelligence",
+        "domain/ai"
+      ],
+      "overview": "This advanced module provides an in-depth exploration of modern deep learning techniques and architectures. Topics include advanced neural network architectures (transformers, graph neural networks, normalising flows), self-supervised learning, meta-learning, neural architecture search, model compression and distillation, interpretability and explainability, and ethical considerations in deep learning. The module emphasises engagement with current research literature.",
+      "prerequisitesText": "- [[CS3950 Deep Learning]] or equivalent\n- [[CS3920 Machine Learning]]\n- Strong mathematical background (linear algebra, calculus, probability)\n- Proficiency in PyTorch or TensorFlow\n- [[CS1860 Mathematical Structures]]",
+      "outcomes": [
+        "Implement and train advanced deep learning architectures (transformers, GNNs)",
+        "Apply self-supervised learning techniques to leverage unlabelled data",
+        "Understand and implement meta-learning algorithms",
+        "Apply model compression techniques (distillation, pruning, quantisation)",
+        "Explain and interpret deep learning model decisions",
+        "Critically evaluate and reproduce results from current research papers",
+        "Address ethical considerations in deep learning applications"
+      ],
+      "assessment": [
+        "Coursework: Implementation of advanced deep learning models",
+        "Paper review and reproduction: Analyse and reproduce a recent research paper",
+        "Project: Original deep learning research project or substantial application",
+        "Presentation: Research findings and methodology communication"
+      ],
+      "academicYear": "2025-2026",
+      "prerequisites": [
+        "CS3920",
+        "CS1860"
+      ]
+    },
+    {
+      "code": "CS4980",
+      "title": "Autonomous Intelligent Systems",
+      "level": 7,
+      "year": 4,
+      "credits": 15,
+      "semester": 2,
+      "pathway": "artificial-intelligence",
+      "type": "optional",
+      "tags": [
+        "module/cs4",
+        "year/4",
+        "level/7",
+        "type/optional",
+        "pathway/artificial-intelligence",
+        "domain/ai"
+      ],
+      "overview": "This module covers the design and implementation of autonomous systems that perceive, reason, and act in real-world environments. Topics include sensor integration, state estimation and localisation, mapping (SLAM), path planning, decision-making under uncertainty (POMDPs), robot control architectures, and autonomous vehicle systems. The module integrates techniques from AI, control theory, and robotics.",
+      "prerequisitesText": "- [[CS3940 Intelligent agents and multi-agent systems]]\n- [[CS3920 Machine Learning]]\n- [[CS2910 Symbolic Artificial Intelligence]]\n- Programming proficiency (Python, C++)\n- Mathematical maturity (probability, linear algebra)",
+      "outcomes": [
+        "Implement state estimation and localisation algorithms",
+        "Apply SLAM techniques for mapping and navigation",
+        "Design path planning algorithms for autonomous navigation",
+        "Implement decision-making under uncertainty using POMDPs",
+        "Integrate perception, planning, and control in autonomous systems",
+        "Evaluate autonomous system performance in simulation and real-world settings",
+        "Understand the ethical and safety considerations in autonomous systems"
+      ],
+      "assessment": [
+        "Coursework: Implementation of autonomous system components (localisation, planning, control)",
+        "Practical assignments: Simulation-based autonomous system exercises",
+        "Project: Design and implement an autonomous system for a given task",
+        "Exam: Written examination covering autonomous system theory"
+      ],
+      "academicYear": "2025-2026",
+      "prerequisites": [
+        "CS3940",
+        "CS3920",
+        "CS2910"
+      ]
+    },
+    {
+      "code": "CS4990",
+      "title": "Natural Language Processing",
+      "level": 7,
+      "year": 4,
+      "credits": 15,
+      "semester": 2,
+      "pathway": "artificial-intelligence",
+      "type": "optional",
+      "tags": [
+        "module/cs4",
+        "year/4",
+        "level/7",
+        "type/optional",
+        "pathway/artificial-intelligence",
+        "domain/ai"
+      ],
+      "overview": "This advanced NLP module covers current research frontiers in natural language processing. Topics include large language models (LLMs), prompt engineering and in-context learning, instruction tuning and RLHF, retrieval-augmented generation (RAG), multilingual and cross-lingual NLP, information extraction, text generation evaluation, and the societal implications of NLP technologies (bias, fairness, misinformation).",
+      "prerequisitesText": "- [[CS3990 Natural Language Processing]] or equivalent\n- [[CS3950 Deep Learning]]\n- [[CS3920 Machine Learning]]\n- Strong Python programming skills\n- Familiarity with PyTorch or TensorFlow",
+      "outcomes": [
+        "Understand and implement large language model architectures",
+        "Apply prompt engineering and in-context learning techniques",
+        "Fine-tune large language models using instruction tuning and RLHF",
+        "Implement retrieval-augmented generation systems",
+        "Evaluate NLP systems using appropriate metrics and benchmarks",
+        "Address bias and fairness issues in NLP systems",
+        "Engage critically with current NLP research literature",
+        "Design and implement NLP systems for complex real-world tasks"
+      ],
+      "assessment": [
+        "Coursework: Implementation of advanced NLP models and systems",
+        "Paper review: Critical analysis of recent NLP research",
+        "Project: Substantial NLP system development (e.g., LLM-based application)",
+        "Presentation: Research or project findings communication"
+      ],
+      "academicYear": "2025-2026",
+      "prerequisites": [
+        "CS3950",
+        "CS3920"
+      ]
+    },
+    {
+      "code": "CS4995",
+      "title": "Introduction to Reinforcement Learning",
+      "level": 7,
+      "year": 4,
+      "credits": 15,
+      "semester": 2,
+      "pathway": "artificial-intelligence",
+      "type": "optional",
+      "tags": [
+        "module/cs4",
+        "year/4",
+        "level/7",
+        "type/optional",
+        "pathway/artificial-intelligence",
+        "domain/ai"
+      ],
+      "overview": "This module provides a comprehensive introduction to reinforcement learning. Topics include the Markov decision process framework, dynamic programming (policy iteration, value iteration), model-free prediction (Monte Carlo, TD learning), model-free control (Q-learning, SARSA), function approximation, policy gradient methods, deep RL (DQN, PPO, SAC), and exploration strategies. The module emphasises both theoretical foundations and practical implementation.",
+      "prerequisitesText": "- [[CS3920 Machine Learning]] or equivalent\n- [[CS1860 Mathematical Structures]] (probability, linear algebra)\n- [[CS2860 Algorithms and Complexity]]\n- Programming proficiency in Python\n- [[CS3950 Deep Learning]] (recommended for deep RL component)",
+      "outcomes": [
+        "Formulate problems as Markov decision processes",
+        "Implement dynamic programming solutions for known environments",
+        "Apply model-free RL algorithms (Monte Carlo, TD, Q-learning)",
+        "Implement policy gradient methods for continuous control",
+        "Apply function approximation techniques for large state spaces",
+        "Implement deep RL algorithms (DQN, PPO, SAC)",
+        "Analyse the exploration-exploitation trade-off",
+        "Evaluate and compare RL algorithms on appropriate benchmarks"
+      ],
+      "assessment": [
+        "Coursework: Implementation of RL algorithms from scratch",
+        "Practical assignments: Application of RL to benchmark environments",
+        "Project: Implement and evaluate RL solutions for a complex task",
+        "Exam: Written examination covering RL theory"
+      ],
+      "academicYear": "2025-2026",
+      "prerequisites": [
+        "CS1860",
+        "CS2860"
+      ]
+    },
+    {
+      "code": "IY4501",
+      "title": "Security Management",
+      "level": 7,
+      "year": 4,
+      "credits": 15,
+      "semester": 1,
+      "pathway": "security",
+      "type": "optional",
+      "tags": [
+        "module/iy4",
+        "year/4",
+        "level/7",
+        "type/optional",
+        "pathway/security",
+        "domain/security"
+      ],
+      "overview": "This advanced module explores strategic security management in complex organisations. Topics include security governance and board-level reporting, enterprise risk management frameworks, security programme management, metrics and performance measurement, vendor risk management, cloud security governance, incident response programme management, and security culture transformation. The module prepares students for senior security leadership roles.",
+      "prerequisitesText": "- [[IY3501 Security management]]\n- [[IY2760 Introduction to Information Security]]\n- Significant security knowledge and practical experience\n- Understanding of business strategy and organisational behaviour",
+      "outcomes": [
+        "Develop and implement enterprise-wide security governance frameworks",
+        "Apply enterprise risk management methodologies to information security",
+        "Manage a comprehensive security programme including budget and resource planning",
+        "Design and implement security metrics and reporting for executive audiences",
+        "Manage third-party and supply chain security risks",
+        "Oversee cloud security governance and assurance",
+        "Lead incident response programme development and testing",
+        "Drive security culture change within organisations"
+      ],
+      "assessment": [
+        "Coursework: Security governance and programme documentation",
+        "Case study analysis: Strategic security management scenarios",
+        "Project: Comprehensive enterprise security programme design",
+        "Exam: Written examination covering advanced security management"
+      ],
+      "academicYear": "2025-2026",
+      "prerequisites": [
+        "IY3501",
+        "IY2760"
+      ]
+    },
+    {
+      "code": "IY4523",
+      "title": "Secure Business Architectures",
+      "level": 7,
+      "year": 4,
+      "credits": 15,
+      "semester": 2,
+      "pathway": "security",
+      "type": "optional",
+      "tags": [
+        "module/iy4",
+        "year/4",
+        "level/7",
+        "type/optional",
+        "pathway/security",
+        "domain/security"
+      ],
+      "overview": "This module covers the design and implementation of secure business architectures. Topics include enterprise security architecture frameworks (SABSA, TOGAF), security architecture patterns, zero trust architectures, cloud security architecture, identity and access management architectures, security for digital transformation, and aligning security architecture with business strategy. The module emphasises the integration of security into enterprise architecture.",
+      "prerequisitesText": "- [[IY3501 Security management]]\n- [[IY2840 Computer and Network Security]]\n- Understanding of enterprise architecture concepts\n- [[IY2760 Introduction to Information Security]]",
+      "outcomes": [
+        "Apply enterprise security architecture frameworks (SABSA, TOGAF)",
+        "Design security architectures using established patterns",
+        "Develop zero trust architectures for modern enterprises",
+        "Design secure cloud architectures (IaaS, PaaS, SaaS)",
+        "Implement identity and access management architectures",
+        "Integrate security into digital transformation initiatives",
+        "Align security architecture with business objectives",
+        "Evaluate and select security technologies within architectural context"
+      ],
+      "assessment": [
+        "Coursework: Security architecture design exercises",
+        "Case study analysis: Enterprise security architecture scenarios",
+        "Project: Design a comprehensive secure business architecture for an organisation",
+        "Exam: Written examination covering security architecture theory"
+      ],
+      "academicYear": "2025-2026",
+      "prerequisites": [
+        "IY3501",
+        "IY2840",
+        "IY2760"
+      ]
+    },
+    {
+      "code": "IY4609",
+      "title": "Digital Forensics",
+      "level": 7,
+      "year": 4,
+      "credits": 15,
+      "semester": 1,
+      "pathway": "security",
+      "type": "optional",
+      "tags": [
+        "module/iy4",
+        "year/4",
+        "level/7",
+        "type/optional",
+        "pathway/security",
+        "domain/security"
+      ],
+      "overview": "This advanced digital forensics module covers contemporary challenges and advanced techniques in forensic investigation. Topics include cloud forensics, virtual machine forensics, IoT forensics, encrypted and covert data discovery, timeline analysis and reconstruction, advanced memory forensics, malware analysis for forensics, network forensics at scale, and legal Challenges in digital investigations. The module addresses current research and evolving forensic methodologies.",
+      "prerequisitesText": "- [[IY3609 Digital forensics]] or equivalent experience\n- [[IY2840 Computer and Network Security]]\n- Strong technical foundation in operating systems, file systems, and networking\n- Proficiency with forensic tools and scripting",
+      "outcomes": [
+        "Conduct forensic investigations in cloud and virtualised environments",
+        "Perform forensic analysis of IoT and embedded devices",
+        "Recover and analyse encrypted and hidden data",
+        "Conduct advanced memory forensics analysis",
+        "Perform timeline analysis and reconstruct digital events",
+        "Analyse malware for forensic purposes",
+        "Conduct network forensics at enterprise scale",
+        "Address legal and evidentiary challenges in advanced investigations"
+      ],
+      "assessment": [
+        "Coursework: Advanced forensic investigation reports",
+        "Practical assignments: Complex forensic analysis scenarios",
+        "Project: End-to-end investigation of a sophisticated cyber incident",
+        "Exam: Written examination covering advanced forensic techniques"
+      ],
+      "academicYear": "2025-2026",
+      "prerequisites": [
+        "IY2840"
+      ]
+    },
+    {
+      "code": "IY4612",
+      "title": "Infrastructure Security",
+      "level": 7,
+      "year": 4,
+      "credits": 15,
+      "semester": 1,
+      "pathway": "security",
+      "type": "optional",
+      "tags": [
+        "module/iy4",
+        "year/4",
+        "level/7",
+        "type/optional",
+        "pathway/security",
+        "domain/security"
+      ],
+      "overview": "This module provides an advanced study of securing complex IT infrastructure. Topics include perimeter security, network segmentation and micro-segmentation, web application firewalls, DDoS protection, endpoint detection and response (EDR), security information and event management (SIEM), security orchestration and response (SOAR), deception technologies, and infrastructure security for cloud and hybrid environments.",
+      "prerequisitesText": "- [[IY2840 Computer and Network Security]]\n- [[IY2760 Introduction to Information Security]]\n- [[CS2840 Internet Services]]\n- [[CS2850 Operating Systems]]\n- Practical experience with network and system administration",
+      "outcomes": [
+        "Design and implement defence-in-depth infrastructure security architectures",
+        "Configure network segmentation and micro-segmentation",
+        "Deploy and manage endpoint detection and response solutions",
+        "Implement SIEM and SOAR systems for security operations",
+        "Design and manage web application firewall and DDoS protection",
+        "Apply deception technologies (honeypots, honey tokens)",
+        "Manage infrastructure security for cloud and hybrid environments",
+        "Develop infrastructure security monitoring and response capabilities"
+      ],
+      "assessment": [
+        "Coursework: Infrastructure security design and configuration exercises",
+        "Practical assignments: Security tool deployment and tuning",
+        "Project: Design a comprehensive infrastructure security architecture",
+        "Exam: Written examination covering infrastructure security"
+      ],
+      "academicYear": "2025-2026",
+      "prerequisites": [
+        "IY2840",
+        "IY2760",
+        "CS2840",
+        "CS2850"
+      ]
+    },
+    {
+      "code": "IY4620",
+      "title": "Fundamentals of Computer and Network Security",
+      "level": 7,
+      "year": 4,
+      "credits": 15,
+      "semester": 1,
+      "pathway": "security",
+      "type": "optional",
+      "tags": [
+        "module/iy4",
+        "year/4",
+        "level/7",
+        "type/optional",
+        "pathway/security",
+        "domain/security"
+      ],
+      "overview": "This module provides a rigorous treatment of the fundamental principles underlying computer and network security. Topics include security models (Bell-LaPadula, Biba, Clark-Wilson), access control models (DAC, MAC, RBAC, ABAC), security policy formalisation, security kernels and trusted computing bases, formal security verification, vulnerability analysis methodologies, penetration testing methodologies, and security standards and evaluation criteria (Common Criteria).",
+      "prerequisitesText": "- [[IY2840 Computer and Network Security]]\n- [[IY2760 Introduction to Information Security]]\n- [[CS1860 Mathematical Structures]] (logic and formal methods)\n- [[CS2850 Operating Systems]]\n- Programming and scripting proficiency",
+      "outcomes": [
+        "Analyse and compare formal security models (Bell-LaPadula, Biba, Clark-Wilson)",
+        "Design and implement access control systems using appropriate models",
+        "Formalise security policies and verify security properties",
+        "Understand trusted computing base and security kernel concepts",
+        "Apply vulnerability analysis and penetration testing methodologies",
+        "Evaluate systems against security standards (Common Criteria)",
+        "Understand the theoretical foundations of secure system design",
+        "Conduct systematic security assessments of computer systems"
+      ],
+      "assessment": [
+        "Coursework: Security model analysis and implementation exercises",
+        "Practical assignments: Vulnerability assessment and penetration testing",
+        "Project: Comprehensive security evaluation of a system",
+        "Exam: Written examination covering security fundamentals"
+      ],
+      "academicYear": "2025-2026",
+      "prerequisites": [
+        "IY2840",
+        "IY2760",
+        "CS1860",
+        "CS2850"
+      ]
+    },
+    {
+      "code": "PC4001",
+      "title": "User-Centred Design",
+      "level": 7,
+      "year": 4,
+      "credits": 15,
+      "semester": 2,
+      "pathway": "hci",
+      "type": "optional",
+      "tags": [
+        "module/pc4",
+        "year/4",
+        "level/7",
+        "type/optional",
+        "pathway/hci",
+        "domain/design"
+      ],
+      "overview": "This advanced module explores user-centred design at a strategic level and in complex contexts. Topics include design thinking methodologies, service design, design systems, advanced usability evaluation methods (eye tracking, remote testing), inclusive and accessible design for diverse populations, ethical design, persuasive design, designing for emerging technologies (AR/VR, voice interfaces, AI), and organisational integration of UCD practices.",
+      "prerequisitesText": "- [[PC3001 User-centred design]] or equivalent experience\n- [[CS1890 Software Design]]\n- Experience with design tools and prototyping\n- Understanding of research methods and statistics",
+      "outcomes": [
+        "Apply design thinking to complex, multi-stakeholder problems",
+        "Design and evaluate services using service design methodologies",
+        "Develop and maintain design systems for consistent user experiences",
+        "Plan and conduct advanced usability evaluations",
+        "Design inclusive and accessible products for diverse user populations",
+        "Address ethical considerations in design decisions",
+        "Design user experiences for emerging technologies (AR/VR, voice, AI)",
+        "Advocate for and integrate UCD practices within organisations"
+      ],
+      "assessment": [
+        "Coursework: Advanced user research and evaluation reports",
+        "Practical assignments: Service design and design system development",
+        "Project: Strategic UCD project addressing a complex problem",
+        "Portfolio: Comprehensive design portfolio with critical reflection"
+      ],
+      "academicYear": "2025-2026",
+      "prerequisites": [
+        "CS1890"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "CS1811",
+      "to": "CS1812",
+      "kind": "hard-prerequisite",
+      "note": "[[CS1811 Object Oriented Programming 1]]"
+    },
+    {
+      "from": "CS1811",
+      "to": "CS1821",
+      "kind": "concurrent-prerequisite",
+      "note": "Concurrent enrolment with [[CS1811 Object Oriented Programming 1]] or equivalent"
+    },
+    {
+      "from": "CS1811",
+      "to": "CS1813",
+      "kind": "relationship-map"
+    },
+    {
+      "from": "CS1812",
+      "to": "CS1890",
+      "kind": "relationship-map"
+    },
+    {
+      "from": "CS1812",
+      "to": "CS2800",
+      "kind": "hard-prerequisite",
+      "note": "[[CS1812 Object Oriented Programming 2]]"
+    },
+    {
+      "from": "CS1813",
+      "to": "CS2800",
+      "kind": "relationship-map"
+    },
+    {
+      "from": "CS1813",
+      "to": "CS3510",
+      "kind": "recommended-prerequisite",
+      "note": "[[CS1812 Object Oriented Programming 2]] or [[CS1813 Software Development]] recommended"
+    },
+    {
+      "from": "CS1812",
+      "to": "CS3510",
+      "kind": "recommended-prerequisite",
+      "note": "[[CS1812 Object Oriented Programming 2]] or [[CS1813 Software Development]] recommended"
+    },
+    {
+      "from": "CS1890",
+      "to": "CS2800",
+      "kind": "hard-prerequisite",
+      "note": "[[CS1890 Software Design]]"
+    },
+    {
+      "from": "CS1821",
+      "to": "CS2800",
+      "kind": "hard-prerequisite",
+      "note": "[[CS1821 Programming Laboratory]]"
+    },
+    {
+      "from": "CS2800",
+      "to": "CS2810",
+      "kind": "hard-prerequisite",
+      "note": "[[CS2800 Software Engineering]]"
+    },
+    {
+      "from": "CS2800",
+      "to": "CS2815",
+      "kind": "hard-prerequisite",
+      "note": "[[CS2800 Software Engineering]]"
+    },
+    {
+      "from": "CS2800",
+      "to": "CS3003",
+      "kind": "equivalent-prerequisite",
+      "note": "[[CS2800 Software Engineering]] or equivalent experience"
+    },
+    {
+      "from": "CS2810",
+      "to": "CS2815",
+      "kind": "concurrent-prerequisite",
+      "note": "[[CS2810 Team Project]] (concurrent or completed)"
+    },
+    {
+      "from": "CS2810",
+      "to": "CS3821",
+      "kind": "hard-prerequisite",
+      "note": "[[CS2810 Team Project]] or [[CS2815 Small enterprise team project]] provides relevant team-based project experience"
+    },
+    {
+      "from": "CS2815",
+      "to": "CS3821",
+      "kind": "hard-prerequisite",
+      "note": "[[CS2810 Team Project]] or [[CS2815 Small enterprise team project]] provides relevant team-based project experience"
+    },
+    {
+      "from": "CS2810",
+      "to": "CS4825",
+      "kind": "hard-prerequisite",
+      "note": "[[CS2810 Team Project]] or [[CS2815 Small enterprise team project]] provides relevant team-based project experience"
+    },
+    {
+      "from": "CS2815",
+      "to": "CS4825",
+      "kind": "hard-prerequisite",
+      "note": "[[CS2810 Team Project]] or [[CS2815 Small enterprise team project]] provides relevant team-based project experience"
+    },
+    {
+      "from": "CS1870",
+      "to": "CS2850",
+      "kind": "hard-prerequisite",
+      "note": "[[CS1870 Machine Fundamentals]]"
+    },
+    {
+      "from": "CS1840",
+      "to": "CS2840",
+      "kind": "equivalent-prerequisite",
+      "note": "[[CS1840 Internet Services]] or equivalent networking knowledge"
+    },
+    {
+      "from": "CS2850",
+      "to": "CS4860",
+      "kind": "hard-prerequisite",
+      "note": "[[CS2850 Operating Systems]]"
+    },
+    {
+      "from": "CS2840",
+      "to": "CS4860",
+      "kind": "hard-prerequisite",
+      "note": "[[CS2840 Internet Services]]"
+    },
+    {
+      "from": "CS2850",
+      "to": "CS4234",
+      "kind": "hard-prerequisite",
+      "note": "[[CS2850 Operating Systems]]"
+    },
+    {
+      "from": "CS2855",
+      "to": "CS4234",
+      "kind": "hard-prerequisite",
+      "note": "[[CS2855 Databases]]"
+    },
+    {
+      "from": "CS1860",
+      "to": "CS2860",
+      "kind": "hard-prerequisite",
+      "note": "[[CS1860 Mathematical Structures]]"
+    },
+    {
+      "from": "CS1860",
+      "to": "CS2910",
+      "kind": "hard-prerequisite",
+      "note": "[[CS1860 Mathematical Structures]] (particularly logic)"
+    },
+    {
+      "from": "CS1860",
+      "to": "CS3450",
+      "kind": "hard-prerequisite",
+      "note": "[[CS1860 Mathematical Structures]] (logic and proof techniques)"
+    },
+    {
+      "from": "CS1860",
+      "to": "CS3470",
+      "kind": "hard-prerequisite",
+      "note": "[[CS1860 Mathematical Structures]]"
+    },
+    {
+      "from": "CS1860",
+      "to": "CS3480",
+      "kind": "hard-prerequisite",
+      "note": "[[CS1860 Mathematical Structures]] (logic and algebra)"
+    },
+    {
+      "from": "CS1860",
+      "to": "CS3490",
+      "kind": "hard-prerequisite",
+      "note": "[[CS1860 Mathematical Structures]]"
+    },
+    {
+      "from": "CS1860",
+      "to": "CS3600",
+      "kind": "hard-prerequisite",
+      "note": "[[CS1860 Mathematical Structures]]"
+    },
+    {
+      "from": "CS1860",
+      "to": "CS3920",
+      "kind": "hard-prerequisite",
+      "note": "[[CS1860 Mathematical Structures]] (probability, linear algebra)"
+    },
+    {
+      "from": "CS1860",
+      "to": "CS3950",
+      "kind": "hard-prerequisite",
+      "note": "[[CS1860 Mathematical Structures]] (linear algebra, calculus, probability)"
+    },
+    {
+      "from": "CS1860",
+      "to": "CS3990",
+      "kind": "hard-prerequisite",
+      "note": "[[CS1860 Mathematical Structures]] (probability, statistics)"
+    },
+    {
+      "from": "CS1860",
+      "to": "CS4100",
+      "kind": "hard-prerequisite",
+      "note": "[[CS1860 Mathematical Structures]] (probability and statistics)"
+    },
+    {
+      "from": "CS1860",
+      "to": "IY3660",
+      "kind": "hard-prerequisite",
+      "note": "[[CS1860 Mathematical Structures]] (number theory, modular arithmetic)"
+    },
+    {
+      "from": "CS2860",
+      "to": "CS3870",
+      "kind": "hard-prerequisite",
+      "note": "[[CS2860 Algorithms and Complexity]] (strong performance expected)"
+    },
+    {
+      "from": "CS2860",
+      "to": "CS3920",
+      "kind": "hard-prerequisite",
+      "note": "[[CS2860 Algorithms and Complexity]]"
+    },
+    {
+      "from": "CS2860",
+      "to": "CS3450",
+      "kind": "hard-prerequisite",
+      "note": "[[CS2860 Algorithms and Complexity]]"
+    },
+    {
+      "from": "CS2860",
+      "to": "CS3470",
+      "kind": "hard-prerequisite",
+      "note": "[[CS2860 Algorithms and Complexity]]"
+    },
+    {
+      "from": "CS2860",
+      "to": "CS3490",
+      "kind": "hard-prerequisite",
+      "note": "[[CS2860 Algorithms and Complexity]]"
+    },
+    {
+      "from": "CS2860",
+      "to": "CS3600",
+      "kind": "hard-prerequisite",
+      "note": "[[CS2860 Algorithms and Complexity]]"
+    },
+    {
+      "from": "CS1870",
+      "to": "CS3470",
+      "kind": "hard-prerequisite",
+      "note": "[[CS1870 Machine Fundamentals]]"
+    },
+    {
+      "from": "CS3480",
+      "to": "CS3470",
+      "kind": "concurrent-prerequisite",
+      "note": "[[CS3480 Software Language Engineering]] (concurrent or completed, recommended)"
+    },
+    {
+      "from": "CS3450",
+      "to": "CS3480",
+      "kind": "relationship-map"
+    },
+    {
+      "from": "CS2860",
+      "to": "CS2910",
+      "kind": "hard-prerequisite",
+      "note": "[[CS2860 Algorithms and Complexity]]"
+    },
+    {
+      "from": "CS2910",
+      "to": "CS3940",
+      "kind": "hard-prerequisite",
+      "note": "[[CS2910 Symbolic Artificial Intelligence]]"
+    },
+    {
+      "from": "CS2910",
+      "to": "CS3920",
+      "kind": "relationship-map"
+    },
+    {
+      "from": "CS3920",
+      "to": "CS3950",
+      "kind": "equivalent-prerequisite",
+      "note": "[[CS3920 Machine Learning]] or equivalent"
+    },
+    {
+      "from": "CS3920",
+      "to": "CS3990",
+      "kind": "equivalent-prerequisite",
+      "note": "[[CS3920 Machine Learning]] or equivalent"
+    },
+    {
+      "from": "CS3920",
+      "to": "CS4995",
+      "kind": "equivalent-prerequisite",
+      "note": "[[CS3920 Machine Learning]] or equivalent"
+    },
+    {
+      "from": "CS3920",
+      "to": "CS3930",
+      "kind": "recommended-prerequisite",
+      "note": "[[CS3920 Machine Learning]] (recommended)"
+    },
+    {
+      "from": "CS3950",
+      "to": "CS4950",
+      "kind": "equivalent-prerequisite",
+      "note": "[[CS3950 Deep Learning]] or equivalent"
+    },
+    {
+      "from": "CS3950",
+      "to": "CS4990",
+      "kind": "hard-prerequisite",
+      "note": "[[CS3950 Deep Learning]]"
+    },
+    {
+      "from": "CS3990",
+      "to": "CS4990",
+      "kind": "equivalent-prerequisite",
+      "note": "[[CS3990 Natural Language Processing]] or equivalent"
+    },
+    {
+      "from": "CS3940",
+      "to": "CS4980",
+      "kind": "hard-prerequisite",
+      "note": "[[CS3940 Intelligent agents and multi-agent systems]]"
+    },
+    {
+      "from": "CS2900",
+      "to": "CS3920",
+      "kind": "recommended-prerequisite",
+      "note": "[[CS2900 Multi-dimensional Data Processing]] (recommended)"
+    },
+    {
+      "from": "CS2900",
+      "to": "CS4100",
+      "kind": "hard-prerequisite",
+      "note": "[[CS2900 Multi-dimensional Data Processing]]"
+    },
+    {
+      "from": "CS2900",
+      "to": "CS4250",
+      "kind": "hard-prerequisite",
+      "note": "[[CS2900 Multi-dimensional Data Processing]]"
+    },
+    {
+      "from": "CS4100",
+      "to": "CS4250",
+      "kind": "concurrent-prerequisite",
+      "note": "[[CS4100 Data Analysis]] (concurrent or completed)"
+    },
+    {
+      "from": "CS4100",
+      "to": "CS4504",
+      "kind": "recommended-prerequisite",
+      "note": "[[CS4100 Data Analysis]] (recommended)"
+    },
+    {
+      "from": "CS4234",
+      "to": "CS4504",
+      "kind": "recommended-prerequisite",
+      "note": "[[CS4234 Large-Scale Data Storage and Processing]] (recommended)"
+    },
+    {
+      "from": "IY2760",
+      "to": "IY2840",
+      "kind": "hard-prerequisite",
+      "note": "[[IY2760 Introduction to Information Security]]"
+    },
+    {
+      "from": "IY2760",
+      "to": "IY3501",
+      "kind": "hard-prerequisite",
+      "note": "[[IY2760 Introduction to Information Security]]"
+    },
+    {
+      "from": "IY2760",
+      "to": "IY3660",
+      "kind": "hard-prerequisite",
+      "note": "[[IY2760 Introduction to Information Security]]"
+    },
+    {
+      "from": "IY2760",
+      "to": "IY3606",
+      "kind": "hard-prerequisite",
+      "note": "[[IY2760 Introduction to Information Security]]"
+    },
+    {
+      "from": "IY2760",
+      "to": "IY3609",
+      "kind": "hard-prerequisite",
+      "note": "[[IY2760 Introduction to Information Security]]"
+    },
+    {
+      "from": "IY2840",
+      "to": "IY3612",
+      "kind": "hard-prerequisite",
+      "note": "[[IY2840 Computer and Network Security]]"
+    },
+    {
+      "from": "IY2840",
+      "to": "IY4620",
+      "kind": "hard-prerequisite",
+      "note": "[[IY2840 Computer and Network Security]]"
+    },
+    {
+      "from": "IY2840",
+      "to": "IY4612",
+      "kind": "hard-prerequisite",
+      "note": "[[IY2840 Computer and Network Security]]"
+    },
+    {
+      "from": "IY2840",
+      "to": "IY4523",
+      "kind": "hard-prerequisite",
+      "note": "[[IY2840 Computer and Network Security]]"
+    },
+    {
+      "from": "IY3501",
+      "to": "IY4501",
+      "kind": "hard-prerequisite",
+      "note": "[[IY3501 Security management]]"
+    },
+    {
+      "from": "IY3501",
+      "to": "IY4523",
+      "kind": "hard-prerequisite",
+      "note": "[[IY3501 Security management]]"
+    },
+    {
+      "from": "IY3609",
+      "to": "IY4609",
+      "kind": "equivalent-prerequisite",
+      "note": "[[IY3609 Digital forensics]] or equivalent experience"
+    },
+    {
+      "from": "IY3606",
+      "to": "IY3660",
+      "kind": "relationship-map"
+    },
+    {
+      "from": "PC3001",
+      "to": "PC4001",
+      "kind": "equivalent-prerequisite",
+      "note": "[[PC3001 User-centred design]] or equivalent experience"
+    },
+    {
+      "from": "CS2800",
+      "to": "PC3001",
+      "kind": "relationship-map"
+    },
+    {
+      "from": "CS1890",
+      "to": "PC3001",
+      "kind": "recommended-prerequisite",
+      "note": "[[CS1890 Software Design]] (recommended)"
+    },
+    {
+      "from": "CS1821",
+      "to": "CS1812",
+      "kind": "concurrent-prerequisite",
+      "note": "[[CS1821 Programming Laboratory]] (concurrent or completed)"
+    },
+    {
+      "from": "CS1870",
+      "to": "CS1840",
+      "kind": "equivalent-prerequisite",
+      "note": "Basic understanding of computer systems ([[CS1870 Machine Fundamentals]] or equivalent)"
+    },
+    {
+      "from": "CS1811",
+      "to": "CS1890",
+      "kind": "concurrent-prerequisite",
+      "note": "[[CS1811 Object Oriented Programming 1]] (concurrent or completed)"
+    },
+    {
+      "from": "CS1812",
+      "to": "CS2810",
+      "kind": "hard-prerequisite",
+      "note": "[[CS1812 Object Oriented Programming 2]]"
+    },
+    {
+      "from": "CS1890",
+      "to": "CS2810",
+      "kind": "hard-prerequisite",
+      "note": "[[CS1890 Software Design]]"
+    },
+    {
+      "from": "CS1812",
+      "to": "CS2815",
+      "kind": "hard-prerequisite",
+      "note": "[[CS1812 Object Oriented Programming 2]]"
+    },
+    {
+      "from": "CS1812",
+      "to": "CS2840",
+      "kind": "hard-prerequisite",
+      "note": "[[CS1812 Object Oriented Programming 2]]"
+    },
+    {
+      "from": "CS1811",
+      "to": "CS2850",
+      "kind": "hard-prerequisite",
+      "note": "[[CS1811 Object Oriented Programming 1]]"
+    },
+    {
+      "from": "CS1860",
+      "to": "CS2855",
+      "kind": "hard-prerequisite",
+      "note": "[[CS1860 Mathematical Structures]] (useful for relational algebra)"
+    },
+    {
+      "from": "CS1811",
+      "to": "CS2860",
+      "kind": "hard-prerequisite",
+      "note": "[[CS1811 Object Oriented Programming 1]]"
+    },
+    {
+      "from": "CS1860",
+      "to": "CS2900",
+      "kind": "recommended-prerequisite",
+      "note": "[[CS1860 Mathematical Structures]] (recommended background)"
+    },
+    {
+      "from": "CS2860",
+      "to": "CS2900",
+      "kind": "recommended-prerequisite",
+      "note": "[[CS2860 Algorithms and Complexity]] (recommended background)"
+    },
+    {
+      "from": "CS2810",
+      "to": "CS3003",
+      "kind": "hard-prerequisite",
+      "note": "Some team project experience ( [[CS2810 Team Project]]"
+    },
+    {
+      "from": "CS2800",
+      "to": "CS3450",
+      "kind": "hard-prerequisite",
+      "note": "[[CS2800 Software Engineering]]"
+    },
+    {
+      "from": "CS1812",
+      "to": "CS3480",
+      "kind": "hard-prerequisite",
+      "note": "[[CS1812 Object Oriented Programming 2]]"
+    },
+    {
+      "from": "CS2860",
+      "to": "CS3480",
+      "kind": "hard-prerequisite",
+      "note": "[[CS2860 Algorithms and Complexity]]"
+    },
+    {
+      "from": "CS1811",
+      "to": "CS3510",
+      "kind": "equivalent-prerequisite",
+      "note": "[[CS1811 Object Oriented Programming 1]] or equivalent programming experience"
+    },
+    {
+      "from": "CS1860",
+      "to": "CS3870",
+      "kind": "hard-prerequisite",
+      "note": "[[CS1860 Mathematical Structures]]"
+    },
+    {
+      "from": "CS1860",
+      "to": "CS3930",
+      "kind": "hard-prerequisite",
+      "note": "[[CS1860 Mathematical Structures]] (probability and statistics)"
+    },
+    {
+      "from": "CS2860",
+      "to": "CS3940",
+      "kind": "hard-prerequisite",
+      "note": "[[CS2860 Algorithms and Complexity]]"
+    },
+    {
+      "from": "CS3920",
+      "to": "CS3940",
+      "kind": "recommended-prerequisite",
+      "note": "[[CS3920 Machine Learning]] (recommended)"
+    },
+    {
+      "from": "CS3950",
+      "to": "CS3990",
+      "kind": "concurrent-prerequisite",
+      "note": "[[CS3950 Deep Learning]] (recommended, concurrent permitted)"
+    },
+    {
+      "from": "CS3920",
+      "to": "CS4100",
+      "kind": "recommended-prerequisite",
+      "note": "[[CS3920 Machine Learning]] (recommended)"
+    },
+    {
+      "from": "CS2840",
+      "to": "CS4234",
+      "kind": "recommended-prerequisite",
+      "note": "[[CS2840 Internet Services]] (recommended)"
+    },
+    {
+      "from": "CS2860",
+      "to": "CS4234",
+      "kind": "hard-prerequisite",
+      "note": "[[CS2860 Algorithms and Complexity]]"
+    },
+    {
+      "from": "CS2855",
+      "to": "CS4504",
+      "kind": "hard-prerequisite",
+      "note": "[[CS2855 Databases]]"
+    },
+    {
+      "from": "CS2860",
+      "to": "CS4860",
+      "kind": "hard-prerequisite",
+      "note": "[[CS2860 Algorithms and Complexity]]"
+    },
+    {
+      "from": "CS3920",
+      "to": "CS4950",
+      "kind": "hard-prerequisite",
+      "note": "[[CS3920 Machine Learning]]"
+    },
+    {
+      "from": "CS1860",
+      "to": "CS4950",
+      "kind": "hard-prerequisite",
+      "note": "[[CS1860 Mathematical Structures]]"
+    },
+    {
+      "from": "CS3920",
+      "to": "CS4980",
+      "kind": "hard-prerequisite",
+      "note": "[[CS3920 Machine Learning]]"
+    },
+    {
+      "from": "CS2910",
+      "to": "CS4980",
+      "kind": "hard-prerequisite",
+      "note": "[[CS2910 Symbolic Artificial Intelligence]]"
+    },
+    {
+      "from": "CS3920",
+      "to": "CS4990",
+      "kind": "hard-prerequisite",
+      "note": "[[CS3920 Machine Learning]]"
+    },
+    {
+      "from": "CS1860",
+      "to": "CS4995",
+      "kind": "hard-prerequisite",
+      "note": "[[CS1860 Mathematical Structures]] (probability, linear algebra)"
+    },
+    {
+      "from": "CS2860",
+      "to": "CS4995",
+      "kind": "hard-prerequisite",
+      "note": "[[CS2860 Algorithms and Complexity]]"
+    },
+    {
+      "from": "CS3950",
+      "to": "CS4995",
+      "kind": "recommended-prerequisite",
+      "note": "[[CS3950 Deep Learning]] (recommended for deep RL component)"
+    },
+    {
+      "from": "CS1870",
+      "to": "IY2760",
+      "kind": "recommended-prerequisite",
+      "note": "[[CS1870 Machine Fundamentals]] (recommended)"
+    },
+    {
+      "from": "CS1840",
+      "to": "IY2760",
+      "kind": "recommended-prerequisite",
+      "note": "[[CS1840 Internet Services]] (recommended)"
+    },
+    {
+      "from": "CS1840",
+      "to": "IY2840",
+      "kind": "equivalent-prerequisite",
+      "note": "[[CS1840 Internet Services]] or equivalent networking knowledge"
+    },
+    {
+      "from": "CS2850",
+      "to": "IY2840",
+      "kind": "recommended-prerequisite",
+      "note": "[[CS2850 Operating Systems]] (recommended)"
+    },
+    {
+      "from": "CS3003",
+      "to": "IY3501",
+      "kind": "recommended-prerequisite",
+      "note": "[[CS3003 IT Project Management]] (recommended)"
+    },
+    {
+      "from": "CS1870",
+      "to": "IY3606",
+      "kind": "hard-prerequisite",
+      "note": "[[CS1870 Machine Fundamentals]] (hardware knowledge)"
+    },
+    {
+      "from": "IY3660",
+      "to": "IY3606",
+      "kind": "recommended-prerequisite",
+      "note": "Basic cryptography understanding ([[IY3660 Applications of Cryptography]] recommended)"
+    },
+    {
+      "from": "CS2850",
+      "to": "IY3609",
+      "kind": "hard-prerequisite",
+      "note": "[[CS2850 Operating Systems]] (file systems, memory management)"
+    },
+    {
+      "from": "CS1840",
+      "to": "IY3609",
+      "kind": "hard-prerequisite",
+      "note": "[[CS1840 Internet Services]] (network fundamentals)"
+    },
+    {
+      "from": "IY2760",
+      "to": "IY3612",
+      "kind": "hard-prerequisite",
+      "note": "[[IY2760 Introduction to Information Security]]"
+    },
+    {
+      "from": "CS2850",
+      "to": "IY3612",
+      "kind": "hard-prerequisite",
+      "note": "[[CS2850 Operating Systems]]"
+    },
+    {
+      "from": "IY2760",
+      "to": "IY4501",
+      "kind": "hard-prerequisite",
+      "note": "[[IY2760 Introduction to Information Security]]"
+    },
+    {
+      "from": "IY2760",
+      "to": "IY4523",
+      "kind": "hard-prerequisite",
+      "note": "[[IY2760 Introduction to Information Security]]"
+    },
+    {
+      "from": "IY2840",
+      "to": "IY4609",
+      "kind": "hard-prerequisite",
+      "note": "[[IY2840 Computer and Network Security]]"
+    },
+    {
+      "from": "IY2760",
+      "to": "IY4612",
+      "kind": "hard-prerequisite",
+      "note": "[[IY2760 Introduction to Information Security]]"
+    },
+    {
+      "from": "CS2840",
+      "to": "IY4612",
+      "kind": "hard-prerequisite",
+      "note": "[[CS2840 Internet Services]]"
+    },
+    {
+      "from": "CS2850",
+      "to": "IY4612",
+      "kind": "hard-prerequisite",
+      "note": "[[CS2850 Operating Systems]]"
+    },
+    {
+      "from": "IY2760",
+      "to": "IY4620",
+      "kind": "hard-prerequisite",
+      "note": "[[IY2760 Introduction to Information Security]]"
+    },
+    {
+      "from": "CS1860",
+      "to": "IY4620",
+      "kind": "hard-prerequisite",
+      "note": "[[CS1860 Mathematical Structures]] (logic and formal methods)"
+    },
+    {
+      "from": "CS2850",
+      "to": "IY4620",
+      "kind": "hard-prerequisite",
+      "note": "[[CS2850 Operating Systems]]"
+    },
+    {
+      "from": "CS1890",
+      "to": "PC4001",
+      "kind": "hard-prerequisite",
+      "note": "[[CS1890 Software Design]]"
+    }
+  ]
+}

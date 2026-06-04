@@ -1,44 +1,64 @@
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
+
+const lines = [
+  "I'm a systems engineer who gravitates toward the hard parts of software:",
+  "tight performance budgets, security and integrity guarantees, and",
+  "architectures with a lot of moving pieces.",
+  "",
+  "My work runs close to the metal — Rust, C/C++ and Java — across GPU",
+  "compute, distributed systems, real-time sync and low-level tooling. I care",
+  "about local-first design, doing things correctly under constraint, and",
+  "shipping software that holds up when it actually matters.",
+  "",
+  "Off the keyboard: bikes, mountains, and rabbit holes about obscure things.",
+];
 
 export default function About() {
+  const reduced = useReducedMotion() ?? false;
   return (
-    <section className="py-20 px-4 max-w-4xl mx-auto" id="about">
+    <section className="relative z-10 py-20 px-4 max-w-3xl mx-auto" id="about">
       <motion.div
-        initial={{ opacity: 0, y: 30 }}
+        initial={reduced ? false : { opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.7 }}
-        className="relative rounded-3xl p-8 md:p-12 backdrop-blur-sm"
+        viewport={{ once: true, margin: '-60px' }}
+        transition={{ duration: 0.6 }}
+        className="overflow-hidden rounded-xl"
         style={{
           background: 'var(--bg-card)',
           border: '1px solid var(--border)',
-          boxShadow: '0 4px 40px rgba(0,0,0,0.2)',
         }}
       >
-        {/* Accent gradient */}
-        <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-[#028090]/5 via-transparent to-[#b6465f]/5 pointer-events-none" />
+        {/* window bar */}
+        <div
+          className="flex items-center gap-2 px-4 py-2.5"
+          style={{ borderBottom: '1px solid var(--border)' }}
+        >
+          <span className="w-2.5 h-2.5 rounded-full" style={{ background: '#e06b82' }} />
+          <span className="w-2.5 h-2.5 rounded-full" style={{ background: '#e3b341' }} />
+          <span className="w-2.5 h-2.5 rounded-full" style={{ background: '#2dd4bf' }} />
+          <span className="ml-3 text-xs" style={{ color: 'var(--text-faint)' }}>
+            ~/about
+          </span>
+        </div>
 
-        <div className="relative z-10">
-          <h2 className="text-2xl md:text-3xl font-bold mb-6 bg-gradient-to-r from-[#fbfbff] to-[#028090] bg-clip-text text-transparent">
-            About me
-          </h2>
-          <div className="space-y-4 leading-relaxed" style={{ color: 'var(--text-muted)' }}>
-            <p>
-              I'm a developer and engineer interested in the intersection of systems programming, AI, and data visualisation.
-              I build tools that prioritise local-first design, performance, and real-world utility — from forensic analysis
-              platforms to astronomical visualisers.
-            </p>
-            <p>
-              My work spans low-level systems (Rust, C, Java), AI/ML pipelines (local LLM inference, GPU compute),
-              and interactive front-ends (SvelteKit, Three.js, Astro). I enjoy taking on projects that require
-              deep technical breadth — whether that's zero-knowledge cryptography, Minecraft mod architecture, or
-              mapping 40 million galaxies in 3D.
-            </p>
-            <p>
-              When I'm not coding I'm usually on my bike, in the mountains, or deep in a rabbit hole about something
-              obscure and fascinating.
-            </p>
+        <div className="p-5 md:p-7 text-sm md:text-[0.95rem] leading-7">
+          <div className="mb-3">
+            <span style={{ color: 'var(--accent-2)' }}>❯ </span>
+            <span style={{ color: 'var(--text)' }}>cat about.txt</span>
           </div>
+          {lines.map((line, i) => (
+            <motion.p
+              key={i}
+              initial={reduced ? false : { opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.04 * i, duration: 0.4 }}
+              className="whitespace-pre-wrap break-words"
+              style={{ color: line ? 'var(--text-muted)' : 'transparent', minHeight: '1.2em' }}
+            >
+              {line || '\u00a0'}
+            </motion.p>
+          ))}
         </div>
       </motion.div>
     </section>
