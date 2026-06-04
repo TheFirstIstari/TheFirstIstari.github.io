@@ -58,10 +58,10 @@ export const projects: Project[] = [
     id: 'slstudio',
     title: 'SL Studio',
     description: 'Local-first forensic document analysis platform for PDFs, images, audio, and DOCX evidence files.',
-    tags: ['Tauri', 'Rust', 'SvelteKit', 'Forensics'],
+    tags: ['Tauri', 'Rust', 'SvelteKit', 'LLM', 'Forensics'],
     github: 'https://github.com/TheFirstIstari/sl-studio',
     status: 'Prototype',
-    detail: 'Built on Tauri 2 + Rust with a SvelteKit 5 frontend. Fully local-first — evidence never leaves the device and there are no outbound network calls, so chain-of-custody stays intact. Metal-accelerated on-device compute drives the document, OCR, financial-crime and audio pipelines; exports JSON, CSV, PDF and Excel.',
+    detail: 'Built on Tauri 2 + Rust with a SvelteKit 5 frontend. Fully local-first — runs LLMs on-device via llama.cpp with Metal acceleration, so evidence never leaves the machine and chain-of-custody stays intact. Pipelines cover document analysis, OCR, financial crimes and audio; exports JSON, CSV, PDF and Excel.',
   },
   {
     id: 'fervo',
@@ -74,10 +74,10 @@ export const projects: Project[] = [
   {
     id: 'steinline',
     title: 'Project SteinLine',
-    description: 'Asymmetric distributed forensic platform: low-power storage nodes feed GPU compute, visualised on an infinite canvas.',
-    tags: ['Python', 'CUDA', 'Qt', 'Distributed'],
+    description: 'Asymmetric distributed forensic platform: low-power storage nodes feed GPU inference, visualised on an infinite canvas.',
+    tags: ['Python', 'CUDA', 'ML', 'Distributed'],
     github: 'https://github.com/TheFirstIstari/Project-SteinLine',
-    detail: 'Asymmetric architecture pairs low-power Raspberry Pi 5 storage nodes with RTX 3090/4090 GPU compute. Processes documents, images and video through recursive windowing, PDF deconstruction, OCR and audio transcription. Source evidence is mounted strictly read-only to preserve integrity.',
+    detail: 'Asymmetric architecture pairs low-power Raspberry Pi 5 storage nodes with RTX 3090/4090 GPU compute. Processes documents, images and video with multimodal ML models, recursive windowing, PDF deconstruction, OCR and audio transcription. Source evidence is mounted strictly read-only to preserve integrity.',
   },
   {
     id: 'trackbound',

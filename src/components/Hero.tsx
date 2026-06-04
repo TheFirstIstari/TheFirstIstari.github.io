@@ -9,11 +9,6 @@ type Line =
 const SCRIPT: Line[] = [
   { kind: "cmd", text: "whoami" },
   { kind: "out", text: "TheFirstIstari" },
-  { kind: "cmd", text: "cat focus.txt" },
-  {
-    kind: "out",
-    text: "Systems engineer. I build for performance, security,\nand genuinely hard technical problems.",
-  },
   { kind: "cmd", text: "ls ~/links" },
   { kind: "links" },
 ];
@@ -183,17 +178,6 @@ export default function Hero() {
             )}
           </div>
         </div>
-
-        {/* Sub-caption */}
-        <motion.p
-          initial={reduced ? false : { opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.2, duration: 0.6 }}
-          className="mt-5 text-center text-xs"
-          style={{ color: "var(--comment)" }}
-        >
-          // performance · security · systems · the deliberately difficult
-        </motion.p>
       </motion.div>
     </section>
   );

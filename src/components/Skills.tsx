@@ -10,6 +10,10 @@ const skillGroups = [
     skills: ['CUDA', 'Metal', 'SIMD', 'Multithreading', 'Profiling', 'Benchmarking'],
   },
   {
+    label: 'ML & Inference',
+    skills: ['llama.cpp', 'Local LLM Inference', 'NumPy', 'Polars'],
+  },
+  {
     label: 'Security & Crypto',
     skills: ['Zero-Knowledge Proofs', 'Threshold Cryptography', 'Transparency Logs', 'Local-First / Privacy'],
   },
@@ -23,7 +27,7 @@ const skillGroups = [
   },
   {
     label: 'Data & Infra',
-    skills: ['SpacetimeDB', 'SQLite', 'Polars', 'astropy', 'GIS / GPX', 'GitHub Actions'],
+    skills: ['SpacetimeDB', 'SQLite', 'astropy', 'Blender Python API', 'GIS / GPX', 'GitHub Actions'],
   },
 ];
 
