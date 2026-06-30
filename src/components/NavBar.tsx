@@ -1,9 +1,7 @@
 import { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
 
 const links = [
-  { label: 'skills', href: '/#skills' },
-  { label: 'projects', href: '/projects/' },
+  { label: 'Projects', href: '/projects/' },
 ];
 
 export default function NavBar() {
@@ -16,40 +14,25 @@ export default function NavBar() {
   }, []);
 
   return (
-    <motion.nav
-      initial={{ y: -60, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.5, ease: 'easeOut' }}
-      className="fixed top-0 left-0 right-0 z-40 transition-all duration-300"
-      style={{
-        background: scrolled ? 'var(--nav-bg)' : 'transparent',
-        backdropFilter: scrolled ? 'blur(12px)' : 'none',
-        borderBottom: scrolled ? '1px solid var(--border)' : '1px solid transparent',
-      }}
+    <nav
+      className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${scrolled ? 'nav-blur' : ''}`}
     >
-      <div className="max-w-6xl mx-auto px-4 h-14 flex items-center justify-between">
+      <div className="max-w-6xl mx-auto px-6 h-14 flex items-center justify-between">
         <a
           href="/"
-          className="font-semibold text-sm transition-colors"
-          style={{ color: 'var(--text)' }}
+          className="nav-link"
+          style={{ color: 'var(--accent)', fontFamily: 'var(--font-display)', fontSize: '1.05rem' }}
         >
-          <span style={{ color: 'var(--accent)' }}>~</span>
-          <span style={{ color: 'var(--text-faint)' }}>/</span>tweak.wiki
+          TheFirstIstari
         </a>
-        <div className="flex items-center gap-1">
+        <div className="flex items-center gap-6">
           {links.map(link => (
-            <a
-              key={link.href}
-              href={link.href}
-              className="group px-3 py-1.5 text-sm rounded-md transition-colors"
-              style={{ color: 'var(--text-muted)' }}
-            >
-              <span style={{ color: 'var(--accent)' }} className="opacity-0 group-hover:opacity-100 transition-opacity">cd </span>
+            <a key={link.href} href={link.href} className="nav-link">
               {link.label}
             </a>
           ))}
         </div>
       </div>
-    </motion.nav>
+    </nav>
   );
 }

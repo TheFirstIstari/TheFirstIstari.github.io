@@ -22,44 +22,30 @@ export default function About() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: '-60px' }}
         transition={{ duration: 0.6 }}
-        className="overflow-hidden rounded-xl"
+        className="rounded-xl p-6 md:p-8"
         style={{
           background: 'var(--bg-card)',
           border: '1px solid var(--border)',
         }}
       >
-        {/* window bar */}
-        <div
-          className="flex items-center gap-2 px-4 py-2.5"
-          style={{ borderBottom: '1px solid var(--border)' }}
-        >
-          <span className="w-2.5 h-2.5 rounded-full" style={{ background: 'var(--dot)' }} />
-          <span className="w-2.5 h-2.5 rounded-full" style={{ background: 'var(--dot)' }} />
-          <span className="w-2.5 h-2.5 rounded-full" style={{ background: 'var(--dot)' }} />
-          <span className="ml-3 text-xs" style={{ color: 'var(--text-faint)' }}>
-            ~/about
-          </span>
-        </div>
-
-        <div className="p-5 md:p-7 text-sm md:text-[0.95rem] leading-7">
-          <div className="mb-3">
-            <span style={{ color: 'var(--accent-2)' }}>❯ </span>
-            <span style={{ color: 'var(--text)' }}>cat about.txt</span>
-          </div>
-          {lines.map((line, i) => (
-            <motion.p
+        {lines.map((line, i) => (
+          line ? (
+            <p
               key={i}
-              initial={reduced ? false : { opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.04 * i, duration: 0.4 }}
               className="whitespace-pre-wrap break-words"
-              style={{ color: line ? 'var(--text-muted)' : 'transparent', minHeight: '1.2em' }}
+              style={{
+                color: 'var(--text-muted)',
+                fontFamily: 'var(--font-sans)',
+                fontSize: '0.95rem',
+                lineHeight: 1.8,
+              }}
             >
-              {line || '\u00a0'}
-            </motion.p>
-          ))}
-        </div>
+              {line}
+            </p>
+          ) : (
+            <div key={i} style={{ height: '0.8rem' }} />
+          )
+        ))}
       </motion.div>
     </section>
   );

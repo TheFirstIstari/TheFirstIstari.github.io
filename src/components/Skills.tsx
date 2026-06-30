@@ -42,12 +42,11 @@ export default function Skills() {
         transition={{ duration: 0.6 }}
         className="mb-10"
       >
-        <h2 className="text-2xl md:text-3xl font-bold" style={{ color: 'var(--text)' }}>
-          <span style={{ color: 'var(--accent-2)' }}>❯ </span>
-          <span style={{ color: 'var(--accent)' }}>ls</span> skills/
+        <h2 style={{ fontFamily: 'var(--font-display)', fontWeight: 900, fontSize: '2rem', letterSpacing: '0.04em', color: 'var(--text)', marginBottom: '0.5rem' }}>
+          Skills
         </h2>
-        <p className="mt-2 text-sm" style={{ color: 'var(--comment)' }}>
-          // languages, frameworks and tools I reach for
+        <p className="max-w-2xl" style={{ color: 'var(--text-muted)', fontSize: '0.95rem' }}>
+          languages, frameworks and tools I reach for
         </p>
       </motion.div>
 
@@ -67,10 +66,9 @@ export default function Skills() {
             }}
           >
             <h3
-              className="text-xs font-semibold uppercase tracking-widest mb-4 flex items-center gap-2"
+              className="text-xs font-semibold uppercase tracking-widest mb-4"
               style={{ color: 'var(--accent)' }}
             >
-              <span style={{ color: 'var(--text-faint)' }}>▸</span>
               {group.label}
             </h3>
             <div className="flex flex-wrap gap-2">

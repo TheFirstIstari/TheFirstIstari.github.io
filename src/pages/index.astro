@@ -7,15 +7,18 @@ import SectionTitle from '../components/SectionTitle';
 import Skills from '../components/Skills';
 import About from '../components/About';
 import NavBar from '../components/NavBar';
+import FluidBackground from '../components/FluidBackground';
 import { featuredProjects } from '../data/projects';
 ---
 
 <Layout title="TheFirstIstari | Portfolio" description="TheFirstIstari — systems engineer focused on performance, security and complex, hard-to-build software.">
+  <FluidBackground />
+
   <NavBar client:load />
   <ThemeToggle client:load />
 
   <main class="min-h-screen">
-    <Hero client:load />
+    <Hero />
 
     <About client:visible />
 
@@ -24,8 +27,7 @@ import { featuredProjects } from '../data/projects';
     <section class="relative z-10 py-20 px-4 max-w-6xl mx-auto" id="projects">
       <SectionTitle
         client:visible
-        command="ls"
-        title="projects/"
+        title="Projects"
         description="selected work — performance-critical, security-focused and structurally complex builds."
       />
 
@@ -52,13 +54,13 @@ import { featuredProjects } from '../data/projects';
           class="inline-flex items-center gap-2 px-4 py-2 rounded-md text-sm font-medium transition-colors"
           style="border: 1px solid var(--tag-border); color: var(--accent);"
         >
-          <span style="color: var(--accent-2);">❯</span> cd projects/ --all
+          View all projects —
         </a>
       </div>
     </section>
 
     <footer class="relative z-10 py-10 px-4 max-w-6xl mx-auto text-sm" style="color: var(--text-faint); border-top: 1px solid var(--border);">
-      <p><span style="color: var(--comment);">#</span> © {new Date().getFullYear()} TheFirstIstari — built with Astro, deployed on Render.</p>
+      <p>&copy; {new Date().getFullYear()} TheFirstIstari</p>
     </footer>
   </main>
 </Layout>

@@ -1,63 +1,36 @@
 @import "tailwindcss";
 
 @theme {
-  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  --font-sans: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Barlow Condensed", ui-sans-serif, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
 }
 
-/* ---- Monolithic palette: single accent + neutrals ---- */
-/* :root = LIGHT (default, also the no-JS default) */
+/* galekto-inspired palette: dark brown, copper, ivory */
 :root {
-  --bg: #e8e8e5;
-  --bg-secondary: #f2f2ef;
-  --bg-card: rgba(20, 20, 18, 0.015);
-  --bg-card-hover: rgba(20, 20, 18, 0.03);
-  --border: rgba(20, 20, 18, 0.14);
-  --border-hover: rgba(15, 118, 110, 0.55);
-  --text: #18181b;
-  --text-muted: rgba(24, 24, 27, 0.62);
-  --text-faint: rgba(24, 24, 27, 0.4);
-  --text-detail: rgba(24, 24, 27, 0.5);
-  --tag-bg: rgba(15, 118, 110, 0.08);
-  --tag-border: rgba(15, 118, 110, 0.22);
-  --tag-text: #0f766e;
-  --status-bg: rgba(15, 118, 110, 0.1);
-  --status-border: rgba(15, 118, 110, 0.28);
-  --status-text: #0f766e;
-  --nav-bg: rgba(232, 232, 229, 0.8);
-  --detail-border: rgba(20, 20, 18, 0.1);
-
-  --accent: #0f766e;
-  --accent-2: #0f766e;
-  --comment: rgba(24, 24, 27, 0.42);
-  --dot: rgba(24, 24, 27, 0.22);
-  --prompt: #0f766e;
-}
-
-.dark {
-  --bg: #0c0c0d;
-  --bg-secondary: #161617;
-  --bg-card: rgba(255, 255, 255, 0.03);
-  --bg-card-hover: rgba(255, 255, 255, 0.055);
-  --border: rgba(255, 255, 255, 0.1);
-  --border-hover: rgba(45, 212, 191, 0.5);
-  --text: #e9e9e7;
-  --text-muted: rgba(233, 233, 231, 0.62);
-  --text-faint: rgba(233, 233, 231, 0.4);
-  --text-detail: rgba(233, 233, 231, 0.5);
-  --tag-bg: rgba(45, 212, 191, 0.1);
-  --tag-border: rgba(45, 212, 191, 0.22);
-  --tag-text: #2dd4bf;
-  --status-bg: rgba(45, 212, 191, 0.1);
-  --status-border: rgba(45, 212, 191, 0.28);
-  --status-text: #2dd4bf;
-  --nav-bg: rgba(12, 12, 13, 0.8);
-  --detail-border: rgba(255, 255, 255, 0.07);
-
-  --accent: #2dd4bf;
-  --accent-2: #2dd4bf;
-  --comment: rgba(233, 233, 231, 0.4);
-  --dot: rgba(233, 233, 231, 0.22);
-  --prompt: #2dd4bf;
+  --bg: #1a1614;
+  --bg-secondary: #231e1b;
+  --bg-card: rgba(255,255,255,0.03);
+  --bg-card-hover: rgba(255,255,255,0.06);
+  --border: rgba(255,255,255,0.08);
+  --border-hover: rgba(200,160,120,0.45);
+  --text: #e8e2da;
+  --text-muted: rgba(232,226,218,0.6);
+  --text-faint: rgba(232,226,218,0.35);
+  --text-detail: rgba(232,226,218,0.5);
+  --accent: #c8a078;
+  --accent-2: #d4b896;
+  --comment: rgba(232,226,218,0.35);
+  --dot: rgba(232,226,218,0.18);
+  --prompt: #c8a078;
+  --tag-bg: rgba(200,160,120,0.12);
+  --tag-border: rgba(200,160,120,0.25);
+  --tag-text: #c8a078;
+  --status-bg: rgba(200,160,120,0.12);
+  --status-border: rgba(200,160,120,0.25);
+  --status-text: #c8a078;
+  --nav-bg: rgba(26,22,20,0.85);
+  --detail-border: rgba(255,255,255,0.07);
 }
 
 html {
@@ -65,31 +38,91 @@ html {
 }
 
 body {
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   background-color: var(--bg);
   color: var(--text);
-  transition: background-color 0.3s ease, color 0.3s ease;
   -webkit-font-smoothing: antialiased;
 }
 
-/* ---- Blinking terminal cursor ---- */
-.cursor-blink {
-  display: inline-block;
-  width: 0.6ch;
-  background: var(--accent);
-  margin-left: 1px;
-  animation: blink 1.05s steps(1) infinite;
+/* Nav links */
+.nav-link {
+  font-family: var(--font-display);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  transition: color 0.2s;
 }
-@keyframes blink {
-  0%, 50% { opacity: 1; }
-  50.01%, 100% { opacity: 0; }
+.nav-link:hover { color: var(--accent); }
+
+/* nav blur backdrop */
+.nav-blur {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  background: var(--nav-bg);
+  border-bottom: 1px solid var(--border);
 }
 
-/* Subtle scanline sweep on hero terminal */
-@keyframes scan {
-  0% { transform: translateY(-100%); }
-  100% { transform: translateY(100%); }
+/* Preloader animation */
+@keyframes tv-glitch {
+  0%, 90%, 100% { transform: translateY(0); }
+  92% { transform: translateY(-2px); }
+  94% { transform: translateY(1px); }
+  96% { transform: translateY(-1px); }
+  98% { transform: translateY(0.5px); }
 }
+
+@keyframes scanline {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100vh); }
+}
+
+.scanline {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 2px;
+  background: linear-gradient(to bottom, transparent, rgba(200,160,120,0.08), transparent);
+  pointer-events: none;
+  z-index: 9999;
+  animation: scanline 4s linear infinite;
+}
+
+/* Fluid blob animations */
+@keyframes blobFloat1 {
+  0%, 100% { transform: translate(0,0) scale(1); }
+  33% { transform: translate(40px,-30px) scale(1.05); }
+  66% { transform: translate(-20px,50px) scale(0.95); }
+}
+@keyframes blobFloat2 {
+  0%, 100% { transform: translate(0,0) scale(1); }
+  33% { transform: translate(-50px,20px) scale(1.08); }
+  66% { transform: translate(30px,-40px) scale(0.92); }
+}
+@keyframes blobFloat3 {
+  0%, 100% { transform: translate(0,0) scale(1); }
+  50% { transform: translate(60px,40px) scale(1.1); }
+}
+@keyframes blobFloat4 {
+  0%, 100% { transform: translate(0,0) scale(1); }
+  50% { transform: translate(-30px,-50px) scale(1.06); }
+}
+@keyframes blobFloat5 {
+  0%, 100% { transform: translate(0,0) scale(1); }
+  33% { transform: translate(50px,-20px) scale(0.9); }
+  66% { transform: translate(-40px,30px) scale(1.03); }
+}
+@keyframes blobFloat6 {
+  0%, 100% { transform: translate(0,0) scale(1); }
+  50% { transform: translate(-25px,25px) scale(0.95); }
+}
+
+.blob-1 { animation: blobFloat1 18s ease-in-out infinite; }
+.blob-2 { animation: blobFloat2 22s ease-in-out infinite; }
+.blob-3 { animation: blobFloat3 14s ease-in-out infinite; }
+.blob-4 { animation: blobFloat4 20s ease-in-out infinite; }
+.blob-5 { animation: blobFloat5 16s ease-in-out infinite; }
+.blob-6 { animation: blobFloat6 24s ease-in-out infinite; }
 
 /* View transitions */
 ::view-transition-old(root),
@@ -98,7 +131,6 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .cursor-blink { animation: none; opacity: 1; }
   html { scroll-behavior: auto; }
   *, *::before, *::after {
     animation-duration: 0.01ms !important;

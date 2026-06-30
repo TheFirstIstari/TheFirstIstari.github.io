@@ -14,17 +14,6 @@ interface ProjectCardProps {
   detail?: string;
 }
 
-function Corner({ pos }: { pos: 'tl' | 'tr' | 'bl' | 'br' }) {
-  const base = 'absolute w-3 h-3 transition-all duration-300 opacity-0 group-hover:opacity-100';
-  const map = {
-    tl: 'top-2 left-2 border-l border-t',
-    tr: 'top-2 right-2 border-r border-t',
-    bl: 'bottom-2 left-2 border-l border-b',
-    br: 'bottom-2 right-2 border-r border-b',
-  } as const;
-  return <span className={`${base} ${map[pos]}`} style={{ borderColor: 'var(--accent)' }} aria-hidden="true" />;
-}
-
 export default function ProjectCard({ title, description, tags, github, demo, site, more, status, index, id, detail }: ProjectCardProps) {
   const reduced = useReducedMotion() ?? false;
   return (
@@ -42,15 +31,9 @@ export default function ProjectCard({ title, description, tags, github, demo, si
         border: '1px solid var(--border)',
       }}
     >
-      <Corner pos="tl" />
-      <Corner pos="tr" />
-      <Corner pos="bl" />
-      <Corner pos="br" />
-
       <div className="relative z-10">
         <div className="mb-2 flex items-start justify-between gap-3">
           <h3 className="text-lg font-semibold transition-colors" style={{ color: 'var(--accent)' }}>
-            <span style={{ color: 'var(--text-faint)' }}>▸ </span>
             {title}
           </h3>
           {status && (

@@ -3,34 +3,35 @@ import Layout from '../layouts/Layout.astro';
 import ThemeToggle from '../components/ThemeToggle';
 import ProjectCard from '../components/ProjectCard';
 import SectionTitle from '../components/SectionTitle';
+import FluidBackground from '../components/FluidBackground';
 import { allTags, projects } from '../data/projects';
 ---
 
 <Layout title="TheFirstIstari | Projects" description="All projects by TheFirstIstari — systems programming, performance, security, cryptography, data visualisation and more.">
+  <FluidBackground />
   <ThemeToggle client:load />
   
   <main class="relative z-10 min-h-screen py-20 px-4">
     <div class="max-w-6xl mx-auto">
       <a href="/" class="inline-flex items-center gap-2 transition-colors mb-8" style="color: var(--text-muted);">
-        <span style="color: var(--accent-2);">❯</span> cd ..
+        &larr; Back
       </a>
       
       <SectionTitle 
         client:visible
-        command="ls"
-        title="projects/ -la"
+        title="All Projects"
         description="everything — systems, performance, security, cryptography, data visualisation, realtime apps and creative tooling."
       />
 
       <div class="mb-8">
-        <p class="text-xs mb-3" style="color: var(--comment);">// grep --tag</p>
+        <p class="text-xs mb-3" style="color: var(--comment);">Filter by tag</p>
         <div class="flex flex-wrap gap-2">
           <button
             class="tag-btn active px-3 py-1.5 rounded-md text-xs transition-colors"
             data-tag="all"
             style="border: 1px solid var(--border); color: var(--text-muted);"
           >
-            #all
+            all
           </button>
           {allTags.map(tag => (
             <button
@@ -38,7 +39,7 @@ import { allTags, projects } from '../data/projects';
               data-tag={tag}
               style="border: 1px solid var(--border); color: var(--text-muted);"
             >
-              #{tag.replace(/\s+/g, '')}
+              {tag}
             </button>
           ))}
         </div>
@@ -66,7 +67,6 @@ import { allTags, projects } from '../data/projects';
 </Layout>
 
 <script>
-  // Runs on first load AND on every client-side navigation (Astro ClientRouter).
   function initProjectsPage() {
     const buttons = document.querySelectorAll<HTMLElement>('.tag-btn');
     if (!buttons.length) return;
@@ -101,7 +101,6 @@ import { allTags, projects } from '../data/projects';
 
     setActive(buttons[0]);
 
-    // Scroll to anchor if hash present
     const hash = window.location.hash;
     if (hash) {
       const el = document.querySelector(hash);
