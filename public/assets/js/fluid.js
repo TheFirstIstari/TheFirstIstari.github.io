@@ -8,7 +8,7 @@
 
   var SIM_RES      = (window.FluidSimOverride && window.FluidSimOverride.SIM_RESOLUTION) || 128;
   var DYE_RES      = 512;
-  var DENSITY_DISS = 0.98;
+  var DENSITY_DISS = 0.992;
   var VELOCITY_DISS = 0.995;
   var PRESSURE_ITER = (window.FluidSimOverride && window.FluidSimOverride.PRESSURE_ITERATIONS) || 20;
   var CURL_STRENGTH = (window.FluidSimOverride && window.FluidSimOverride.CURL) || 25;
@@ -242,11 +242,11 @@
     'varying vec2 vUv;',
     'void main() {',
     '  float a = texture2D(uTexture, vUv).x;',
-    '  float gray = 0.76;',
-    '  gl_FragColor = vec4(gray, gray, gray, clamp(a * 0.8, 0.0, 1.0));',
+    '  float gray = 0.62 + a * 0.12;',
+    '  gl_FragColor = vec4(gray * 0.92, gray * 0.85, gray * 0.72, clamp(a * 1.2, 0.0, 1.0));',
     '}',
-  ].join('\n');
-
+  ].join('\\n');
+  /* Warm amber-brown tint: R>G>B for an amber cast */
   /* 0.76 ≈ 194/255 */
 
   /* ---------- full-screen quad ---------- */

@@ -19,16 +19,18 @@
 
   var rawX = 0.5, rawY = 0.5;
   var smoothX = 0.5, smoothY = 0.5;
+  var rawDotX = -200, rawDotY = -200;
   var rawRingX = -200, rawRingY = -200;
-  var mouseX = -200, mouseY = -200;
+  var lerpRingX = -200, lerpRingY = -200;
 
   // Restore cursor position from sessionStorage (page transitions)
   (function () {
     var mx = parseFloat(sessionStorage.getItem('mx') || '');
     var my = parseFloat(sessionStorage.getItem('my') || '');
     if (!isNaN(mx) && !isNaN(my)) {
-      mouseX = mx; mouseY = my;
+      rawDotX = mx; rawDotY = my;
       rawRingX = mx; rawRingY = my;
+      lerpRingX = mx; lerpRingY = my;
     }
   })();
 
@@ -46,6 +48,8 @@
     var y = 1 - e.clientY / window.innerHeight;
     rawX = x;
     rawY = y;
+    rawDotX = e.clientX;
+    rawDotY = e.clientY;
     rawRingX = e.clientX;
     rawRingY = e.clientY;
 
@@ -88,22 +92,23 @@
     smoothX = lerp(smoothX, rawX, MOUSE_EASE);
     smoothY = lerp(smoothY, rawY, MOUSE_EASE);
 
-    // Cursor dot + ring
-    mouseX = lerp(mouseX, rawRingX, RING_EASE);
-    mouseY = lerp(mouseY, rawRingY, RING_EASE);
-
-    // Store for page transitions
-    sessionStorage.setItem('mx', mouseX.toFixed(1));
-    sessionStorage.setItem('my', mouseY.toFixed(1));
-
+    // Cursor dot — pixel-precise follow (no lerp)
     if (cursorDot) {
-      cursorDot.style.left = mouseX + 'px';
-      cursorDot.style.top = mouseY + 'px';
+      cursorDot.style.left = rawDotX + 'px';
+      cursorDot.style.top = rawDotY + 'px';
     }
+
+    // Cursor ring — lerp follow
+    lerpRingX += (rawRingX - lerpRingX) * RING_EASE;
+    lerpRingY += (rawRingY - lerpRingY) * RING_EASE;
     if (cursorRing) {
-      cursorRing.style.left = mouseX + 'px';
-      cursorRing.style.top = mouseY + 'px';
+      cursorRing.style.left = lerpRingX + 'px';
+      cursorRing.style.top = lerpRingY + 'px';
     }
+
+    // Store ring position for page transitions
+    sessionStorage.setItem('mx', lerpRingX.toFixed(1));
+    sessionStorage.setItem('my', lerpRingY.toFixed(1));
 
     // Fluid interaction
     if (window.FluidSim) {
