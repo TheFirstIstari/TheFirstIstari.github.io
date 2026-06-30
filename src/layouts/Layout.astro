@@ -14,6 +14,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? 'https://tweak.wi
 const fluidJS = fs.readFileSync('public/assets/js/fluid.js', 'utf-8');
 const contourJS = fs.readFileSync('public/assets/js/contour.js', 'utf-8');
 const crtJS = fs.readFileSync('public/assets/js/crt.js', 'utf-8');
+const preloaderJS = fs.readFileSync('public/assets/js/preloader.js', 'utf-8');
 ---
 
 <!doctype html>
@@ -30,7 +31,7 @@ const crtJS = fs.readFileSync('public/assets/js/crt.js', 'utf-8');
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@900&family=Bebas+Neue&family=Space+Grotesk:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@900&family=Bebas+Neue&family=Space+Grotesk:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&family=VT323&display=swap"
       rel="stylesheet"
     />
 
@@ -54,6 +55,7 @@ const crtJS = fs.readFileSync('public/assets/js/crt.js', 'utf-8');
     <ClientRouter />
   </head>
   <body>
+    <a href="#mainContent" class="skip-to-content">Skip to main content</a>
     <!-- Background canvases (z-index: 0) -->
     <canvas id="bgCanvas" aria-hidden="true"></canvas>
     <!-- fluidCanvas created by fluid.js (z-index: 1) -->
@@ -61,7 +63,9 @@ const crtJS = fs.readFileSync('public/assets/js/crt.js', 'utf-8');
 
     <!-- Content -->
     <div id="pageContent" style="position: relative; z-index: 2;">
-      <slot />
+      <main id="mainContent">
+        <slot />
+      </main>
     </div>
 
     <!-- CRT TV Frame Overlay -->
@@ -82,6 +86,7 @@ const crtJS = fs.readFileSync('public/assets/js/crt.js', 'utf-8');
     <script is:inline set:html={fluidJS}></script>
     <script is:inline set:html={contourJS}></script>
     <script is:inline set:html={crtJS}></script>
+    <script is:inline set:html={preloaderJS}></script>
     <script is:inline>
       document.addEventListener('DOMContentLoaded', function() {
         document.body.classList.add('js-ready');

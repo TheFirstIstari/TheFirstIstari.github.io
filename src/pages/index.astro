@@ -5,16 +5,18 @@ import ProjectCard from '../components/ProjectCard';
 import SectionTitle from '../components/SectionTitle';
 import Skills from '../components/Skills';
 import About from '../components/About';
+import Preloader from '../components/Preloader';
 import { featuredProjects } from '../data/projects';
 ---
 
 <Layout title="TheFirstIstari | Portfolio" description="TheFirstIstari — systems engineer focused on performance, security and complex, hard-to-build software.">
+  <Preloader client:load />
   <!-- Side nav links -->
   <div class="hero-sides" style="left: 32px;">
-    <a href="/projects/" class="hero-side hero-side--left">Projects</a>
+    <a href="/projects/" class="hero-side hero-side--left" id="sideLeft">Projects</a>
   </div>
   <div class="hero-sides" style="right: 32px;">
-    <a href="https://github.com/TheFirstIstari" target="_blank" rel="noopener noreferrer" class="hero-side hero-side--right">GitHub</a>
+    <a href="https://github.com/TheFirstIstari" target="_blank" rel="noopener noreferrer" class="hero-side hero-side--right" id="sideRight">GitHub</a>
   </div>
 
   <main>
