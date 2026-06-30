@@ -13,7 +13,7 @@
   var slideGroup = document.getElementById('slideGroup');
 
   var MOUSE_EASE = 0.08;
-  var RING_EASE = 0.12;
+  var RING_EASE = 0.3;
   var SLIDE_EASE = 0.045;
   var SLIDE_PX = 250;
 

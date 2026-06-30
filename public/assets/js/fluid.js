@@ -242,11 +242,10 @@
     'varying vec2 vUv;',
     'void main() {',
     '  float a = texture2D(uTexture, vUv).x;',
-    '  float gray = 0.62 + a * 0.12;',
-    '  gl_FragColor = vec4(gray * 0.92, gray * 0.85, gray * 0.72, clamp(a * 1.2, 0.0, 1.0));',
+    '  gl_FragColor = vec4(0.64, 0.54, 0.38, clamp(a * 3.0, 0.0, 0.6));',
     '}',
   ].join('\\n');
-  /* Warm amber-brown tint: R>G>B for an amber cast */
+  /* ponytail: solid amber, dye×3, cap at 0.6 alpha. On white bg: tinted ink visible at low concentration */
   /* 0.76 ≈ 194/255 */
 
   /* ---------- full-screen quad ---------- */
