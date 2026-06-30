@@ -8,9 +8,9 @@
 
   var SIM_RES      = (window.FluidSimOverride && window.FluidSimOverride.SIM_RESOLUTION) || 128;
   var DYE_RES      = 512;
-  var DENSITY_DISS = 0.992;
-  var VELOCITY_DISS = 0.995;
-  var PRESSURE_ITER = (window.FluidSimOverride && window.FluidSimOverride.PRESSURE_ITERATIONS) || 20;
+  var DENSITY_DISS = 0.995;
+  var VELOCITY_DISS = 0.997;
+  var PRESSURE_ITER = (window.FluidSimOverride && window.FluidSimOverride.PRESSURE_ITERATIONS) || 8;
   var CURL_STRENGTH = (window.FluidSimOverride && window.FluidSimOverride.CURL) || 25;
   var SPLAT_RADIUS  = (window.FluidSimOverride && window.FluidSimOverride.SPLAT_RADIUS) || 0.25;
   var SPLAT_FORCE   = 6000;
@@ -241,11 +241,14 @@
     'uniform sampler2D uTexture;',
     'varying vec2 vUv;',
     'void main() {',
-    '  float a = texture2D(uTexture, vUv).x;',
-    '  gl_FragColor = vec4(0.64, 0.54, 0.38, clamp(a * 3.0, 0.0, 0.6));',
+    '  float a = abs(texture2D(uTexture, vUv).x);',
+    '  float t = clamp(a * 8.0, 0.0, 1.0);',
+    '  vec3 ink = vec3(0.64, 0.54, 0.38);',
+    '  vec3 bg  = vec3(1.0);',
+    '  gl_FragColor = vec4(mix(bg, ink, t), 1.0);',
     '}',
   ].join('\\n');
-  /* ponytail: solid amber, dye×3, cap at 0.6 alpha. On white bg: tinted ink visible at low concentration */
+  /* Solid ink: abs() so both positive/negative velocity shows, mix() gives solid color not transparent overlay */
   /* 0.76 ≈ 194/255 */
 
   /* ---------- full-screen quad ---------- */

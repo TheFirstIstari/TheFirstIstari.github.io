@@ -206,10 +206,15 @@ const interactionJS = fs.readFileSync('public/assets/js/interaction.js', 'utf-8'
         var w = window.innerWidth;
         if (w < 1200) {
           window.FluidSimOverride = {
-            CURL:                w < 600 ? 8   : 16,
+            CURL:                w < 600 ? 6   : 12,
             SPLAT_RADIUS:        w < 600 ? 0.18 : 0.22,
-            SIM_RESOLUTION:      w < 600 ? 64  : 128,
-            PRESSURE_ITERATIONS: w < 600 ? 8   : 16,
+            SIM_RESOLUTION:      w < 600 ? 64  : 96,
+            PRESSURE_ITERATIONS: w < 600 ? 6   : 8,
+          };
+        } else {
+          window.FluidSimOverride = {
+            SIM_RESOLUTION:      96,
+            PRESSURE_ITERATIONS: 8,
           };
         }
       })();
