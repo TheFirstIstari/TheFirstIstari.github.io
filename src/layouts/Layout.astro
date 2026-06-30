@@ -1,6 +1,7 @@
 ---
 import { ClientRouter } from 'astro:transitions';
 import '../styles/global.css';
+import fs from 'fs';
 
 interface Props {
   title: string;
@@ -9,6 +10,10 @@ interface Props {
 
 const { title, description = "TheFirstIstari — systems engineer focused on performance, security and complex, hard-to-build software." } = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? 'https://tweak.wiki');
+
+const fluidJS = fs.readFileSync('public/assets/js/fluid.js', 'utf-8');
+const contourJS = fs.readFileSync('public/assets/js/contour.js', 'utf-8');
+const crtJS = fs.readFileSync('public/assets/js/crt.js', 'utf-8');
 ---
 
 <!doctype html>
@@ -25,7 +30,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? 'https://tweak.wi
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@900&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@900&family=Bebas+Neue&family=Space+Grotesk:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
 
@@ -49,6 +54,40 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? 'https://tweak.wi
     <ClientRouter />
   </head>
   <body>
-    <slot />
+    <!-- Background canvases (z-index: 0) -->
+    <div class="bg-layer" aria-hidden="true">
+      <canvas id="bgCanvas"></canvas>
+      <canvas id="fluidCanvas"></canvas>
+    </div>
+    <div class="bg-noise" aria-hidden="true"></div>
+
+    <!-- Content -->
+    <div id="pageContent" style="position: relative; z-index: 2;">
+      <slot />
+    </div>
+
+    <!-- CRT TV Frame Overlay -->
+    <div class="page-tv-frame" aria-hidden="true"></div>
+    <div class="page-crt-bevel" aria-hidden="true"></div>
+    <svg class="page-tv-stroke" id="tvStrokeSvg" aria-hidden="true">
+      <path fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="1.5" />
+    </svg>
+    <div class="page-vignette" aria-hidden="true"></div>
+    <div class="page-scanner-lines" aria-hidden="true">
+      <span></span>
+      <span></span>
+    </div>
+    <div class="page-scanlines" aria-hidden="true"></div>
+    <div class="page-inner-glow" aria-hidden="true"></div>
+
+    <!-- Scripts -->
+    <script is:inline set:html={fluidJS}></script>
+    <script is:inline set:html={contourJS}></script>
+    <script is:inline set:html={crtJS}></script>
+    <script is:inline>
+      document.addEventListener('DOMContentLoaded', function() {
+        document.body.classList.add('js-ready');
+      });
+    </script>
   </body>
 </html>

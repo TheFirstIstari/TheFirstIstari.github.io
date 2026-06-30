@@ -2,36 +2,35 @@
 import Layout from '../layouts/Layout.astro';
 import Hero from '../components/Hero';
 import ProjectCard from '../components/ProjectCard';
-import ThemeToggle from '../components/ThemeToggle';
 import SectionTitle from '../components/SectionTitle';
 import Skills from '../components/Skills';
 import About from '../components/About';
-import NavBar from '../components/NavBar';
-import FluidBackground from '../components/FluidBackground';
 import { featuredProjects } from '../data/projects';
 ---
 
 <Layout title="TheFirstIstari | Portfolio" description="TheFirstIstari — systems engineer focused on performance, security and complex, hard-to-build software.">
-  <FluidBackground />
+  <!-- Side nav links -->
+  <div class="hero-sides" style="left: 32px;">
+    <a href="/projects/" class="hero-side hero-side--left">Projects</a>
+  </div>
+  <div class="hero-sides" style="right: 32px;">
+    <a href="https://github.com/TheFirstIstari" target="_blank" rel="noopener noreferrer" class="hero-side hero-side--right">GitHub</a>
+  </div>
 
-  <NavBar client:load />
-  <ThemeToggle client:load />
-
-  <main class="min-h-screen">
-    <Hero />
+  <main>
+    <Hero client:load />
 
     <About client:visible />
 
     <Skills client:visible />
 
-    <section class="relative z-10 py-20 px-4 max-w-6xl mx-auto" id="projects">
-      <SectionTitle
-        client:visible
-        title="Projects"
-        description="selected work — performance-critical, security-focused and structurally complex builds."
-      />
+    <section class="relative z-10 py-20 px-6 max-w-6xl mx-auto" id="projects">
+      <div class="mb-12">
+        <h2 class="section-title">Projects</h2>
+        <p class="section-desc">selected work — performance-critical, security-focused and structurally complex builds.</p>
+      </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
         {featuredProjects.map((project, index) => (
           <ProjectCard
             client:visible
@@ -42,25 +41,24 @@ import { featuredProjects } from '../data/projects';
             demo={project.demo}
             site={project.site}
             status={project.status}
-            more={`/projects/#${project.id}`}
             index={index}
           />
         ))}
       </div>
 
-      <div class="mt-10">
+      <div class="mt-10 text-center">
         <a
           href="/projects/"
-          class="inline-flex items-center gap-2 px-4 py-2 rounded-md text-sm font-medium transition-colors"
-          style="border: 1px solid var(--tag-border); color: var(--accent);"
+          style="font-family: var(--font-sans); font-size: 0.65rem; font-weight: 800; letter-spacing: 0.18em; text-transform: uppercase; color: var(--fg-dim); text-decoration: none; transition: color 0.2s;"
+          onmouseover="this.style.color='var(--fg)'" onmouseout="this.style.color=''"
         >
-          View all projects —
+          View all projects &mdash;
         </a>
       </div>
     </section>
 
-    <footer class="relative z-10 py-10 px-4 max-w-6xl mx-auto text-sm" style="color: var(--text-faint); border-top: 1px solid var(--border);">
-      <p>&copy; {new Date().getFullYear()} TheFirstIstari</p>
+    <footer>
+      &copy; {new Date().getFullYear()} TheFirstIstari
     </footer>
   </main>
 </Layout>

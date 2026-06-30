@@ -1,19 +1,14 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import ThemeToggle from '../components/ThemeToggle';
 import ProjectCard from '../components/ProjectCard';
 import SectionTitle from '../components/SectionTitle';
-import FluidBackground from '../components/FluidBackground';
 import { allTags, projects } from '../data/projects';
 ---
 
 <Layout title="TheFirstIstari | Projects" description="All projects by TheFirstIstari — systems programming, performance, security, cryptography, data visualisation and more.">
-  <FluidBackground />
-  <ThemeToggle client:load />
-  
-  <main class="relative z-10 min-h-screen py-20 px-4">
+  <main style="position: relative; z-index: 10; min-height: 100vh; padding: 6rem 1.5rem 2rem;">
     <div class="max-w-6xl mx-auto">
-      <a href="/" class="inline-flex items-center gap-2 transition-colors mb-8" style="color: var(--text-muted);">
+      <a href="/" style="font-family: var(--font-sans); font-size: 0.65rem; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: var(--fg-dim); text-decoration: none; display: inline-flex; align-items: center; gap: 6px; margin-bottom: 2rem; transition: color 0.2s;">
         &larr; Back
       </a>
       
@@ -24,20 +19,20 @@ import { allTags, projects } from '../data/projects';
       />
 
       <div class="mb-8">
-        <p class="text-xs mb-3" style="color: var(--comment);">Filter by tag</p>
+        <p style="font-family: var(--font-sans); font-size: 0.6rem; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: var(--fg-dim); margin-bottom: 0.75rem;">Filter by tag</p>
         <div class="flex flex-wrap gap-2">
           <button
-            class="tag-btn active px-3 py-1.5 rounded-md text-xs transition-colors"
+            class="tag-btn active"
             data-tag="all"
-            style="border: 1px solid var(--border); color: var(--text-muted);"
+            style="cursor: pointer; border: 1px solid var(--border); color: var(--fg-dim); background: transparent; font-family: var(--font-sans); font-size: 0.6rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 4px 10px; border-radius: 4px; transition: all 0.2s;"
           >
-            all
+            All
           </button>
           {allTags.map(tag => (
             <button
-              class="tag-btn px-3 py-1.5 rounded-md text-xs transition-colors"
+              class="tag-btn"
               data-tag={tag}
-              style="border: 1px solid var(--border); color: var(--text-muted);"
+              style="cursor: pointer; border: 1px solid var(--border); color: var(--fg-dim); background: transparent; font-family: var(--font-sans); font-size: 0.6rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 4px 10px; border-radius: 4px; transition: all 0.2s;"
             >
               {tag}
             </button>
@@ -45,7 +40,7 @@ import { allTags, projects } from '../data/projects';
         </div>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6" id="projects-grid">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5" id="projects-grid">
         {projects.map((project, index) => (
           <ProjectCard
             client:visible
@@ -64,6 +59,10 @@ import { allTags, projects } from '../data/projects';
       </div>
     </div>
   </main>
+
+  <footer>
+    &copy; {new Date().getFullYear()} TheFirstIstari
+  </footer>
 </Layout>
 
 <script>
@@ -75,12 +74,12 @@ import { allTags, projects } from '../data/projects';
     const setActive = (btn: HTMLElement) => {
       buttons.forEach(b => {
         b.style.borderColor = 'var(--border)';
-        b.style.color = 'var(--text-muted)';
+        b.style.color = 'var(--fg-dim)';
         b.style.background = 'transparent';
       });
       btn.style.borderColor = 'var(--accent)';
       btn.style.color = 'var(--accent)';
-      btn.style.background = 'var(--tag-bg)';
+      btn.style.background = 'var(--accent-dim)';
     };
 
     buttons.forEach(btn => {
