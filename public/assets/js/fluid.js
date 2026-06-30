@@ -6,13 +6,13 @@
    *  WebGL-Fluid-Simulation (https://github.com/PavelDoGreat/WebGL-Fluid-Simulation)
    * --------------------------------------------------------------- */
 
-  var SIM_RES      = 128;
+  var SIM_RES      = (window.FluidSimOverride && window.FluidSimOverride.SIM_RESOLUTION) || 128;
   var DYE_RES      = 512;
   var DENSITY_DISS = 0.98;
   var VELOCITY_DISS = 0.995;
-  var PRESSURE_ITER = 20;
-  var CURL_STRENGTH = 25;
-  var SPLAT_RADIUS  = 0.25;
+  var PRESSURE_ITER = (window.FluidSimOverride && window.FluidSimOverride.PRESSURE_ITERATIONS) || 20;
+  var CURL_STRENGTH = (window.FluidSimOverride && window.FluidSimOverride.CURL) || 25;
+  var SPLAT_RADIUS  = (window.FluidSimOverride && window.FluidSimOverride.SPLAT_RADIUS) || 0.25;
   var SPLAT_FORCE   = 6000;
 
   /* ---------- helpers ---------- */
@@ -537,39 +537,6 @@
 
   var mouse = { x: 0, y: 0, dx: 0, dy: 0, down: false };
   var lastMX = 0, lastMY = 0;
-
-  function onMove(e) {
-    var rect = canvas.getBoundingClientRect();
-    var cx = (e.clientX - rect.left) / rect.width;
-    var cy = 1 - (e.clientY - rect.top) / rect.height;
-    mouse.dx = cx - lastMX;
-    mouse.dy = cy - lastMY;
-    mouse.x = cx;
-    mouse.y = cy;
-    if (Math.abs(mouse.dx) + Math.abs(mouse.dy) > 0.001) {
-      mouse.down = true;
-    }
-    lastMX = cx;
-    lastMY = cy;
-  }
-
-  window.addEventListener('mousemove', onMove);
-  window.addEventListener('touchmove', function (e) {
-    var t = e.touches[0];
-    if (!t) return;
-    var rect = canvas.getBoundingClientRect();
-    var cx = (t.clientX - rect.left) / rect.width;
-    var cy = 1 - (t.clientY - rect.top) / rect.height;
-    mouse.dx = cx - lastMX;
-    mouse.dy = cy - lastMY;
-    mouse.x = cx;
-    mouse.y = cy;
-    if (Math.abs(mouse.dx) + Math.abs(mouse.dy) > 0.001) {
-      mouse.down = true;
-    }
-    lastMX = cx;
-    lastMY = cy;
-  }, { passive: true });
 
   /* ---------- bootstrap ---------- */
 

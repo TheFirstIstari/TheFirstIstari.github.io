@@ -87,8 +87,8 @@
       ctx.beginPath();
       ctx.lineWidth = isIdx ? 1.4 : 0.65;
       ctx.strokeStyle = isIdx
-        ? 'rgba(34,197,94,' + bA.toFixed(3) + ')'
-        : 'rgba(34,197,94,' + bA.toFixed(3) + ')';
+        ? 'rgba(160,115,20,' + bA.toFixed(3) + ')'
+        : 'rgba(140,100,16,' + (bA * 0.65).toFixed(3) + ')';
 
       for (var row = 0; row < GH; row++) {
         var r0 = row * GW1, r1 = (row + 1) * GW1;

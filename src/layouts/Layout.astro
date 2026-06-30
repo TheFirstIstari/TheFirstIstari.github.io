@@ -16,6 +16,7 @@ const contourJS = fs.readFileSync('public/assets/js/contour.js', 'utf-8');
 const crtJS = fs.readFileSync('public/assets/js/crt.js', 'utf-8');
 const preloaderJS = fs.readFileSync('public/assets/js/preloader.js', 'utf-8');
 const tvOverlayJS = fs.readFileSync('public/assets/js/tv-overlay.js', 'utf-8');
+const interactionJS = fs.readFileSync('public/assets/js/interaction.js', 'utf-8');
 ---
 
 <!doctype html>
@@ -158,6 +159,24 @@ const tvOverlayJS = fs.readFileSync('public/assets/js/tv-overlay.js', 'utf-8');
       <slot />
     </main>
 
+    <!-- ========== CUSTOM CURSOR ========== -->
+    <div class="cursor" id="cursor" aria-hidden="true">
+      <div class="cursor-ring" id="cursorRing"></div>
+      <div class="cursor-dot" id="cursorDot"></div>
+    </div>
+    <script is:inline>
+      (function(){
+        var mx = parseFloat(sessionStorage.getItem('mx')||'');
+        var my = parseFloat(sessionStorage.getItem('my')||'');
+        var x = isNaN(mx) ? -200 : mx;
+        var y = isNaN(my) ? -200 : y;
+        var d = document.getElementById('cursorDot');
+        var r = document.getElementById('cursorRing');
+        if (d) { d.style.left = x + 'px'; d.style.top = y + 'px'; }
+        if (r) { r.style.left = x + 'px'; r.style.top = y + 'px'; }
+      })();
+    </script>
+
     <!-- ========== PAGE TV OVERLAY ========== -->
     <div class="page-tv-overlay" aria-hidden="true">
       <div class="page-scanlines"></div>
@@ -182,11 +201,25 @@ const tvOverlayJS = fs.readFileSync('public/assets/js/tv-overlay.js', 'utf-8');
     <div id="pageOverlay"><span class="overlay-label" id="overlayLabel"></span></div>
 
     <!-- Scripts -->
+    <script is:inline>
+      (function(){
+        var w = window.innerWidth;
+        if (w < 1200) {
+          window.FluidSimOverride = {
+            CURL:                w < 600 ? 8   : 16,
+            SPLAT_RADIUS:        w < 600 ? 0.18 : 0.22,
+            SIM_RESOLUTION:      w < 600 ? 64  : 128,
+            PRESSURE_ITERATIONS: w < 600 ? 8   : 16,
+          };
+        }
+      })();
+    </script>
     <script is:inline set:html={fluidJS}></script>
     <script is:inline set:html={contourJS}></script>
     <script is:inline set:html={crtJS}></script>
     <script is:inline set:html={tvOverlayJS}></script>
     <script is:inline set:html={preloaderJS}></script>
+    <script is:inline set:html={interactionJS}></script>
     <script is:inline>
       document.addEventListener('DOMContentLoaded', function() {
         document.documentElement.classList.remove('skip-preloader');
