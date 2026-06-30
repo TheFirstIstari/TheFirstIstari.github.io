@@ -21,7 +21,6 @@ export default function Skills() {
         className="mb-10"
       >
         <h2 className="section-title">Skills</h2>
-        <p className="section-desc">languages, frameworks and tools I reach for</p>
       </motion.div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">

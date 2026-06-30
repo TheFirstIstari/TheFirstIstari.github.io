@@ -22,6 +22,7 @@ export default function ProjectCard({ title, description, tags, github, demo, si
       transition={{ duration: 0.5, delay: index * 0.08, ease: 'easeOut' }}
       whileHover={{ y: -6 }}
       className="project-card"
+      data-tags={tags.join(',')}
     >
       <div>
         <div className="flex items-start justify-between gap-3 mb-2">
