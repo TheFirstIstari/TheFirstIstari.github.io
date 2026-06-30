@@ -37,7 +37,7 @@
   canvas.style.left = '0';
   canvas.style.width = '100%';
   canvas.style.height = '100%';
-  canvas.style.zIndex = '-1';
+  canvas.style.zIndex = '1';
   canvas.style.pointerEvents = 'none';
   document.body.insertBefore(canvas, document.body.firstChild);
 
@@ -366,14 +366,12 @@
     if (mouse.down) {
       var splatProg = programs.splat;
       gl.useProgram(splatProg.program);
-      gl.uniform2f(splatProg.uniforms.uPoint,  mouse.x / canvas.width, 1 - mouse.y / canvas.height);
-      gl.uniform2f(splatProg.uniforms.uTarget, mouse.dx * SPLAT_FORCE, -mouse.dy * SPLAT_FORCE);
+      gl.uniform2f(splatProg.uniforms.uPoint,  mouse.x, mouse.y);
+      gl.uniform2f(splatProg.uniforms.uTarget, mouse.dx, -mouse.dy);
       gl.uniform1f(splatProg.uniforms.uRadius, SPLAT_RADIUS);
-      /* splat into velocity */
+      gl.uniform1f(splatProg.uniforms.uForce, SPLAT_FORCE);
       gl.bindFramebuffer(gl.FRAMEBUFFER, vel.write.fbo);
       gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
-      /* splat into dye */
-      gl.uniform1f(splatProg.uniforms.uRadius, SPLAT_RADIUS * 2.0);
       gl.bindFramebuffer(gl.FRAMEBUFFER, dye.write.fbo);
       gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
       vel.swap();
@@ -503,17 +501,14 @@
     splat: function (x, y, dx, dy) {
       var splatProg = programs.splat;
       gl.useProgram(splatProg.program);
-      gl.uniform2f(splatProg.uniforms.uPoint,  x, 1 - y);
-      gl.uniform2f(splatProg.uniforms.uTarget, dx * SPLAT_FORCE, -dy * SPLAT_FORCE);
-      gl.uniform1f(splatProg.uniforms.uRadius, SPLAT_RADIUS * 1.5);
-
+      gl.uniform2f(splatProg.uniforms.uPoint,  x, y);
+      gl.uniform2f(splatProg.uniforms.uTarget, dx, -dy);
+      gl.uniform1f(splatProg.uniforms.uRadius, SPLAT_RADIUS);
+      gl.uniform1f(splatProg.uniforms.uForce, SPLAT_FORCE);
       gl.bindFramebuffer(gl.FRAMEBUFFER, vel.write.fbo);
       gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
-
-      gl.uniform1f(splatProg.uniforms.uRadius, SPLAT_RADIUS * 3.0);
       gl.bindFramebuffer(gl.FRAMEBUFFER, dye.write.fbo);
       gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
-
       vel.swap();
       dye.swap();
     },

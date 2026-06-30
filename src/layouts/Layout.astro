@@ -55,10 +55,8 @@ const crtJS = fs.readFileSync('public/assets/js/crt.js', 'utf-8');
   </head>
   <body>
     <!-- Background canvases (z-index: 0) -->
-    <div class="bg-layer" aria-hidden="true">
-      <canvas id="bgCanvas"></canvas>
-      <canvas id="fluidCanvas"></canvas>
-    </div>
+    <canvas id="bgCanvas" aria-hidden="true"></canvas>
+    <!-- fluidCanvas created by fluid.js (z-index: 1) -->
     <div class="bg-noise" aria-hidden="true"></div>
 
     <!-- Content -->
