@@ -15,10 +15,11 @@ const fluidJS = fs.readFileSync('public/assets/js/fluid.js', 'utf-8');
 const contourJS = fs.readFileSync('public/assets/js/contour.js', 'utf-8');
 const crtJS = fs.readFileSync('public/assets/js/crt.js', 'utf-8');
 const preloaderJS = fs.readFileSync('public/assets/js/preloader.js', 'utf-8');
+const tvOverlayJS = fs.readFileSync('public/assets/js/tv-overlay.js', 'utf-8');
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" class="skip-preloader">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -54,41 +55,141 @@ const preloaderJS = fs.readFileSync('public/assets/js/preloader.js', 'utf-8');
 
     <ClientRouter />
   </head>
-  <body>
+  <body class="page-index">
+
+    <!-- ========== PRELOADER (TV LOADER) ========== -->
     <a href="#mainContent" class="skip-to-content">Skip to main content</a>
-    <!-- Background canvases (z-index: 0) -->
-    <canvas id="bgCanvas" aria-hidden="true"></canvas>
-    <!-- fluidCanvas created by fluid.js (z-index: 1) -->
-    <div class="bg-noise" aria-hidden="true"></div>
-
-    <!-- Content -->
-    <div id="pageContent" style="position: relative; z-index: 2;">
-      <main id="mainContent">
-        <slot />
-      </main>
+    <div class="preloader" id="preloader" aria-hidden="true" role="presentation">
+      <div class="tv-outer">
+        <div class="tv-screen">
+          <!-- Inner layer — glitch animation lives here -->
+          <div class="tv-inner" id="tvInner">
+            <!-- SMPTE Color Bars top -->
+            <div class="tv-bars" aria-hidden="true">
+              <div class="tv-bar tv-bar--w"></div>
+              <div class="tv-bar tv-bar--y"></div>
+              <div class="tv-bar tv-bar--c"></div>
+              <div class="tv-bar tv-bar--g"></div>
+              <div class="tv-bar tv-bar--m"></div>
+              <div class="tv-bar tv-bar--r"></div>
+              <div class="tv-bar tv-bar--b"></div>
+            </div>
+            <!-- Bottom strip -->
+            <div class="tv-bars-bottom" aria-hidden="true">
+              <div class="tv-bar-b tv-bar-b--1"></div>
+              <div class="tv-bar-b tv-bar-b--2"></div>
+              <div class="tv-bar-b tv-bar-b--3"></div>
+              <div class="tv-bar-b tv-bar-b--4"></div>
+              <div class="tv-bar-b tv-bar-b--5"></div>
+              <div class="tv-bar-b tv-bar-b--6"></div>
+              <div class="tv-bar-b tv-bar-b--7"></div>
+            </div>
+            <!-- Barcode patterns -->
+            <div class="tv-barcode tv-barcode--left" aria-hidden="true"></div>
+            <div class="tv-barcode tv-barcode--right" aria-hidden="true"></div>
+            <!-- Chaos blocks -->
+            <div class="tv-chaos" aria-hidden="true">
+              <div class="tv-cb tv-cb-1"></div><div class="tv-cb tv-cb-2"></div><div class="tv-cb tv-cb-3"></div><div class="tv-cb tv-cb-4"></div><div class="tv-cb tv-cb-5"></div>
+              <div class="tv-cb tv-cb-6"></div><div class="tv-cb tv-cb-7"></div><div class="tv-cb tv-cb-8"></div><div class="tv-cb tv-cb-9"></div><div class="tv-cb tv-cb-10"></div>
+              <div class="tv-cb tv-cb-11"></div><div class="tv-cb tv-cb-12"></div><div class="tv-cb tv-cb-13"></div><div class="tv-cb tv-cb-14"></div><div class="tv-cb tv-cb-15"></div>
+              <div class="tv-cb tv-cb-16"></div><div class="tv-cb tv-cb-17"></div><div class="tv-cb tv-cb-18"></div><div class="tv-cb tv-cb-19"></div><div class="tv-cb tv-cb-20"></div>
+              <div class="tv-cb tv-cb-21"></div><div class="tv-cb tv-cb-22"></div><div class="tv-cb tv-cb-23"></div><div class="tv-cb tv-cb-24"></div><div class="tv-cb tv-cb-25"></div>
+              <div class="tv-cb tv-cb-26"></div><div class="tv-cb tv-cb-27"></div><div class="tv-cb tv-cb-28"></div><div class="tv-cb tv-cb-29"></div><div class="tv-cb tv-cb-30"></div>
+              <div class="tv-cross tv-cross-1"></div>
+              <div class="tv-cross tv-cross-2"></div>
+              <div class="tv-cross tv-cross-3"></div>
+            </div>
+            <!-- Center content -->
+            <div class="tv-center">
+              <div class="tv-panel">
+                <div class="tv-msg">STREAM<br />STARTING<br />SOON</div>
+                <div class="tv-panel-bar">
+                  <div class="tv-progress">
+                    <div class="tv-progress-fill" id="tvProgressFill"></div>
+                  </div>
+                  <span class="tv-pct" id="tvPct">0%</span>
+                </div>
+                <div class="tv-skip-hint" id="tvSkipHint" aria-hidden="true">
+                  <span class="tv-skip-desktop">PRESS SPACE OR ESC TO SKIP</span>
+                  <span class="tv-skip-mobile">TAP TO SKIP</span>
+                </div>
+              </div>
+            </div>
+          </div><!-- /tv-inner -->
+          <!-- BIOS screen — shown after 100% load, before page reveal -->
+          <div class="tv-bios" id="tvBios"></div>
+          <!-- Fixed overlays — never move with glitch -->
+          <div class="tv-scanlines" aria-hidden="true"></div>
+          <canvas class="tv-grain-canvas" id="tvGrainCanvas" aria-hidden="true"></canvas>
+          <canvas class="tv-glitch-canvas" id="tvGlitchCanvas" aria-hidden="true"></canvas>
+          <div class="tv-scanner-lines" aria-hidden="true">
+            <span style="--dur:9s;--del:0s"></span>
+            <span style="--dur:13s;--del:-5s"></span>
+            <span style="--dur:17s;--del:-10s"></span>
+          </div>
+          <div class="tv-inner-glow" aria-hidden="true"></div>
+          <div class="tv-vignette" aria-hidden="true"></div>
+        </div>
+      </div>
     </div>
 
-    <!-- CRT TV Frame Overlay -->
-    <div class="page-tv-frame" aria-hidden="true"></div>
+    <!-- ========== BACKGROUND ========== -->
+    <div class="bg-layer" aria-hidden="true">
+      <canvas class="bg-canvas" id="bgCanvas"></canvas>
+      <canvas class="fluid-canvas" id="fluidCanvas"></canvas>
+      <div class="bg-noise"></div>
+    </div>
+
+    <!-- ========== SIDE LABELS ========== -->
+    <nav aria-label="Site navigation">
+      <a href="/projects/" class="side side--left" id="sideLeft" aria-label="Projects">
+        <span class="side-text"><span class="side-arrow">←</span> PROJECTS</span>
+        <span class="side-nr">01</span>
+      </a>
+      <a href="https://github.com/TheFirstIstari" target="_blank" rel="noopener noreferrer" class="side side--right" id="sideRight" aria-label="GitHub">
+        <span class="side-nr">02</span>
+        <span class="side-text">GITHUB <span class="side-arrow">→</span></span>
+      </a>
+    </nav>
+
+    <!-- ========== MAIN CONTENT ========== -->
+    <main id="mainContent">
+      <h1 class="sr-only">TheFirstIstari — Systems Engineer &amp; Portfolio</h1>
+      <slot />
+    </main>
+
+    <!-- ========== PAGE TV OVERLAY ========== -->
+    <div class="page-tv-overlay" aria-hidden="true">
+      <div class="page-scanlines"></div>
+      <canvas class="page-grain-canvas" id="pageGrainCanvas"></canvas>
+      <div class="page-scanner-lines">
+        <span style="--dur:10s;--op:0.10"></span>
+        <span style="--dur:13s;--op:0.07"></span>
+        <span style="--dur:17s;--op:0.04"></span>
+      </div>
+      <div class="page-inner-glow"></div>
+      <div class="page-vignette"></div>
+    </div>
+
+    <!-- ========== CRT GLASS BEVEL ========== -->
     <div class="page-crt-bevel" aria-hidden="true"></div>
-    <svg class="page-tv-stroke" id="tvStrokeSvg" aria-hidden="true">
-      <path fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="1.5" />
-    </svg>
-    <div class="page-vignette" aria-hidden="true"></div>
-    <div class="page-scanner-lines" aria-hidden="true">
-      <span></span>
-      <span></span>
-    </div>
-    <div class="page-scanlines" aria-hidden="true"></div>
-    <div class="page-inner-glow" aria-hidden="true"></div>
+    <!-- ========== CRT CORNER FRAME ========== -->
+    <div class="page-tv-frame" aria-hidden="true"></div>
+    <!-- ========== CRT INNER STROKE ========== -->
+    <svg class="page-tv-stroke" aria-hidden="true"></svg>
+
+    <!-- ========== PAGE TRANSITION OVERLAY ========== -->
+    <div id="pageOverlay"><span class="overlay-label" id="overlayLabel"></span></div>
 
     <!-- Scripts -->
     <script is:inline set:html={fluidJS}></script>
     <script is:inline set:html={contourJS}></script>
     <script is:inline set:html={crtJS}></script>
+    <script is:inline set:html={tvOverlayJS}></script>
     <script is:inline set:html={preloaderJS}></script>
     <script is:inline>
       document.addEventListener('DOMContentLoaded', function() {
+        document.documentElement.classList.remove('skip-preloader');
         document.body.classList.add('js-ready');
       });
     </script>

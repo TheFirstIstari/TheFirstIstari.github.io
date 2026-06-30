@@ -5,62 +5,76 @@ import ProjectCard from '../components/ProjectCard';
 import SectionTitle from '../components/SectionTitle';
 import Skills from '../components/Skills';
 import About from '../components/About';
-import Preloader from '../components/Preloader';
 import { featuredProjects } from '../data/projects';
 ---
 
 <Layout title="TheFirstIstari | Portfolio" description="TheFirstIstari — systems engineer focused on performance, security and complex, hard-to-build software.">
-  <Preloader client:load />
-  <!-- Side nav links -->
-  <div class="hero-sides" style="left: 32px;">
-    <a href="/projects/" class="hero-side hero-side--left" id="sideLeft">Projects</a>
-  </div>
-  <div class="hero-sides" style="right: 32px;">
-    <a href="https://github.com/TheFirstIstari" target="_blank" rel="noopener noreferrer" class="hero-side hero-side--right" id="sideRight">GitHub</a>
-  </div>
 
-  <main>
-    <Hero client:load />
+  <!-- ========== PORTRAIT + NAME (slide together) ========== -->
+  <div class="slide-group" id="slideGroup" aria-hidden="true">
 
-    <About client:visible />
-
-    <Skills client:visible />
-
-    <section class="relative z-10 py-20 px-6 max-w-6xl mx-auto" id="projects">
-      <div class="mb-12">
-        <h2 class="section-title">Projects</h2>
-        <p class="section-desc">selected work — performance-critical, security-focused and structurally complex builds.</p>
+    <div class="portrait-section" id="portraitSection">
+      <div class="portrait-frame" id="portraitFrame">
+        <img
+          class="portrait-base"
+          id="portraitBase"
+          src="https://github.com/TheFirstIstari.png"
+          alt="TheFirstIstari, systems engineer"
+          draggable="false"
+          width="400"
+          height="400"
+          fetchpriority="high"
+        />
+        <canvas class="illustration-canvas" id="illustrationCanvas"></canvas>
       </div>
+    </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-        {featuredProjects.map((project, index) => (
-          <ProjectCard
-            client:visible
-            title={project.title}
-            description={project.description}
-            tags={project.tags}
-            github={project.github}
-            demo={project.demo}
-            site={project.site}
-            status={project.status}
-            index={index}
-          />
-        ))}
+    <div class="name-section" id="nameSection" aria-label="TheFirstIstari">
+      <div class="name-display" id="nameDisplay">
+        <!-- Slots injected by Hero component / JS -->
       </div>
+      <p class="hero-subtitle">Systems Engineer</p>
+    </div>
 
-      <div class="mt-10 text-center">
-        <a
-          href="/projects/"
-          style="font-family: var(--font-sans); font-size: 0.65rem; font-weight: 800; letter-spacing: 0.18em; text-transform: uppercase; color: var(--fg-dim); text-decoration: none; transition: color 0.2s;"
-          onmouseover="this.style.color='var(--fg)'" onmouseout="this.style.color=''"
-        >
-          View all projects &mdash;
-        </a>
-      </div>
-    </section>
+  </div><!-- /slide-group -->
 
-    <footer>
-      &copy; {new Date().getFullYear()} TheFirstIstari
-    </footer>
-  </main>
+  <!-- Below the fold -->
+  <About client:visible />
+  <Skills client:visible />
+
+  <section class="projects-section" id="projects">
+    <div style="margin-bottom: 32px;">
+      <h2 class="section-title">Projects</h2>
+      <p class="section-desc">Selected work — performance-critical, security-focused and structurally complex builds.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+      {featuredProjects.map((project, index) => (
+        <ProjectCard
+          client:visible
+          title={project.title}
+          description={project.description}
+          tags={project.tags}
+          github={project.github}
+          demo={project.demo}
+          site={project.site}
+          status={project.status}
+          index={index}
+        />
+      ))}
+    </div>
+
+    <div class="mt-10 text-center">
+      <a
+        href="/projects/"
+        class="project-link"
+      >
+        View all projects &mdash;
+      </a>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    &copy; {new Date().getFullYear()} TheFirstIstari
+  </footer>
 </Layout>

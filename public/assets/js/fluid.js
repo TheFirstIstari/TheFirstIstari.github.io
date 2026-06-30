@@ -30,8 +30,12 @@
 
   /* ---------- canvas & gl ---------- */
 
-  var canvas = document.createElement('canvas');
-  canvas.id = 'fluidCanvas';
+  var canvas = document.getElementById('fluidCanvas') || (function () {
+    var c = document.createElement('canvas');
+    c.id = 'fluidCanvas';
+    document.body.appendChild(c);
+    return c;
+  })();
   canvas.style.position = 'fixed';
   canvas.style.top = '0';
   canvas.style.left = '0';
@@ -39,7 +43,6 @@
   canvas.style.height = '100%';
   canvas.style.zIndex = '1';
   canvas.style.pointerEvents = 'none';
-  document.body.insertBefore(canvas, document.body.firstChild);
 
   var gl = canvas.getContext('webgl', { alpha: true, antialias: false, depth: false, stencil: false });
   if (!gl) { console.error('WebGL not available'); return; }

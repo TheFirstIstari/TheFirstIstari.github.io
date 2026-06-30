@@ -1,78 +1,33 @@
-import { useEffect, useRef } from 'react';
+import { useEffect } from 'react';
 
 const CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 const NAME = 'THEFIRSTISTARI';
 
-function getCharHeight(el: HTMLElement) {
-  const d = document.createElement('span');
-  d.className = 'name-char';
-  d.textContent = 'A';
-  d.style.cssText = 'visibility:hidden;position:absolute';
-  el.appendChild(d);
-  const h = d.getBoundingClientRect().height;
-  d.remove();
-  return h;
-}
+function buildSlots(displayId: string, name: string, animate: boolean) {
+  const display = document.getElementById(displayId);
+  if (!display) return;
 
-function getCharWidth(ch: string, el: HTMLElement) {
-  const d = document.createElement('span');
-  d.className = 'name-char';
-  d.textContent = ch;
-  d.style.cssText = 'visibility:hidden;position:absolute';
-  el.appendChild(d);
-  const w = d.getBoundingClientRect().width;
-  d.remove();
-  return w;
-}
-
-function buildSlots(display: HTMLElement, name: string, animate: boolean) {
-  const existing = display.querySelectorAll('.name-slot');
-  const oldLen = existing.length;
-
-  if (oldLen > name.length) {
-    for (let i = name.length; i < oldLen; i++) {
-      const s = existing[i] as HTMLElement;
-      s.classList.add('exiting');
-      setTimeout(() => s.remove(), 380);
-    }
-  }
+  // Clear existing
+  display.innerHTML = '';
 
   name.split('').forEach((targetChar, i) => {
+    const slot = document.createElement('div');
+    slot.className = 'name-slot';
+
     if (!animate) {
-      let slot = existing[i] as HTMLElement;
-      if (!slot) {
-        slot = document.createElement('div');
-        slot.className = 'name-slot';
-        display.appendChild(slot);
-      }
-      const reel = document.createElement('div');
-      reel.className = 'name-reel';
-      reel.style.cssText = 'transform:translateY(0);transition:none';
+      slot.style.opacity = '1';
       const ch = document.createElement('span');
       ch.className = 'name-char';
       ch.textContent = targetChar;
-      reel.appendChild(ch);
-      slot.innerHTML = '';
-      slot.appendChild(reel);
+      slot.appendChild(ch);
+      display.appendChild(slot);
       return;
     }
 
+    // Animate: spin then land
     const spinCount = 2 + Math.floor(Math.random() * 3);
-    let slot = existing[i] as HTMLElement;
-    if (!slot) {
-      slot = document.createElement('div');
-      slot.className = 'name-slot';
-      slot.style.cssText = 'width:0;opacity:0';
-      display.appendChild(slot);
-      setTimeout(() => {
-        slot.style.width = getCharWidth(targetChar, display) + 'px';
-        slot.style.opacity = '1';
-      }, i * 70 + Math.random() * 35);
-    }
-
     const reel = document.createElement('div');
     reel.className = 'name-reel';
-    reel.style.cssText = 'transform:translateY(0);transition:none';
 
     for (let s = 0; s < spinCount; s++) {
       const ch = document.createElement('span');
@@ -85,50 +40,52 @@ function buildSlots(display: HTMLElement, name: string, animate: boolean) {
     finalCh.textContent = targetChar;
     reel.appendChild(finalCh);
 
-    slot.innerHTML = '';
     slot.appendChild(reel);
+    display.appendChild(slot);
 
+    // Animate after a staggered delay
+    const startDelay = i * 70 + Math.random() * 35;
     const dur = 380 + spinCount * 130;
+    // Get char height
+    const temp = document.createElement('span');
+    temp.className = 'name-char';
+    temp.textContent = 'A';
+    temp.style.cssText = 'visibility:hidden;position:absolute;';
+    display.appendChild(temp);
+    const chHeight = temp.getBoundingClientRect().height;
+    temp.remove();
+
+    const translateY = spinCount * chHeight;
+
     setTimeout(() => {
-      const h = getCharHeight(display);
-      const translateY = spinCount * h;
       reel.style.transition = `transform ${dur}ms cubic-bezier(0.25,0.46,0.45,0.94)`;
       reel.style.transform = `translateY(-${translateY}px)`;
       setTimeout(() => {
-        reel.style.cssText = 'transform:translateY(0);transition:none';
+        reel.style.transition = 'none';
+        reel.style.transform = 'translateY(0)';
         reel.innerHTML = '';
         const ch = document.createElement('span');
         ch.className = 'name-char';
         ch.textContent = targetChar;
         reel.appendChild(ch);
       }, dur + 15);
-    }, i * 70 + Math.random() * 35);
+    }, startDelay);
   });
 }
 
 export default function Hero() {
-  const displayRef = useRef<HTMLDivElement>(null);
-  const initialized = useRef(false);
-
   useEffect(() => {
-    if (!displayRef.current || initialized.current) return;
-    initialized.current = true;
-    const el = displayRef.current;
-    // Delay to let fonts load
-    const timer = setTimeout(() => {
-      buildSlots(el, NAME, false);
-      // Re-spin with animation on next tick
-      setTimeout(() => {
-        buildSlots(el, NAME, true);
+    // Short delay to let fonts load
+    const t1 = setTimeout(() => {
+      buildSlots('nameDisplay', NAME, false);
+      const t2 = setTimeout(() => {
+        buildSlots('nameDisplay', NAME, true);
       }, 1200);
+      return () => clearTimeout(t2);
     }, 300);
-    return () => clearTimeout(timer);
+    return () => clearTimeout(t1);
   }, []);
 
-  return (
-    <section className="hero-section">
-      <div className="name-display" ref={displayRef} />
-      <p className="hero-subtitle">Systems Engineer</p>
-    </section>
-  );
+  // This component just runs the animation — the markup is in index.astro
+  return null;
 }

@@ -1,11 +1,14 @@
 /**
  * PRELOADER.JS — TV BIOS boot sequence
- * Handles: grain animation, glitch bursts, progress bar, BIOS text, reveal
+ * Handles: grain animation, glitch bursts, progress bar, BIOS text, page reveal
+ * Matches galekto.com preloader behaviour exactly.
  */
 (function () {
   'use strict';
 
   var preloader = document.getElementById('preloader');
+  if (!preloader) return;
+
   var tvInner = document.getElementById('tvInner');
   var grainCanvas = document.getElementById('tvGrainCanvas');
   var glitchCanvas = document.getElementById('tvGlitchCanvas');
@@ -13,53 +16,45 @@
   var pctEl = document.getElementById('tvPct');
   var skipHint = document.getElementById('tvSkipHint');
   var tvBios = document.getElementById('tvBios');
-  var fluidCanvas = document.getElementById('fluidCanvas');
-  var bgCanvas = document.getElementById('bgCanvas');
-  var illustCanvas = document.getElementById('illustrationCanvas');
+  var slideGroup = document.getElementById('slideGroup');
+  var portraitSection = document.getElementById('portraitSection');
+  var nameSection = document.getElementById('nameSection');
+  var sideLeft = document.getElementById('sideLeft');
+  var sideRight = document.getElementById('sideRight');
 
   var grainRaf = null, glitchRaf = null, shakeTimer = null;
   var loadTimer = null, biosTimer = null;
   var loadN = 0, skipped = false;
 
-  /* Hide background layers until boot sequence ends */
-  function hideBackgrounds() {
-    if (fluidCanvas) { fluidCanvas.style.opacity = '0'; fluidCanvas.style.transition = 'none'; }
-    if (bgCanvas) { bgCanvas.style.opacity = '0'; bgCanvas.style.transition = 'none'; }
-    if (illustCanvas) { illustCanvas.style.opacity = '0'; illustCanvas.style.transition = 'none'; }
-  }
-  hideBackgrounds();
-
-  /* Check if internal nav (from TxIn) */
-  var isInternalNav = sessionStorage.getItem('txText') !== null;
-
+  /* Check if internal nav */
+  var isInternalNav = sessionStorage.getItem('txTarget') !== null;
   if (isInternalNav) {
-    if (preloader) { preloader.style.transition = 'none'; preloader.style.display = 'none'; }
+    preloader.style.display = 'none';
     document.body.classList.remove('boot-pending');
-    if (fluidCanvas) { fluidCanvas.style.transition = 'opacity 1s ease'; fluidCanvas.style.opacity = '1'; }
-    if (bgCanvas) { bgCanvas.style.transition = 'opacity 1s ease'; bgCanvas.style.opacity = '1'; }
-    if (illustCanvas) { illustCanvas.style.transition = 'opacity 1s ease'; illustCanvas.style.opacity = '1'; }
     return;
   }
+
+  /* Start with everything hidden */
+  document.body.classList.add('boot-pending');
 
   /* Grain animation */
   function initGrain() {
     if (!grainCanvas) return;
-    grainCanvas.width = 1600;
-    grainCanvas.height = 900;
+    grainCanvas.width = 320;
+    grainCanvas.height = 200;
     var gc = grainCanvas.getContext('2d');
-    var tick = 0;
+    var skip = 0;
     (function draw() {
-      tick++;
-      if (tick % 5 === 0) {
-        var img = gc.createImageData(1600, 900);
-        var d = img.data;
-        for (var i = 0; i < d.length; i += 4) {
-          var v = Math.random() * 255 | 0;
-          d[i] = d[i + 1] = d[i + 2] = v;
-          d[i + 3] = 255;
-        }
-        gc.putImageData(img, 0, 0);
+      skip++;
+      if (skip % 5 !== 0) { grainRaf = requestAnimationFrame(draw); return; }
+      var img = gc.createImageData(320, 200);
+      var d = img.data;
+      for (var i = 0; i < d.length; i += 4) {
+        var v = Math.random() * 255 | 0;
+        d[i] = d[i + 1] = d[i + 2] = v;
+        d[i + 3] = 255;
       }
+      gc.putImageData(img, 0, 0);
       grainRaf = requestAnimationFrame(draw);
     })();
   }
@@ -87,7 +82,7 @@
 
     var BURST_AT = [400, 1100];
     var BURST_DUR = 220;
-    var glitchStart = Date.now();
+    var startTime = Date.now();
     var burstActive = false, burstEnd = 0, nextBurst = 0;
 
     function stopShake() {
@@ -102,6 +97,7 @@
         step++;
         if (step >= 12 || !tvInner) { stopShake(); return; }
         tvInner.style.transform = 'translateX(' + ((Math.random() - 0.5) * 28) + 'px)';
+        tvInner.style.transition = 'none';
       }, BURST_DUR / 12);
     }
 
@@ -114,10 +110,11 @@
 
     (function draw() {
       var now = Date.now();
-      var elapsed = now - glitchStart;
+      var elapsed = now - startTime;
 
       if (!burstActive && nextBurst < BURST_AT.length && elapsed >= BURST_AT[nextBurst]) {
-        activateBurst(); nextBurst++;
+        activateBurst();
+        nextBurst++;
       }
 
       if (burstActive && now >= burstEnd) {
@@ -150,21 +147,11 @@
   /* Loading bar */
   function updateLoadBar(n) {
     if (!progressFill || !pctEl) return;
-    var barW = progressFill.parentElement.offsetWidth;
-    if (!barW) return;
-    var N = Math.max(1, Math.floor(barW / 14));
-    var segW = barW / N;
-    var whiteW = segW * (10 / 14);
-    var visN = n >= 100 ? N : Math.floor(n * N / 100);
-    progressFill.style.width = n >= 100 ? '100%' : (visN * segW) + 'px';
-    progressFill.style.background =
-      'repeating-linear-gradient(to right,' +
-      ' rgba(255,255,255,0.95) 0px,' +
-      ' rgba(255,255,255,0.95) ' + whiteW + 'px,' +
-      ' transparent ' + whiteW + 'px,' +
-      ' transparent ' + segW + 'px)';
+    progressFill.style.width = n + '%';
+    progressFill.style.background = 'repeating-linear-gradient(to right, rgba(255,255,255,0.95) 0px, rgba(255,255,255,0.95) 10px, transparent 10px, transparent 14px)';
     pctEl.textContent = n + '%';
   }
+
   updateLoadBar(0);
 
   loadTimer = setInterval(function () {
@@ -181,13 +168,10 @@
   try { localStorage.setItem(SKIP_KEY, String(vc)); } catch (e) {}
   var showSkip = vc >= 2;
 
-  function skipKeyHandler(e) {
-    if (e.key === ' ' || e.key === 'Escape') { e.preventDefault(); skipPreloader(); }
-  }
   function skipPreloader() {
     if (skipped) return;
     skipped = true;
-    document.removeEventListener('keydown', skipKeyHandler);
+    document.removeEventListener('keydown', keyHandler);
     if (preloader) preloader.removeEventListener('click', skipPreloader);
     clearInterval(loadTimer);
     clearTimeout(biosTimer);
@@ -207,8 +191,12 @@
     }
   }
 
+  function keyHandler(e) {
+    if (e.key === ' ' || e.key === 'Escape') { e.preventDefault(); skipPreloader(); }
+  }
+
   if (showSkip) {
-    document.addEventListener('keydown', skipKeyHandler);
+    document.addEventListener('keydown', keyHandler);
     if (preloader) preloader.addEventListener('click', skipPreloader);
     var isMobile = window.matchMedia('(pointer: coarse)').matches;
     var hintDelay = isMobile ? 800 : 1100;
@@ -221,51 +209,34 @@
     }, hintDelay);
   }
 
-  /* Reveal page */
+  /* Page reveal */
   function revealPage() {
     document.body.classList.remove('boot-pending');
-    var pSection = document.getElementById('portraitSection');
-    var nSection = document.getElementById('nameSection');
-    var sLeft = document.getElementById('sideLeft');
-    var sRight = document.getElementById('sideRight');
 
-    if (nSection) { nSection.style.animation = 'none'; nSection.style.opacity = '0'; }
-    if (sLeft) { sLeft.style.animation = 'none'; sLeft.style.opacity = '0'; sLeft.style.transform = 'translateY(-50%) translateX(-180%)'; }
-    if (sRight) { sRight.style.animation = 'none'; sRight.style.opacity = '0'; sRight.style.transform = 'translateY(-50%) translateX(180%)'; }
-    if (pSection) {
-      pSection.style.animation = 'none';
-      pSection.style.opacity = '0';
-      pSection.style.transform = 'translateX(-50%) translateY(0)';
-      pSection.style.transition = 'none';
-      var blinks = [
-        [50,'1'],[105,'0'],[160,'1'],[215,'0'],[270,'1'],[325,'0'],[380,'1'],[435,'0'],
-        [555,'1'],[675,'0'],[855,'1'],[1035,'0'],[1285,'1'],[1535,'0'],
-        [2135,'1'],[2600,'0'],[3300,'1'],
-      ];
-      blinks.forEach(function (b) { setTimeout(function () { pSection.style.opacity = b[1]; }, b[0]); });
-      setTimeout(function () {
-        pSection.style.transition = 'opacity 0.6s ease';
-        pSection.style.opacity = '1';
-      }, 3400);
+    if (slideGroup) {
+      slideGroup.removeAttribute('aria-hidden');
     }
-    setTimeout(function () {
-      if (nSection) { nSection.style.transition = 'opacity 1.3s ease'; nSection.style.opacity = '1'; }
-    }, 4000);
-    setTimeout(function () {
-      [sLeft, sRight].forEach(function (el) {
-        if (!el) return;
-        requestAnimationFrame(function () { requestAnimationFrame(function () {
-          el.style.transition = 'opacity 0.9s cubic-bezier(0.22,1,0.36,1), transform 0.9s cubic-bezier(0.22,1,0.36,1)';
-          el.style.opacity = '1';
-          el.style.transform = 'translateY(-50%) translateX(0)';
-        }); });
-      });
-    }, 4900);
-    setTimeout(function () {
-      if (bgCanvas) { bgCanvas.style.transition = 'opacity 1.4s ease'; bgCanvas.style.opacity = '1'; }
-      if (fluidCanvas) { fluidCanvas.style.transition = 'opacity 1.4s ease'; fluidCanvas.style.opacity = '1'; }
-      if (illustCanvas) { illustCanvas.style.transition = 'opacity 1.4s ease'; illustCanvas.style.opacity = '1'; }
-    }, 6000);
+
+    if (portraitSection) {
+      portraitSection.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+      portraitSection.style.opacity = '1';
+    }
+
+    if (nameSection) {
+      nameSection.style.transition = 'opacity 1.3s ease';
+      nameSection.style.opacity = '1';
+    }
+
+    if (sideLeft) {
+      setTimeout(function () {
+        sideLeft.classList.add('is-visible');
+      }, 4900);
+    }
+    if (sideRight) {
+      setTimeout(function () {
+        sideRight.classList.add('is-visible');
+      }, 4900);
+    }
   }
 
   /* BIOS sequence */
@@ -274,13 +245,13 @@
     var SSEP = '\u2500'.repeat(40);
 
     [
-      ['bios-line bios-line--empty', ''],
-      ['bios-line bios-line--logo', 'THEFIRSTISTARI'],
-      ['bios-line bios-line--logo-tag', 'SYSTEMS ENGINEER  \u25a0  v2026'],
-      ['bios-line bios-line--empty', ''],
+      ['bios-line--empty', ''],
+      ['bios-line--logo', 'THEFIRSTISTARI'],
+      ['bios-line--logo-tag', 'SYSTEMS ENGINEER  \u25a0  v2026'],
+      ['bios-line--empty', ''],
     ].forEach(function (c) {
       var r = document.createElement('div');
-      r.className = c[0]; r.textContent = c[1];
+      r.className = 'bios-line ' + c[0]; r.textContent = c[1];
       container.appendChild(r);
     });
 
