@@ -1,25 +1,20 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Hero from '../components/Hero';
-import ProjectCard from '../components/ProjectCard';
-import SectionTitle from '../components/SectionTitle';
-import Skills from '../components/Skills';
-import About from '../components/About';
 import { featuredProjects } from '../data/projects';
 ---
 
 <Layout title="TheFirstIstari | Portfolio" description="TheFirstIstari — systems engineer">
 
-  <!-- ========== PORTRAIT + NAME (slide together) ========== -->
-  <div class="slide-group" id="slideGroup" aria-hidden="true">
-
+  <!-- ========== PORTRAIT + NAME ========== -->
+  <div class="slide-group" id="slideGroup">
     <div class="portrait-section" id="portraitSection">
       <div class="portrait-frame" id="portraitFrame">
         <img
           class="portrait-base"
           id="portraitBase"
           src="https://github.com/TheFirstIstari.png"
-          alt="TheFirstIstari, systems engineer"
+          alt="TheFirstIstari"
           draggable="false"
           width="400"
           height="400"
@@ -31,46 +26,27 @@ import { featuredProjects } from '../data/projects';
 
     <div class="name-section" id="nameSection" aria-label="TheFirstIstari">
       <div class="name-display" id="nameDisplay">
-        <!-- Slots injected by Hero component / JS -->
+        <!-- ponytail: no subtitle, just the name -->
       </div>
-      <p class="hero-subtitle">Systems Engineer</p>
     </div>
+  </div>
 
-  </div><!-- /slide-group -->
+  <Hero client:load />
 
-  <!-- Below the fold -->
-  <About client:visible />
-  <Skills client:visible />
-
+  <!-- Projects -->
   <section class="projects-section" id="projects">
-    <div style="margin-bottom: 32px;">
-      <h2 class="section-title">Projects</h2>
-      <p class="section-desc">Selected work.</p>
-    </div>
-
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-      {featuredProjects.map((project, index) => (
-        <ProjectCard
-          client:visible
-          title={project.title}
-          description={project.description}
-          tags={project.tags}
-          github={project.github}
-          demo={project.demo}
-          site={project.site}
-          status={project.status}
-          index={index}
-        />
+    <div class="projects-list">
+      {featuredProjects.map((project) => (
+        <a
+          href={project.site || project.github || '#'}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="project-row"
+        >
+          <span class="project-row-title">{project.title}</span>
+          {project.status && <span class="project-row-status">{project.status}</span>}
+        </a>
       ))}
-    </div>
-
-    <div class="mt-10 text-center">
-      <a
-        href="/projects/"
-        class="project-link"
-      >
-        View all projects &mdash;
-      </a>
     </div>
   </section>
 

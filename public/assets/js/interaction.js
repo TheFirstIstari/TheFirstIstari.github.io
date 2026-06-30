@@ -110,25 +110,21 @@
       if (isIdle) {
         var idle = getIdleMask(idleFluidTimer);
         idleFluidTimer += dt;
-        window.FluidSim.splat(idle.x, idle.y, 0.003, 0.002);
+        window.FluidSim.splat(idle.x, idle.y, idle.x - 0.5, idle.y - 0.38);
       } else {
         var dx = smoothX - prevSmoothX;
         var dy = smoothY - prevSmoothY;
         var mag = dx * dx + dy * dy;
         if (mag > 0.0001) {
-          window.FluidSim.splat(smoothX, smoothY, dx * 40, dy * 40);
+          window.FluidSim.splat(smoothX, smoothY, dx * 100, dy * 100);
         }
         prevSmoothX = smoothX;
         prevSmoothY = smoothY;
       }
     }
 
-    // Slide group parallax
-    if (slideGroup && !isMobile) {
-      var ox = (smoothX - 0.5) * SLIDE_PX;
-      var oy = (smoothY - 0.5) * SLIDE_PX;
-      slideGroup.style.transform = 'translate(' + ox + 'px,' + oy + 'px)';
-    }
+    // Slide group parallax — disabled for scroll layout
+    // ponytail: re-enable if single-screen layout returns
 
     requestAnimationFrame(tick);
   }
