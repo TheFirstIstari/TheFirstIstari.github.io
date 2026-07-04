@@ -163,7 +163,7 @@ a { text-decoration: none; color: inherit; }
 nav {
   position: fixed;
   inset: 0;
-  z-index: 9000;
+  z-index: 9930;
   pointer-events: none;
 }
 
@@ -190,12 +190,12 @@ nav {
 }
 
 .side--left {
-  left: 32px;
+  left: 48px;
   transform: translateY(-50%) translateX(-180%);
 }
 
 .side--right {
-  right: 32px;
+  right: 48px;
   flex-direction: row-reverse;
   transform: translateY(-50%) translateX(180%);
 }
