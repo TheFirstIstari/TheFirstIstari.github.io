@@ -376,42 +376,6 @@ nav {
 }
 
 /* ================================================================
-   CURSOR
-   ================================================================ */
-.cursor {
-  position: fixed;
-  inset: 0;
-  z-index: 9999;
-  pointer-events: none;
-}
-
-.cursor-dot {
-  position: absolute;
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--fg);
-  transform: translate(-50%, -50%);
-  transition: width 0.15s, height 0.15s, background 0.15s;
-}
-
-.cursor-ring {
-  position: absolute;
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  border: 1.5px solid var(--fg-dim);
-  transform: translate(-50%, -50%);
-  transition: width 0.35s ease, height 0.35s ease, border-color 0.25s ease;
-}
-
-.cursor.is-hover .cursor-ring {
-  width: 48px;
-  height: 48px;
-  border-color: var(--accent);
-}
-
-/* ================================================================
    PRELOADER — TV Boot Screen
    ================================================================ */
 .preloader {
@@ -890,18 +854,6 @@ nav {
   display: block;
 }
 
-.portrait-illustration {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  opacity: 0;
-  transition: opacity 0.6s ease;
-}
-
-.portrait-illustration.is-visible { opacity: 1; }
-
 .illustration-canvas {
   position: absolute;
   inset: 0;
@@ -949,17 +901,6 @@ nav {
   white-space: pre;
 }
 
-.hero-subtitle {
-  margin-top: clamp(8px, 1.5vw, 20px);
-  font-family: var(--font-ui);
-  font-size: clamp(0.7rem, 1.2vw, 0.85rem);
-  font-weight: 600;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--fg-dim);
-  text-align: center;
-}
-
 /* ================================================================
    SECTION STYLES
    ================================================================ */
@@ -980,83 +921,6 @@ nav {
   margin-top: 8px;
   line-height: 1.5;
   max-width: 560px;
-}
-
-/* About section */
-.about-section {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: clamp(80px, 12vh, 160px) clamp(24px, 4vw, 48px);
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-.about-lines {
-  margin-top: 24px;
-}
-
-.about-line {
-  font-family: var(--font-ui);
-  font-size: clamp(0.9rem, 1.3vw, 1.1rem);
-  line-height: 1.7;
-  color: var(--fg);
-  margin-bottom: 8px;
-  opacity: 0;
-  transform: translateY(16px);
-}
-
-.about-line.is-visible {
-  opacity: 1;
-  transform: translateY(0);
-  transition: opacity 0.6s ease, transform 0.6s ease;
-}
-
-/* Skills */
-.skills-section {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: clamp(80px, 12vh, 160px) clamp(24px, 4vw, 48px);
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-.skills-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 24px;
-  margin-top: 24px;
-}
-
-.skill-group {
-  opacity: 0;
-  transform: translateY(16px);
-}
-
-.skill-group.is-visible {
-  opacity: 1;
-  transform: translateY(0);
-  transition: opacity 0.6s ease, transform 0.6s ease;
-}
-
-.skill-label {
-  font-family: var(--font-display);
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--fg-faint);
-  margin-bottom: 8px;
-}
-
-.skill-item {
-  font-family: var(--font-ui);
-  font-size: clamp(0.85rem, 1.1vw, 1rem);
-  color: var(--fg);
-  padding: 4px 0;
 }
 
 /* Projects section */
@@ -1088,22 +952,7 @@ nav {
   transform: translateY(-2px);
 }
 
-.project-title {
-  font-family: var(--font-display);
-  font-size: 1.3rem;
-  font-weight: 900;
-  color: var(--fg);
-  text-transform: uppercase;
-  letter-spacing: -0.01em;
-}
-
-.project-desc {
-  font-family: var(--font-ui);
-  font-size: 0.8rem;
-  color: var(--fg-dim);
-  line-height: 1.5;
-  margin-top: 6px;
-}
+.project-link:hover { color: var(--accent); }
 
 .project-tag {
   display: inline-block;
@@ -1167,6 +1016,59 @@ nav {
   font-family: var(--font-ui);
   font-size: 0.7rem;
   color: var(--fg-faint);
+}
+
+/* ================================================================
+   PROJECTS PAGE
+   ================================================================ */
+.back-link {
+  font-family: var(--font-ui);
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--fg-dim);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 2rem;
+  transition: color 0.2s;
+}
+.back-link:hover { color: var(--accent); }
+
+.filter-label {
+  font-family: var(--font-ui);
+  font-size: 0.6rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--fg-dim);
+  margin-bottom: 0.75rem;
+}
+
+.tag-btn {
+  cursor: pointer;
+  border: 1px solid var(--border);
+  color: var(--fg-dim);
+  background: transparent;
+  font-family: var(--font-ui);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 4px;
+  transition: all 0.2s;
+}
+.tag-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.tag-btn.active {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: var(--accent-dim);
 }
 
 /* ================================================================

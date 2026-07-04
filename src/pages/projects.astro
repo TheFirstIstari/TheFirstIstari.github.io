@@ -8,7 +8,7 @@ import { allTags, projects } from '../data/projects';
 <Layout title="TheFirstIstari | Projects" description="All projects by TheFirstIstari">
   <main style="position: relative; z-index: 10; min-height: 100vh; padding: 6rem 1.5rem 2rem;">
     <div class="max-w-6xl mx-auto">
-      <a href="/" style="font-family: var(--font-sans); font-size: 0.65rem; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: var(--fg-dim); text-decoration: none; display: inline-flex; align-items: center; gap: 6px; margin-bottom: 2rem; transition: color 0.2s;">
+      <a href="/" class="back-link">
         &larr; Back
       </a>
       
@@ -18,12 +18,11 @@ import { allTags, projects } from '../data/projects';
       />
 
       <div class="mb-8">
-        <p style="font-family: var(--font-sans); font-size: 0.6rem; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: var(--fg-dim); margin-bottom: 0.75rem;">Filter by tag</p>
+        <p class="filter-label">Filter by tag</p>
         <div class="flex flex-wrap gap-2">
           <button
             class="tag-btn active"
             data-tag="all"
-            style="cursor: pointer; border: 1px solid var(--border); color: var(--fg-dim); background: transparent; font-family: var(--font-sans); font-size: 0.6rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 4px 10px; border-radius: 4px; transition: all 0.2s;"
           >
             All
           </button>
@@ -31,7 +30,6 @@ import { allTags, projects } from '../data/projects';
             <button
               class="tag-btn"
               data-tag={tag}
-              style="cursor: pointer; border: 1px solid var(--border); color: var(--fg-dim); background: transparent; font-family: var(--font-sans); font-size: 0.6rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 4px 10px; border-radius: 4px; transition: all 0.2s;"
             >
               {tag}
             </button>
@@ -71,14 +69,8 @@ import { allTags, projects } from '../data/projects';
     const cards = document.querySelectorAll('article');
 
     const setActive = (btn: HTMLElement) => {
-      buttons.forEach(b => {
-        b.style.borderColor = 'var(--border)';
-        b.style.color = 'var(--fg-dim)';
-        b.style.background = 'transparent';
-      });
-      btn.style.borderColor = 'var(--accent)';
-      btn.style.color = 'var(--accent)';
-      btn.style.background = 'var(--accent-dim)';
+      buttons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
     };
 
     buttons.forEach(btn => {

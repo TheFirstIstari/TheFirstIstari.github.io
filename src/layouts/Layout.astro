@@ -24,7 +24,7 @@ const interactionJS = fs.readFileSync('public/assets/js/interaction.js', 'utf-8'
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=2" />
+    <link rel="icon" href="https://github.com/TheFirstIstari.png" />
     <link rel="alternate icon" href="/favicon.ico?v=2" />
     <link rel="canonical" href={canonicalURL} />
     <meta name="generator" content={Astro.generator} />
@@ -158,24 +158,6 @@ const interactionJS = fs.readFileSync('public/assets/js/interaction.js', 'utf-8'
       <h1 class="sr-only">TheFirstIstari — Systems Engineer &amp; Portfolio</h1>
       <slot />
     </main>
-
-    <!-- ========== CUSTOM CURSOR ========== -->
-    <div class="cursor" id="cursor" aria-hidden="true">
-      <div class="cursor-ring" id="cursorRing"></div>
-      <div class="cursor-dot" id="cursorDot"></div>
-    </div>
-    <script is:inline>
-      (function(){
-        var mx = parseFloat(sessionStorage.getItem('mx')||'');
-        var my = parseFloat(sessionStorage.getItem('my')||'');
-        var x = isNaN(mx) ? -200 : mx;
-        var y = isNaN(my) ? -200 : y;
-        var d = document.getElementById('cursorDot');
-        var r = document.getElementById('cursorRing');
-        if (d) { d.style.left = x + 'px'; d.style.top = y + 'px'; }
-        if (r) { r.style.left = x + 'px'; r.style.top = y + 'px'; }
-      })();
-    </script>
 
     <!-- ========== PAGE TV OVERLAY ========== -->
     <div class="page-tv-overlay" aria-hidden="true">

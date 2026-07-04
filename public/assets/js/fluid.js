@@ -17,17 +17,6 @@
 
   /* ---------- helpers ---------- */
 
-  function clamp(v, lo, hi) { return v < lo ? lo : v > hi ? hi : v; }
-
-  function lerp(a, b, t) { return a + (b - a) * t; }
-
-  function pHash(x, y) {
-    /* simple 2D-to-3D hash for pseudo-random splat hue */
-    var h = x * 374761393 + y * 668265263;
-    h = (h ^ (h >> 13)) * 1274126177;
-    return (h ^ (h >> 16)) & 0xffffffff;
-  }
-
   /* ---------- canvas & gl ---------- */
 
   var canvas = document.getElementById('fluidCanvas') || (function () {
@@ -364,25 +353,8 @@
 
   /* ---------- simulation steps ---------- */
 
-  function step(mouse) {
-    var dt = Math.min(mouse.dx * mouse.dx + mouse.dy * mouse.dy, 0.015);
-
-    /* splat */
-    if (mouse.down) {
-      var splatProg = programs.splat;
-      gl.useProgram(splatProg.program);
-      gl.uniform2f(splatProg.uniforms.uPoint,  mouse.x, mouse.y);
-      gl.uniform2f(splatProg.uniforms.uTarget, mouse.dx, -mouse.dy);
-      gl.uniform1f(splatProg.uniforms.uRadius, SPLAT_RADIUS);
-      gl.uniform1f(splatProg.uniforms.uForce, SPLAT_FORCE);
-      gl.bindFramebuffer(gl.FRAMEBUFFER, vel.write.fbo);
-      gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
-      gl.bindFramebuffer(gl.FRAMEBUFFER, dye.write.fbo);
-      gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
-      vel.swap();
-      dye.swap();
-      mouse.down = false;
-    }
+  function step() {
+    var dt = 0.001;
 
     var texelSizeSim  = [1 / SIM_RES, 1 / SIM_RES];
     var texelSizeDye  = [1 / DYE_RES, 1 / DYE_RES];
@@ -535,24 +507,15 @@
     },
   };
 
-  /* ---------- mouse ---------- */
-
-  var mouse = { x: 0, y: 0, dx: 0, dy: 0, down: false };
-  var lastMX = 0, lastMY = 0;
-
   /* ---------- bootstrap ---------- */
 
   function init() {
     resize();
 
     /* initial splats to get things going */
-    mouse.x = 0.5; mouse.y = 0.5; mouse.dx = 0.02; mouse.dy = 0.02; mouse.down = true;
-    step(mouse);
-    mouse.x = 0.3; mouse.y = 0.7; mouse.dx = -0.01; mouse.dy = 0.03; mouse.down = true;
-    step(mouse);
-    mouse.x = 0.7; mouse.y = 0.3; mouse.dx = 0.03; mouse.dy = -0.01; mouse.down = true;
-    step(mouse);
-    mouse.down = false;
+    window.FluidSim.splat(0.5, 0.5, 0.02, 0.02);
+    window.FluidSim.splat(0.3, 0.7, -0.01, 0.03);
+    window.FluidSim.splat(0.7, 0.3, 0.03, -0.01);
 
     /* set up the vertex attrib for all programs */
     for (var pi = 0; pi < progNames.length; pi++) {
@@ -562,7 +525,7 @@
     }
 
     function loop() {
-      step(mouse);
+      step();
       requestAnimationFrame(loop);
     }
     loop();
