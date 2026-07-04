@@ -842,8 +842,8 @@ nav {
 .portrait-frame {
   position: relative;
   width: clamp(100px, 14vw, 164px);
-  aspect-ratio: 1200 / 936;
-  border-radius: 50% / 60% 60% 40% 40%;
+  aspect-ratio: 1;
+  border-radius: 50%;
   overflow: hidden;
 }
 
